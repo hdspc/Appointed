@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace C969
 {
@@ -17,9 +19,38 @@ namespace C969
 			InitializeComponent();
 		}
 
-		private void label1_Click(object sender, EventArgs e)
-		{
 
-		}
-	}
+
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+			//get the connection string
+			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+
+			//Make the connection
+			MySqlConnection conn = null;
+
+            try
+            {
+				conn = new MySqlConnection(constr);
+
+				//open connection
+
+				conn.Open();
+				MessageBox.Show("Opened succesfully");
+            }
+            catch(MySqlException ex)
+            {
+				MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+				//close the connection
+				if(conn != null)
+                {
+					conn.Close();
+                }
+            }
+        }
+    }
 }
