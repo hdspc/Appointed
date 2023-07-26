@@ -21,7 +21,29 @@ namespace C969
 
         private void submitButton_Click(object sender, EventArgs e)
         {
+			string userID = userIDTextBox.Text;
+			string password = passwordTextBox.Text;
 
-        }
+
+			if (String.IsNullOrEmpty(userID) || String.IsNullOrEmpty(password))
+            {
+				MessageBox.Show("Please enter a User ID and a Password");
+            }
+
+			else
+            {
+				try
+				{
+					String.Compare(userID, "test");
+					String.Compare(password, "test");
+
+					MessageBox.Show("login succesaful");
+				}
+				catch ()
+				{
+					MessageBox.Show("fuck");
+				}
+			}
+		}
     }
 }
