@@ -35,12 +35,14 @@ namespace C969
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginTitleLabel = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sqlStatusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userIDLabel
             // 
             this.userIDLabel.AutoSize = true;
-            this.userIDLabel.Location = new System.Drawing.Point(87, 105);
+            this.userIDLabel.Location = new System.Drawing.Point(26, 103);
             this.userIDLabel.Name = "userIDLabel";
             this.userIDLabel.Size = new System.Drawing.Size(46, 13);
             this.userIDLabel.TabIndex = 0;
@@ -48,7 +50,7 @@ namespace C969
             // 
             // userIDTextBox
             // 
-            this.userIDTextBox.Location = new System.Drawing.Point(157, 102);
+            this.userIDTextBox.Location = new System.Drawing.Point(96, 100);
             this.userIDTextBox.Name = "userIDTextBox";
             this.userIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.userIDTextBox.TabIndex = 1;
@@ -56,7 +58,7 @@ namespace C969
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(87, 156);
+            this.passwordLabel.Location = new System.Drawing.Point(26, 154);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(56, 13);
             this.passwordLabel.TabIndex = 2;
@@ -64,7 +66,7 @@ namespace C969
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(157, 153);
+            this.passwordTextBox.Location = new System.Drawing.Point(96, 151);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
             this.passwordTextBox.TabIndex = 3;
@@ -73,7 +75,7 @@ namespace C969
             // 
             this.loginTitleLabel.AutoSize = true;
             this.loginTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginTitleLabel.Location = new System.Drawing.Point(85, 23);
+            this.loginTitleLabel.Location = new System.Drawing.Point(24, 21);
             this.loginTitleLabel.Name = "loginTitleLabel";
             this.loginTitleLabel.Size = new System.Drawing.Size(81, 25);
             this.loginTitleLabel.TabIndex = 4;
@@ -81,19 +83,39 @@ namespace C969
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(140, 241);
+            this.submitButton.Location = new System.Drawing.Point(29, 206);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(75, 23);
+            this.submitButton.Size = new System.Drawing.Size(167, 23);
             this.submitButton.TabIndex = 5;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(239, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "SQL Connection Status:";
+            // 
+            // sqlStatusLabel
+            // 
+            this.sqlStatusLabel.AutoSize = true;
+            this.sqlStatusLabel.Location = new System.Drawing.Point(287, 135);
+            this.sqlStatusLabel.Name = "sqlStatusLabel";
+            this.sqlStatusLabel.Size = new System.Drawing.Size(27, 13);
+            this.sqlStatusLabel.TabIndex = 7;
+            this.sqlStatusLabel.Text = "N/A";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 325);
+            this.ClientSize = new System.Drawing.Size(386, 261);
+            this.Controls.Add(this.sqlStatusLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.loginTitleLabel);
             this.Controls.Add(this.passwordTextBox);
@@ -115,6 +137,8 @@ namespace C969
 		private System.Windows.Forms.TextBox passwordTextBox;
 		private System.Windows.Forms.Label loginTitleLabel;
 		private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label sqlStatusLabel;
     }
 }
 

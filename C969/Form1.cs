@@ -14,15 +14,32 @@ namespace C969
 {
 	public partial class Form1 : Form
 	{
+		MySqlConnection connect = Database.DBConnection.conn;
+
+
 		public Form1()
 		{
 			InitializeComponent();
+
+			sqlStatusLabel.Text = connect.ToString();
 		}
 
-        private void submitButton_Click(object sender, EventArgs e)
+		private void submitButton_Click(object sender, EventArgs e)
         {
 			string userID = userIDTextBox.Text;
 			string password = passwordTextBox.Text;
+
+
+			string userString = "SELECT userName FROM user";
+			MySqlCommand getUsername = new MySqlCommand(userString, connect);
+			MySqlDataAdapter userADP = new MySqlDataAdapter(getUsername);
+
+
+			string passwordString = "SELECT password FROM user";
+			MySqlCommand getPassword = new MySqlCommand(passwordString, connect);
+
+
+
 
 
 			if (String.IsNullOrEmpty(userID) || String.IsNullOrEmpty(password))
@@ -32,17 +49,25 @@ namespace C969
 
 			else
             {
-				try
+				try4777777777777777777774
 				{
-					String.Compare(userID, "test");
+
+					String.Compare(userID, userADP.ToString());
 					String.Compare(password, "test");
 
-					MessageBox.Show("login succesaful");
+					MessageBox.Show("login successful");
+					Form dashboard = new Dashboard();
+					
+					dashboard.ShowDialog();
 				}
-				catch ()
+				catch (Exception)
 				{
 					MessageBox.Show("fuck");
 				}
+                finally
+                {
+					this.Close();
+                }
 			}
 		}
     }
