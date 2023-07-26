@@ -19,38 +19,9 @@ namespace C969
 			InitializeComponent();
 		}
 
-
-
-        private void connectButton_Click(object sender, EventArgs e)
+        private void submitButton_Click(object sender, EventArgs e)
         {
-			//get the connection string
-			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
 
-			//Make the connection
-			MySqlConnection conn = null;
-
-            try
-            {
-				conn = new MySqlConnection(constr);
-
-				//open connection
-
-				conn.Open();
-				MessageBox.Show("Opened succesfully");
-            }
-            catch(MySqlException ex)
-            {
-				MessageBox.Show(ex.Message);
-
-            }
-            finally
-            {
-				//close the connection
-				if(conn != null)
-                {
-					conn.Close();
-                }
-            }
         }
     }
 }

@@ -16,7 +16,12 @@ namespace C969
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+
+            Database.DBConnection.startConnection();
+
 			Application.Run(new Form1());
+
+            Database.DBConnection.closeConnection();
 		}
 	}
 }

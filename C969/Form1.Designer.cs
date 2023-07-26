@@ -35,13 +35,12 @@ namespace C969
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginTitleLabel = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
-            this.connectButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userIDLabel
             // 
             this.userIDLabel.AutoSize = true;
-            this.userIDLabel.Location = new System.Drawing.Point(87, 110);
+            this.userIDLabel.Location = new System.Drawing.Point(87, 105);
             this.userIDLabel.Name = "userIDLabel";
             this.userIDLabel.Size = new System.Drawing.Size(46, 13);
             this.userIDLabel.TabIndex = 0;
@@ -57,7 +56,7 @@ namespace C969
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(87, 161);
+            this.passwordLabel.Location = new System.Drawing.Point(87, 156);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(56, 13);
             this.passwordLabel.TabIndex = 2;
@@ -88,23 +87,13 @@ namespace C969
             this.submitButton.TabIndex = 5;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
-            // 
-            // connectButton
-            // 
-            this.connectButton.Location = new System.Drawing.Point(81, 202);
-            this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(75, 23);
-            this.connectButton.TabIndex = 6;
-            this.connectButton.Text = "CONNECT";
-            this.connectButton.UseVisualStyleBackColor = true;
-            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 325);
-            this.Controls.Add(this.connectButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.loginTitleLabel);
             this.Controls.Add(this.passwordTextBox);
@@ -126,7 +115,6 @@ namespace C969
 		private System.Windows.Forms.TextBox passwordTextBox;
 		private System.Windows.Forms.Label loginTitleLabel;
 		private System.Windows.Forms.Button submitButton;
-        private System.Windows.Forms.Button connectButton;
     }
 }
 
