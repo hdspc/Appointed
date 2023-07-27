@@ -26,6 +26,15 @@ namespace C969
             customerDGV.DataSource = dt;
         }
 
+        private void btn_AddAppointment_Click(object sender, EventArgs e)
+        {
+            Form addAppointment = new AddAppointment();
 
+            addAppointment.ShowDialog();
+            this.Close();
+
+
+
+        }
     }
 }

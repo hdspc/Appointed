@@ -37,6 +37,8 @@ namespace C969
             this.submitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.sqlStatusLabel = new System.Windows.Forms.Label();
+            this.dgv1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
             // userIDLabel
@@ -109,11 +111,20 @@ namespace C969
             this.sqlStatusLabel.TabIndex = 7;
             this.sqlStatusLabel.Text = "N/A";
             // 
+            // dgv1
+            // 
+            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv1.Location = new System.Drawing.Point(514, 55);
+            this.dgv1.Name = "dgv1";
+            this.dgv1.Size = new System.Drawing.Size(240, 150);
+            this.dgv1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 261);
+            this.ClientSize = new System.Drawing.Size(884, 261);
+            this.Controls.Add(this.dgv1);
             this.Controls.Add(this.sqlStatusLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.submitButton);
@@ -124,6 +135,7 @@ namespace C969
             this.Controls.Add(this.userIDLabel);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +151,7 @@ namespace C969
 		private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sqlStatusLabel;
+        private System.Windows.Forms.DataGridView dgv1;
     }
 }
 

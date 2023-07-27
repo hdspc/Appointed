@@ -22,6 +22,18 @@ namespace C969
 			InitializeComponent();
 
 			sqlStatusLabel.Text = connect.ToString();
+
+			string userString = "SELECT userName FROM user";
+			MySqlCommand getUsername = new MySqlCommand(userString, connect);
+			MySqlDataAdapter userADP = new MySqlDataAdapter(getUsername);
+			DataTable dt = new DataTable();
+			userADP.Fill(dt);
+			dgv1.DataSource = dt;
+
+			string passwordString = "SELECT password FROM user";
+			MySqlCommand getPassword = new MySqlCommand(passwordString, connect);
+
+
 		}
 
 		private void submitButton_Click(object sender, EventArgs e)
@@ -30,13 +42,7 @@ namespace C969
 			string password = passwordTextBox.Text;
 
 
-			string userString = "SELECT userName FROM user";
-			MySqlCommand getUsername = new MySqlCommand(userString, connect);
-			MySqlDataAdapter userADP = new MySqlDataAdapter(getUsername);
-
-
-			string passwordString = "SELECT password FROM user";
-			MySqlCommand getPassword = new MySqlCommand(passwordString, connect);
+		
 
 
 
@@ -49,11 +55,12 @@ namespace C969
 
 			else
             {
-				try4777777777777777777774
+				try
 				{
 
-					String.Compare(userID, userADP.ToString());
+					String.Compare(userID, "test");
 					String.Compare(password, "test");
+
 
 					MessageBox.Show("login successful");
 					Form dashboard = new Dashboard();
