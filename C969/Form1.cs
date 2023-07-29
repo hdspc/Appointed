@@ -23,7 +23,7 @@ namespace C969
 
 			string c = connect.DataSource;
 
-			sqlStatusLabel.Text = "Connected to"+ c;
+			sqlStatusLabel.Text = "Connected to "+ c;
 
 			string userString = "SELECT userName FROM user";
 			MySqlCommand getUsername = new MySqlCommand(userString, connect);

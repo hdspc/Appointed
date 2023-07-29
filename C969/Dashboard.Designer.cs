@@ -34,6 +34,7 @@ namespace C969
             this.label2 = new System.Windows.Forms.Label();
             this.btn_AddAppointment = new System.Windows.Forms.Button();
             this.btn_EditAppointment = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,11 +84,24 @@ namespace C969
             this.btn_EditAppointment.Text = "Edit Appointment";
             this.btn_EditAppointment.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(485, 344);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 41);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "refresh appts";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_EditAppointment);
             this.Controls.Add(this.btn_AddAppointment);
             this.Controls.Add(this.label2);
@@ -108,5 +122,6 @@ namespace C969
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_AddAppointment;
         private System.Windows.Forms.Button btn_EditAppointment;
+        private System.Windows.Forms.Button button1;
     }
 }

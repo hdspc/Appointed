@@ -15,8 +15,8 @@ namespace C969
         public AddAppointment()
         {
             InitializeComponent();
-            txt_CustomerID.Text = "23";
-            txt_UserID.Text = "322";
+            txt_CustomerID.Text = "1";
+            txt_UserID.Text = "1";
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -25,7 +25,7 @@ namespace C969
             return;
         }
 
-
+  
         private void btn_AddAppointment_Save_Click(object sender, EventArgs e)
         {
             int appointmentID = Int32.Parse(txt_AppointmentID.Text);
@@ -43,15 +43,12 @@ namespace C969
             string createdBy = "CREATE USER IN FORM";
             DateTime lastUpdate = DateTime.Now;
             string lastUpdatedBy = "CREATE USER IN FORM";
-
-
-
+            
             Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
-            string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{start:yyyy-MM-dd HH:mm:ss}\", "
-                     + $"\"{end:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
+            string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{start:yyyy-MM-dd HH:mm:ss}\", \"{end:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
 
-            int rowsAffected = Database.DBConnection.InsertNewRecord("Appointment", insertString);
+            int rowsAffected = Database.DBConnection.InsertNewRecord("appointment", insertString);
 
             // Check Rows Affected to see if the record saved correctly
             if (rowsAffected > 0)
@@ -59,7 +56,8 @@ namespace C969
                 // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
                 MessageBox.Show($"{rowsAffected} record(s) saved!");
                 //EventLogger.LogUnspecifiedEntry($"{formOwner} created new Appointment with ID {appointmentId}");
-                //OnFormSaved();
+             //  Dashboard.FormRefresh();
+                Close();
             }
             else
             {

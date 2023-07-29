@@ -17,6 +17,7 @@ namespace C969
         {
             InitializeComponent();
 
+            // FormRefresh();
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment";
             MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
@@ -43,21 +44,34 @@ namespace C969
             //    Console.WriteLine("bummer");
             //}
             //reader.Close();
-           // appointmentDGV.DataSource = appointmentList;
+            // appointmentDGV.DataSource = appointmentList;
 
             #endregion
 
         }
+
+        //public static void FormRefresh()
+        //{
+        //    MySqlConnection connect = Database.DBConnection.conn;
+        //    string sqlString = "SELECT * FROM appointment";
+        //    MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
+        //    MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
+        //    DataTable dt = new DataTable();
+        //    adp.Fill(dt);
+        //    appointmentDGV.DataSource = dt;
+        //}
 
         private void btn_AddAppointment_Click(object sender, EventArgs e)
         {
             Form addAppointment = new AddAppointment();
 
             addAppointment.ShowDialog();
-            addAppointment.Close();
 
+        }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+           // FormRefresh();
         }
     }
 }

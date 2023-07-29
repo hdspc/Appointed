@@ -81,7 +81,7 @@ namespace C969.Database
             }
             finally
             {
-                MessageBox.Show("when the fuck does this pop up DBConnection.cs ");
+              // Dashboard.FormRefresh();
             }
         }
 
