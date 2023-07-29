@@ -29,21 +29,21 @@ namespace C969
         /// </summary>
         private void InitializeComponent()
         {
-            this.customerDGV = new System.Windows.Forms.DataGridView();
+            this.appointmentDGV = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_AddAppointment = new System.Windows.Forms.Button();
             this.btn_EditAppointment = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // customerDGV
+            // appointmentDGV
             // 
-            this.customerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerDGV.Location = new System.Drawing.Point(47, 104);
-            this.customerDGV.Name = "customerDGV";
-            this.customerDGV.Size = new System.Drawing.Size(717, 150);
-            this.customerDGV.TabIndex = 0;
+            this.appointmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.appointmentDGV.Location = new System.Drawing.Point(47, 104);
+            this.appointmentDGV.Name = "appointmentDGV";
+            this.appointmentDGV.Size = new System.Drawing.Size(717, 150);
+            this.appointmentDGV.TabIndex = 0;
             // 
             // label1
             // 
@@ -92,10 +92,10 @@ namespace C969
             this.Controls.Add(this.btn_AddAppointment);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.customerDGV);
+            this.Controls.Add(this.appointmentDGV);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
-            ((System.ComponentModel.ISupportInitialize)(this.customerDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,7 +103,7 @@ namespace C969
 
         #endregion
 
-        private System.Windows.Forms.DataGridView customerDGV;
+        private System.Windows.Forms.DataGridView appointmentDGV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_AddAppointment;

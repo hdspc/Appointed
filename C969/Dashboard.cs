@@ -23,7 +23,30 @@ namespace C969
             MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
             DataTable dt = new DataTable();
             adp.Fill(dt);
-            customerDGV.DataSource = dt;
+            appointmentDGV.DataSource = dt;
+
+
+            #region ALT reader method doesn't work
+
+            //MySqlDataReader reader = getCustomer.ExecuteReader();
+            //BindingList<Appointment> appointmentList = new BindingList<Appointment>();
+
+            //if (reader.HasRows)
+            //{
+            //    while (reader.Read())
+            //    {
+            //        appointmentList.Add(new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetDateTime(4)));
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("bummer");
+            //}
+            //reader.Close();
+           // appointmentDGV.DataSource = appointmentList;
+
+            #endregion
+
         }
 
         private void btn_AddAppointment_Click(object sender, EventArgs e)
@@ -31,7 +54,7 @@ namespace C969
             Form addAppointment = new AddAppointment();
 
             addAppointment.ShowDialog();
-            this.Close();
+            addAppointment.Close();
 
 
 

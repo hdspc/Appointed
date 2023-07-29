@@ -21,7 +21,9 @@ namespace C969
 		{
 			InitializeComponent();
 
-			sqlStatusLabel.Text = connect.ToString();
+			string c = connect.DataSource;
+
+			sqlStatusLabel.Text = "Connected to"+ c;
 
 			string userString = "SELECT userName FROM user";
 			MySqlCommand getUsername = new MySqlCommand(userString, connect);
@@ -40,12 +42,6 @@ namespace C969
         {
 			string userID = userIDTextBox.Text;
 			string password = passwordTextBox.Text;
-
-
-		
-
-
-
 
 
 			if (String.IsNullOrEmpty(userID) || String.IsNullOrEmpty(password))
@@ -69,13 +65,17 @@ namespace C969
 				}
 				catch (Exception)
 				{
-					MessageBox.Show("fuck");
+					MessageBox.Show("Form 1 catch exception");
 				}
-                finally
-                {
-					this.Close();
-                }
+               
 			}
+		}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			Form dashboard = new Dashboard();
+
+			dashboard.ShowDialog();
 		}
     }
 }

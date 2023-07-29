@@ -12,11 +12,11 @@ namespace C969.Database
     class DBConnection
     {
         public static MySqlConnection conn { get; set; }
-        
-    
 
 
-    public static void startConnection()
+        #region Start Connection from webinars
+
+        public static void startConnection()
     {
         try
         {
@@ -55,6 +55,36 @@ namespace C969.Database
 
 
 }
+
+        #endregion
+
+        public static int InsertNewRecord(string table, string values)
+        {
+
+            // Build the Query to Run
+            StringBuilder insertQueryBuilder = new StringBuilder();
+            insertQueryBuilder.Append($"INSERT INTO {table} VALUES ({values});");
+            string addQuery = insertQueryBuilder.ToString();
+
+            MySqlCommand insertCommand = new MySqlCommand(addQuery, conn);
+
+            // Attempt to run the query against the database, and return the number of rows affected
+            try
+            {
+                
+                return insertCommand.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                MessageBox.Show("when the fuck does this pop up DBConnection.cs ");
+            }
+        }
+
     }
 }
 
