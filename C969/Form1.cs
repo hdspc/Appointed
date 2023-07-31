@@ -24,7 +24,7 @@ namespace C969
 			string c = connect.DataSource;
 
 			sqlStatusLabel.Text = "Connected to "+ c;
-
+			/*
 			string userString = "SELECT userName FROM user";
 			MySqlCommand getUsername = new MySqlCommand(userString, connect);
 			MySqlDataAdapter userADP = new MySqlDataAdapter(getUsername);
@@ -35,11 +35,63 @@ namespace C969
 			string passwordString = "SELECT password FROM user";
 			MySqlCommand getPassword = new MySqlCommand(passwordString, connect);
 
-
+			*/
 		}
 
 		private void submitButton_Click(object sender, EventArgs e)
         {
+			List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
+
+			try
+			{
+				foreach (UserAccount u in allUsers)
+				{
+					if (u.Username == txt_UserIDTextBox.Text)
+					{
+						if (u.Password == txt_PasswordTextBox.Text)
+						{
+							// Login Successfull
+							//OnUserLoggedIn(u);
+							Form dashboard = new Dashboard();
+
+
+							MessageBox.Show("success");
+
+							dashboard.ShowDialog();
+
+							return;
+						}
+						else
+						{
+							// PAssword doesn't match
+							//EventLogger.LogUnsuccessfulLogin(tboxUsername.Text);
+							//throw new LoginInvalidException("Password does not match.");
+							MessageBox.Show("Password don't match");
+						}
+					}
+				}
+
+				// No matching Username was found. Throw Exception
+				EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
+				//throw new LoginInvalidException("User account does not exist");
+				MessageBox.Show("no username match");
+
+			}
+			catch (/*LoginInvalidException ex*/Exception ex)
+			{
+				MessageBox.Show(/*ex.Message*/"fuck");
+			}
+
+
+
+
+
+
+
+
+
+
+			/*
 			string userID = userIDTextBox.Text;
 			string password = passwordTextBox.Text;
 
@@ -68,10 +120,10 @@ namespace C969
 					MessageBox.Show("Form 1 catch exception");
 				}
                
-			}
+			}*/
 		}
 
-        private void button1_Click(object sender, EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
         {
 			Form dashboard = new Dashboard();
 

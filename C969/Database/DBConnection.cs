@@ -85,6 +85,49 @@ namespace C969.Database
             }
         }
 
+
+        public static List<UserAccount> GetAllUserAccounts()
+        {
+            List<UserAccount> allUsers = new List<UserAccount>();
+
+
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection dbConnection = new MySqlConnection(constr);
+
+
+            string allUsersQuery = "SELECT * FROM user";
+            MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, dbConnection);
+
+
+            //string allUsersQuery = "SELECT * FROM user";
+            //MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, conn);
+
+            try
+            {
+                dbConnection.Open();
+               // startConnection();
+                MySqlDataReader reader = selectAllUsersCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    UserAccount user = new UserAccount(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), reader.GetDateTime(4), reader.GetString(5));
+                    allUsers.Add(user);
+                }
+
+                return allUsers;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                //conn.Close();
+                // closeConnection();
+                dbConnection.Close();
+            }
+        }
     }
 }
 

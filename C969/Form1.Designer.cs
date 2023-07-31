@@ -30,9 +30,9 @@ namespace C969
 		private void InitializeComponent()
 		{
             this.userIDLabel = new System.Windows.Forms.Label();
-            this.userIDTextBox = new System.Windows.Forms.TextBox();
+            this.txt_UserIDTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.txt_PasswordTextBox = new System.Windows.Forms.TextBox();
             this.loginTitleLabel = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,12 +51,12 @@ namespace C969
             this.userIDLabel.TabIndex = 0;
             this.userIDLabel.Text = "User ID:";
             // 
-            // userIDTextBox
+            // txt_UserIDTextBox
             // 
-            this.userIDTextBox.Location = new System.Drawing.Point(96, 100);
-            this.userIDTextBox.Name = "userIDTextBox";
-            this.userIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.userIDTextBox.TabIndex = 1;
+            this.txt_UserIDTextBox.Location = new System.Drawing.Point(96, 100);
+            this.txt_UserIDTextBox.Name = "txt_UserIDTextBox";
+            this.txt_UserIDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.txt_UserIDTextBox.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -67,12 +67,12 @@ namespace C969
             this.passwordLabel.TabIndex = 2;
             this.passwordLabel.Text = "Password:";
             // 
-            // passwordTextBox
+            // txt_PasswordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(96, 151);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passwordTextBox.TabIndex = 3;
+            this.txt_PasswordTextBox.Location = new System.Drawing.Point(96, 151);
+            this.txt_PasswordTextBox.Name = "txt_PasswordTextBox";
+            this.txt_PasswordTextBox.Size = new System.Drawing.Size(100, 20);
+            this.txt_PasswordTextBox.TabIndex = 3;
             // 
             // loginTitleLabel
             // 
@@ -141,9 +141,9 @@ namespace C969
             this.Controls.Add(this.label1);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.loginTitleLabel);
-            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.txt_PasswordTextBox);
             this.Controls.Add(this.passwordLabel);
-            this.Controls.Add(this.userIDTextBox);
+            this.Controls.Add(this.txt_UserIDTextBox);
             this.Controls.Add(this.userIDLabel);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -156,9 +156,9 @@ namespace C969
 		#endregion
 
 		private System.Windows.Forms.Label userIDLabel;
-		private System.Windows.Forms.TextBox userIDTextBox;
+		private System.Windows.Forms.TextBox txt_UserIDTextBox;
 		private System.Windows.Forms.Label passwordLabel;
-		private System.Windows.Forms.TextBox passwordTextBox;
+		private System.Windows.Forms.TextBox txt_PasswordTextBox;
 		private System.Windows.Forms.Label loginTitleLabel;
 		private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label label1;

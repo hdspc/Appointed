@@ -71,7 +71,20 @@ namespace C969
 
         private void button1_Click(object sender, EventArgs e)
         {
-           // FormRefresh();
+            // FormRefresh();
+
+
+            MySqlConnection connect = Database.DBConnection.conn;
+            string sqlString = "SELECT * FROM appointment";
+            MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
+            MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            appointmentDGV.DataSource = dt;
+
+
+
+
         }
     }
 }
