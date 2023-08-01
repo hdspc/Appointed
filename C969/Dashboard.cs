@@ -25,28 +25,10 @@ namespace C969
             DataTable dt = new DataTable();
             adp.Fill(dt);
             appointmentDGV.DataSource = dt;
-
-
-            #region ALT reader method doesn't work
-
-            //MySqlDataReader reader = getCustomer.ExecuteReader();
-            //BindingList<Appointment> appointmentList = new BindingList<Appointment>();
-
-            //if (reader.HasRows)
-            //{
-            //    while (reader.Read())
-            //    {
-            //        appointmentList.Add(new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetDateTime(4)));
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("bummer");
-            //}
-            //reader.Close();
-            // appointmentDGV.DataSource = appointmentList;
-
-            #endregion
+            /*
+            string currentUser = UserAccount.Username.;
+            txt_currentUser.Text = currentUser;
+            */
 
         }
 
@@ -86,5 +68,7 @@ namespace C969
 
 
         }
+
+
     }
 }

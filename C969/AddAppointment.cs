@@ -17,6 +17,11 @@ namespace C969
             InitializeComponent();
             txt_CustomerID.Text = "1";
             txt_UserID.Text = "1";
+            txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
+            datetime_AppointmentStart.Format = DateTimePickerFormat.Custom;
+            datetime_AppointmentEnd.Format = DateTimePickerFormat.Custom;
+            txt_CreatedDate.Text = DateTime.Now.ToString();
+            txt_LastUpdate.Text= DateTime.Now.ToString();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -38,7 +43,7 @@ namespace C969
             string type = dropdown_AppointmentType.Text;
             string url = txt_URL.Text;
             DateTime start = datetime_AppointmentStart.Value;
-            DateTime end = datetime_AppointmentEnd.Value;
+            DateTime end = datetime_AppointmentEnd.Value.AddHours(1);
             DateTime createDate = DateTime.Now;
             string createdBy = "CREATE USER IN FORM";
             DateTime lastUpdate = DateTime.Now;

@@ -9,11 +9,7 @@ using System.Threading.Tasks;
 
 
 
-//using C969.DBItems;
-
-
-
-
+using C969.Database;
 
 
 
@@ -26,11 +22,11 @@ namespace C969
 
         public static void LogSuccessfulLogin(UserAccount user)
         {
-            LogUnspecifiedEntry($"User Successfully logged in with username \"{user.Username}\".");
+            LogUnspecifiedEntry($"\"{user.Username}\" successfully logged in.");
         }
         public static void LogUnsuccessfulLogin(string username)
         {
-            LogUnspecifiedEntry($"ERROR: User could not log in with username \"{username}\".");
+            LogUnspecifiedEntry($"ERROR: Attempted log in with username \"{username}\".");
         }
         public static void LogConnectionIssue()
         {

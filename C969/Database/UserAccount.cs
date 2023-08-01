@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace C969
 {
     
-           public class UserAccount {
+        public class UserAccount {
+
         private int userID;
         private string userName;
         private string password;

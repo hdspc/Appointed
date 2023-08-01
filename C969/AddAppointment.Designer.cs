@@ -42,26 +42,26 @@ namespace C969
             this.btn_AddAppointment_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_CreatedDate = new System.Windows.Forms.TextBox();
+            this.txt_CreatedBy = new System.Windows.Forms.TextBox();
+            this.txt_LastUpdate = new System.Windows.Forms.TextBox();
+            this.txt_LastUpdateBy = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txt_URL = new System.Windows.Forms.TextBox();
+            this.txt_Contact = new System.Windows.Forms.TextBox();
+            this.txt_Location = new System.Windows.Forms.TextBox();
+            this.txt_Description = new System.Windows.Forms.TextBox();
+            this.txt_Title = new System.Windows.Forms.TextBox();
+            this.datetime_AppointmentEnd = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.datetime_AppointmentEnd = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt_Title = new System.Windows.Forms.TextBox();
-            this.txt_Description = new System.Windows.Forms.TextBox();
-            this.txt_Location = new System.Windows.Forms.TextBox();
-            this.txt_Contact = new System.Windows.Forms.TextBox();
-            this.txt_URL = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txt_LastUpdateBy = new System.Windows.Forms.TextBox();
-            this.txt_LastUpdate = new System.Windows.Forms.TextBox();
-            this.txt_CreatedBy = new System.Windows.Forms.TextBox();
-            this.txt_CreatedDate = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +112,7 @@ namespace C969
             // 
             // txt_AppointmentID
             // 
+            this.txt_AppointmentID.Enabled = false;
             this.txt_AppointmentID.Location = new System.Drawing.Point(148, 36);
             this.txt_AppointmentID.Name = "txt_AppointmentID";
             this.txt_AppointmentID.Size = new System.Drawing.Size(43, 20);
@@ -134,9 +135,10 @@ namespace C969
             // 
             // datetime_AppointmentStart
             // 
+            this.datetime_AppointmentStart.CustomFormat = "ddd dd MMM yyyy HH:mm:ss tt";
             this.datetime_AppointmentStart.Location = new System.Drawing.Point(152, 206);
             this.datetime_AppointmentStart.Name = "datetime_AppointmentStart";
-            this.datetime_AppointmentStart.Size = new System.Drawing.Size(200, 20);
+            this.datetime_AppointmentStart.Size = new System.Drawing.Size(230, 20);
             this.datetime_AppointmentStart.TabIndex = 8;
             // 
             // dropdown_AppointmentType
@@ -206,6 +208,126 @@ namespace C969
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Appointment Details";
             // 
+            // txt_CreatedDate
+            // 
+            this.txt_CreatedDate.Enabled = false;
+            this.txt_CreatedDate.Location = new System.Drawing.Point(127, 257);
+            this.txt_CreatedDate.Name = "txt_CreatedDate";
+            this.txt_CreatedDate.Size = new System.Drawing.Size(246, 20);
+            this.txt_CreatedDate.TabIndex = 31;
+            // 
+            // txt_CreatedBy
+            // 
+            this.txt_CreatedBy.Enabled = false;
+            this.txt_CreatedBy.Location = new System.Drawing.Point(127, 281);
+            this.txt_CreatedBy.Name = "txt_CreatedBy";
+            this.txt_CreatedBy.Size = new System.Drawing.Size(246, 20);
+            this.txt_CreatedBy.TabIndex = 30;
+            // 
+            // txt_LastUpdate
+            // 
+            this.txt_LastUpdate.Enabled = false;
+            this.txt_LastUpdate.Location = new System.Drawing.Point(127, 304);
+            this.txt_LastUpdate.Name = "txt_LastUpdate";
+            this.txt_LastUpdate.Size = new System.Drawing.Size(246, 20);
+            this.txt_LastUpdate.TabIndex = 29;
+            // 
+            // txt_LastUpdateBy
+            // 
+            this.txt_LastUpdateBy.Enabled = false;
+            this.txt_LastUpdateBy.Location = new System.Drawing.Point(127, 330);
+            this.txt_LastUpdateBy.Name = "txt_LastUpdateBy";
+            this.txt_LastUpdateBy.Size = new System.Drawing.Size(247, 20);
+            this.txt_LastUpdateBy.TabIndex = 28;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(32, 333);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(83, 13);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Last Update By:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(32, 308);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 13);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "Last Update:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 285);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "CreatedBy:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(32, 261);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Created Date:";
+            // 
+            // txt_URL
+            // 
+            this.txt_URL.Location = new System.Drawing.Point(99, 173);
+            this.txt_URL.Name = "txt_URL";
+            this.txt_URL.Size = new System.Drawing.Size(274, 20);
+            this.txt_URL.TabIndex = 23;
+            // 
+            // txt_Contact
+            // 
+            this.txt_Contact.Location = new System.Drawing.Point(100, 114);
+            this.txt_Contact.Name = "txt_Contact";
+            this.txt_Contact.Size = new System.Drawing.Size(274, 20);
+            this.txt_Contact.TabIndex = 22;
+            // 
+            // txt_Location
+            // 
+            this.txt_Location.Location = new System.Drawing.Point(100, 81);
+            this.txt_Location.Name = "txt_Location";
+            this.txt_Location.Size = new System.Drawing.Size(274, 20);
+            this.txt_Location.TabIndex = 21;
+            // 
+            // txt_Description
+            // 
+            this.txt_Description.Location = new System.Drawing.Point(108, 55);
+            this.txt_Description.Name = "txt_Description";
+            this.txt_Description.Size = new System.Drawing.Size(265, 20);
+            this.txt_Description.TabIndex = 20;
+            // 
+            // txt_Title
+            // 
+            this.txt_Title.Location = new System.Drawing.Point(99, 24);
+            this.txt_Title.Name = "txt_Title";
+            this.txt_Title.Size = new System.Drawing.Size(274, 20);
+            this.txt_Title.TabIndex = 19;
+            // 
+            // datetime_AppointmentEnd
+            // 
+            this.datetime_AppointmentEnd.CustomFormat = "ddd dd MMM yyyy HH:mm:ss tt";
+            this.datetime_AppointmentEnd.Location = new System.Drawing.Point(152, 231);
+            this.datetime_AppointmentEnd.Name = "datetime_AppointmentEnd";
+            this.datetime_AppointmentEnd.Size = new System.Drawing.Size(230, 20);
+            this.datetime_AppointmentEnd.TabIndex = 18;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(32, 237);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(91, 13);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Appointment End:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -250,121 +372,6 @@ namespace C969
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Title:";
-            // 
-            // datetime_AppointmentEnd
-            // 
-            this.datetime_AppointmentEnd.Location = new System.Drawing.Point(152, 231);
-            this.datetime_AppointmentEnd.Name = "datetime_AppointmentEnd";
-            this.datetime_AppointmentEnd.Size = new System.Drawing.Size(200, 20);
-            this.datetime_AppointmentEnd.TabIndex = 18;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(32, 237);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 13);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Appointment End:";
-            // 
-            // txt_Title
-            // 
-            this.txt_Title.Location = new System.Drawing.Point(99, 24);
-            this.txt_Title.Name = "txt_Title";
-            this.txt_Title.Size = new System.Drawing.Size(274, 20);
-            this.txt_Title.TabIndex = 19;
-            // 
-            // txt_Description
-            // 
-            this.txt_Description.Location = new System.Drawing.Point(108, 55);
-            this.txt_Description.Name = "txt_Description";
-            this.txt_Description.Size = new System.Drawing.Size(265, 20);
-            this.txt_Description.TabIndex = 20;
-            // 
-            // txt_Location
-            // 
-            this.txt_Location.Location = new System.Drawing.Point(100, 81);
-            this.txt_Location.Name = "txt_Location";
-            this.txt_Location.Size = new System.Drawing.Size(274, 20);
-            this.txt_Location.TabIndex = 21;
-            // 
-            // txt_Contact
-            // 
-            this.txt_Contact.Location = new System.Drawing.Point(100, 114);
-            this.txt_Contact.Name = "txt_Contact";
-            this.txt_Contact.Size = new System.Drawing.Size(274, 20);
-            this.txt_Contact.TabIndex = 22;
-            // 
-            // txt_URL
-            // 
-            this.txt_URL.Location = new System.Drawing.Point(99, 173);
-            this.txt_URL.Name = "txt_URL";
-            this.txt_URL.Size = new System.Drawing.Size(274, 20);
-            this.txt_URL.TabIndex = 23;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(32, 261);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 13);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Created Date:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 285);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 13);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "CreatedBy:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(32, 308);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 13);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "Last Update:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(32, 333);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(83, 13);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "Last Update By:";
-            // 
-            // txt_LastUpdateBy
-            // 
-            this.txt_LastUpdateBy.Location = new System.Drawing.Point(127, 330);
-            this.txt_LastUpdateBy.Name = "txt_LastUpdateBy";
-            this.txt_LastUpdateBy.Size = new System.Drawing.Size(247, 20);
-            this.txt_LastUpdateBy.TabIndex = 28;
-            // 
-            // txt_LastUpdate
-            // 
-            this.txt_LastUpdate.Location = new System.Drawing.Point(127, 304);
-            this.txt_LastUpdate.Name = "txt_LastUpdate";
-            this.txt_LastUpdate.Size = new System.Drawing.Size(246, 20);
-            this.txt_LastUpdate.TabIndex = 29;
-            // 
-            // txt_CreatedBy
-            // 
-            this.txt_CreatedBy.Location = new System.Drawing.Point(127, 281);
-            this.txt_CreatedBy.Name = "txt_CreatedBy";
-            this.txt_CreatedBy.Size = new System.Drawing.Size(246, 20);
-            this.txt_CreatedBy.TabIndex = 30;
-            // 
-            // txt_CreatedDate
-            // 
-            this.txt_CreatedDate.Location = new System.Drawing.Point(127, 257);
-            this.txt_CreatedDate.Name = "txt_CreatedDate";
-            this.txt_CreatedDate.Size = new System.Drawing.Size(246, 20);
-            this.txt_CreatedDate.TabIndex = 31;
             // 
             // AddAppointment
             // 

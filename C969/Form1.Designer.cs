@@ -37,9 +37,7 @@ namespace C969
             this.submitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.sqlStatusLabel = new System.Windows.Forms.Label();
-            this.dgv1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
             // userIDLabel
@@ -47,9 +45,9 @@ namespace C969
             this.userIDLabel.AutoSize = true;
             this.userIDLabel.Location = new System.Drawing.Point(26, 103);
             this.userIDLabel.Name = "userIDLabel";
-            this.userIDLabel.Size = new System.Drawing.Size(46, 13);
+            this.userIDLabel.Size = new System.Drawing.Size(58, 13);
             this.userIDLabel.TabIndex = 0;
-            this.userIDLabel.Text = "User ID:";
+            this.userIDLabel.Text = "Username:";
             // 
             // txt_UserIDTextBox
             // 
@@ -106,23 +104,15 @@ namespace C969
             // sqlStatusLabel
             // 
             this.sqlStatusLabel.AutoSize = true;
-            this.sqlStatusLabel.Location = new System.Drawing.Point(287, 135);
+            this.sqlStatusLabel.Location = new System.Drawing.Point(239, 133);
             this.sqlStatusLabel.Name = "sqlStatusLabel";
             this.sqlStatusLabel.Size = new System.Drawing.Size(27, 13);
             this.sqlStatusLabel.TabIndex = 7;
             this.sqlStatusLabel.Text = "N/A";
             // 
-            // dgv1
-            // 
-            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1.Location = new System.Drawing.Point(514, 55);
-            this.dgv1.Name = "dgv1";
-            this.dgv1.Size = new System.Drawing.Size(240, 150);
-            this.dgv1.TabIndex = 8;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(330, 205);
+            this.button1.Location = new System.Drawing.Point(259, 206);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -134,9 +124,8 @@ namespace C969
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 261);
+            this.ClientSize = new System.Drawing.Size(398, 261);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgv1);
             this.Controls.Add(this.sqlStatusLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.submitButton);
@@ -147,7 +136,6 @@ namespace C969
             this.Controls.Add(this.userIDLabel);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,7 +151,6 @@ namespace C969
 		private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sqlStatusLabel;
-        private System.Windows.Forms.DataGridView dgv1;
         private System.Windows.Forms.Button button1;
     }
 }

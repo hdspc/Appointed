@@ -92,20 +92,16 @@ namespace C969.Database
 
 
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            MySqlConnection dbConnection = new MySqlConnection(constr);
+            MySqlConnection db = new MySqlConnection(constr);
 
 
             string allUsersQuery = "SELECT * FROM user";
-            MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, dbConnection);
-
-
-            //string allUsersQuery = "SELECT * FROM user";
-            //MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, conn);
+            MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, db);
 
             try
             {
-                dbConnection.Open();
-               // startConnection();
+                // startConnection();
+                db.Open();
                 MySqlDataReader reader = selectAllUsersCommand.ExecuteReader();
 
                 while (reader.Read())
@@ -125,9 +121,48 @@ namespace C969.Database
             {
                 //conn.Close();
                 // closeConnection();
-                dbConnection.Close();
+                db.Close();
             }
         }
+
+        public static int GetNewIdFromTable(string table, string idColumnName)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection conn = new MySqlConnection(constr);
+            
+            string query = $"SELECT MAX({idColumnName}) FROM {table}";
+            MySqlCommand selectCommand = new MySqlCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+
+                int maxID = 9998;
+                MySqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    maxID = reader.GetInt32(0);
+                }
+
+                return maxID + 1;
+            }
+            catch (MySqlException ex)
+            {
+                EventLogger.LogConnectionIssue();
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+
+
+
+
     }
 }
 
