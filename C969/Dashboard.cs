@@ -13,6 +13,8 @@ namespace C969
 {
     public partial class Dashboard : Form
     {
+        private UserAccount activeUser;
+
         public Dashboard()
         {
             InitializeComponent();
@@ -25,10 +27,13 @@ namespace C969
             DataTable dt = new DataTable();
             adp.Fill(dt);
             appointmentDGV.DataSource = dt;
-            /*
-            string currentUser = UserAccount.Username.;
-            txt_currentUser.Text = currentUser;
-            */
+
+            List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
+            //string currentUser = allUsers[0].Username.ToString();
+            ////string currentUser = Database.DBConnection.GetCurrentUser(0);
+            txt_currentUser.Text = allUsers[1].Username.ToString();
+            txt_currentUser.Text = UserAccount.user.ToString();
+
 
         }
 

@@ -43,10 +43,11 @@ namespace C969
 						{
 							// Login Successfull
 							OnUserLoggedIn(u);
+
 							Form dashboard = new Dashboard();
 
 
-							MessageBox.Show("success");
+							MessageBox.Show("Login Successful.");
 
 							dashboard.ShowDialog();
 
@@ -54,10 +55,10 @@ namespace C969
 						}
 						else
 						{
-							// PAssword doesn't match
+							// Password doesn't match
 							EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
 							//throw new LoginInvalidException("Password does not match.");
-							MessageBox.Show("Password don't match");
+							MessageBox.Show("Check your password.");
 						}
 					}
 

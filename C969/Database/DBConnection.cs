@@ -89,11 +89,9 @@ namespace C969.Database
         public static List<UserAccount> GetAllUserAccounts()
         {
             List<UserAccount> allUsers = new List<UserAccount>();
-
-
+            
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection db = new MySqlConnection(constr);
-
 
             string allUsersQuery = "SELECT * FROM user";
             MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, db);
@@ -119,13 +117,27 @@ namespace C969.Database
             }
             finally
             {
-                //conn.Close();
-                // closeConnection();
+                 //conn.Close();
+              //closeConnection();
                 db.Close();
             }
         }
 
-        public static int GetNewIdFromTable(string table, string idColumnName)
+
+        //////public static string GetCurrentUser(int username)
+        //////{
+        //////    List<UserAccount> allUsers = new List<UserAccount>();
+
+        //////    string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+        //////    MySqlConnection db = new MySqlConnection(constr);
+
+        //////    string allUsersQuery = "SELECT * FROM user";
+        //////    MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, db);
+
+
+        //////}
+
+            public static int GetNewIdFromTable(string table, string idColumnName)
         {
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection conn = new MySqlConnection(constr);

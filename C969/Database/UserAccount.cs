@@ -62,7 +62,6 @@ namespace C969
             this.active = active;
             this.createDate = createDate;
             this.createBy = createBy;
-
             this.lastUpdate = lastUpdate;
             this.lastUpdateBy = lastUpdateBy;
         }

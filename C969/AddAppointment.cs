@@ -15,8 +15,10 @@ namespace C969
         public AddAppointment()
         {
             InitializeComponent();
+            List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
+
             txt_CustomerID.Text = "1";
-            txt_UserID.Text = "1";
+            txt_UserID.Text = allUsers[1].Username.ToString();
             txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
             datetime_AppointmentStart.Format = DateTimePickerFormat.Custom;
             datetime_AppointmentEnd.Format = DateTimePickerFormat.Custom;
