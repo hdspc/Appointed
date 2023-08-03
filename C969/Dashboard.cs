@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace C969
 {
@@ -67,18 +68,35 @@ namespace C969
             int selectedRowIndex = appointmentDGV.CurrentCell.RowIndex+1;
             MessageBox.Show(selectedRowIndex.ToString());
 
-            MySqlConnection connect = Database.DBConnection.conn;
-            string sqlString = $"SELECT * FROM appointment WHERE appointmentId = {selectedRowIndex}";
-            MySqlCommand getAppt = new MySqlCommand(sqlString, connect);
-            MySqlDataReader rdr = getAppt.ExecuteReader();
-            rdr.Read();
-            MessageBox.Show(rdr[0].ToString());
+            // MySqlConnection connect = Database.DBConnection.conn;
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connect = new MySqlConnection(constr);
 
-            Appointment selectedAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString(), rdr.GetDateTime(9), rdr.GetDateTime(10), rdr.GetDateTime(11), rdr[12].ToString(), rdr.GetDateTime(13), rdr[14].ToString());
+            try
+            {
+                connect.Open();
 
-            EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
-            appointmentEditor.ShowDialog();
-            -
+                string sqlString = $"SELECT * FROM appointment WHERE appointmentId = {selectedRowIndex}";
+                MySqlCommand getAppt = new MySqlCommand(sqlString, connect);
+                MySqlDataReader rdr = getAppt.ExecuteReader();
+            
+            while (rdr.Read())
+                {
+                Appointment selectedAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString(), rdr.GetDateTime(9), rdr.GetDateTime(10), rdr.GetDateTime(11), rdr[12].ToString(), rdr.GetDateTime(13), rdr[14].ToString());
+                 
+
+                EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
+                appointmentEditor.ShowDialog();
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+            
 
         }
     }

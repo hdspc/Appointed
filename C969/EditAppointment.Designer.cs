@@ -55,7 +55,7 @@ namespace C969
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
-            this.btn_AddAppointment_Save = new System.Windows.Forms.Button();
+            this.btn_EditAppointment_Save = new System.Windows.Forms.Button();
             this.txt_UserID = new System.Windows.Forms.TextBox();
             this.txt_CustomerID = new System.Windows.Forms.TextBox();
             this.txt_AppointmentID = new System.Windows.Forms.TextBox();
@@ -311,15 +311,17 @@ namespace C969
             this.btn_Cancel.TabIndex = 22;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
-            // btn_AddAppointment_Save
+            // btn_EditAppointment_Save
             // 
-            this.btn_AddAppointment_Save.Location = new System.Drawing.Point(42, 475);
-            this.btn_AddAppointment_Save.Name = "btn_AddAppointment_Save";
-            this.btn_AddAppointment_Save.Size = new System.Drawing.Size(135, 45);
-            this.btn_AddAppointment_Save.TabIndex = 21;
-            this.btn_AddAppointment_Save.Text = "Save";
-            this.btn_AddAppointment_Save.UseVisualStyleBackColor = true;
+            this.btn_EditAppointment_Save.Location = new System.Drawing.Point(42, 475);
+            this.btn_EditAppointment_Save.Name = "btn_EditAppointment_Save";
+            this.btn_EditAppointment_Save.Size = new System.Drawing.Size(135, 45);
+            this.btn_EditAppointment_Save.TabIndex = 21;
+            this.btn_EditAppointment_Save.Text = "Save";
+            this.btn_EditAppointment_Save.UseVisualStyleBackColor = true;
+            this.btn_EditAppointment_Save.Click += new System.EventHandler(this.btn_EditAppointment_Save_Click);
             // 
             // txt_UserID
             // 
@@ -378,7 +380,7 @@ namespace C969
             this.ClientSize = new System.Drawing.Size(428, 552);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Cancel);
-            this.Controls.Add(this.btn_AddAppointment_Save);
+            this.Controls.Add(this.btn_EditAppointment_Save);
             this.Controls.Add(this.txt_UserID);
             this.Controls.Add(this.txt_CustomerID);
             this.Controls.Add(this.txt_AppointmentID);
@@ -422,7 +424,7 @@ namespace C969
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Cancel;
-        private System.Windows.Forms.Button btn_AddAppointment_Save;
+        private System.Windows.Forms.Button btn_EditAppointment_Save;
         private System.Windows.Forms.TextBox txt_UserID;
         private System.Windows.Forms.TextBox txt_CustomerID;
         private System.Windows.Forms.TextBox txt_AppointmentID;

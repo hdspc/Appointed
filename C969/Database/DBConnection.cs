@@ -85,6 +85,48 @@ namespace C969.Database
             }
         }
 
+        public static int UpdateRecord(string table, string values, string where = "")
+        {
+            MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
+
+            // Build the Query to Run
+            StringBuilder updateQueryBuilder = new StringBuilder();
+            updateQueryBuilder.Append($"UPDATE {table} SET {values}");
+
+            if (where != "")
+            {
+                updateQueryBuilder.Append($" WHERE {where};");
+            }
+            else
+            {
+                updateQueryBuilder.Append(";");
+            }
+
+
+
+            string query = updateQueryBuilder.ToString();
+
+            MySqlCommand updateCommand = new MySqlCommand(query, connect);
+
+            // Attempt to run the query against the database, and return the number of rows affected
+            try
+            {
+                connect.Open();
+                return updateCommand.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(query);
+
+                MessageBox.Show(ex.Message +"FUCK");
+                return -1;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
 
         public static List<UserAccount> GetAllUserAccounts()
         {
@@ -98,7 +140,6 @@ namespace C969.Database
 
             try
             {
-                // startConnection();
                 db.Open();
                 MySqlDataReader reader = selectAllUsersCommand.ExecuteReader();
 
@@ -117,20 +158,9 @@ namespace C969.Database
             }
             finally
             {
-                 //conn.Close();
-              //closeConnection();
                 db.Close();
             }
         }
-
-        //////public static CurrentUser GetCurrentUser()
-        //////{
-
-
-
-        //////}
-
-
 
 
 

@@ -48,7 +48,10 @@ namespace C969
             // 
             this.appointmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.appointmentDGV.Location = new System.Drawing.Point(47, 104);
+            this.appointmentDGV.MultiSelect = false;
             this.appointmentDGV.Name = "appointmentDGV";
+            this.appointmentDGV.ReadOnly = true;
+            this.appointmentDGV.RowHeadersVisible = false;
             this.appointmentDGV.Size = new System.Drawing.Size(717, 150);
             this.appointmentDGV.TabIndex = 0;
             // 
