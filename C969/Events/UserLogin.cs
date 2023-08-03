@@ -7,7 +7,7 @@ using C969;
 
 namespace C969.Events
 {
-    public class UserLoginEventArgs : EventArgs
+    public class UserLogin : EventArgs
     {
         private UserAccount user;
 
@@ -16,7 +16,7 @@ namespace C969.Events
             get { return user; }
         }
 
-        public UserLoginEventArgs(UserAccount user)
+        public UserLogin(UserAccount user)
         {
             this.user = user;
         }

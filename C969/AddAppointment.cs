@@ -18,7 +18,7 @@ namespace C969
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
             txt_CustomerID.Text = "1";
-            txt_UserID.Text = allUsers[1].Username.ToString();
+           // txt_UserID.Text = "FUCKKKCKCUI";
             txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
             datetime_AppointmentStart.Format = DateTimePickerFormat.Custom;
             datetime_AppointmentEnd.Format = DateTimePickerFormat.Custom;
@@ -73,6 +73,9 @@ namespace C969
             }
         }
 
+        private void AddAppointment_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

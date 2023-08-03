@@ -123,19 +123,16 @@ namespace C969.Database
             }
         }
 
-
-        //////public static string GetCurrentUser(int username)
+        //////public static CurrentUser GetCurrentUser()
         //////{
-        //////    List<UserAccount> allUsers = new List<UserAccount>();
 
-        //////    string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-        //////    MySqlConnection db = new MySqlConnection(constr);
-
-        //////    string allUsersQuery = "SELECT * FROM user";
-        //////    MySqlCommand selectAllUsersCommand = new MySqlCommand(allUsersQuery, db);
 
 
         //////}
+
+
+
+
 
             public static int GetNewIdFromTable(string table, string idColumnName)
         {

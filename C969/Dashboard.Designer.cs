@@ -89,6 +89,7 @@ namespace C969
             this.btn_EditAppointment.TabIndex = 4;
             this.btn_EditAppointment.Text = "Edit Appointment";
             this.btn_EditAppointment.UseVisualStyleBackColor = true;
+            this.btn_EditAppointment.Click += new System.EventHandler(this.btn_EditAppointment_Click);
             // 
             // button1
             // 

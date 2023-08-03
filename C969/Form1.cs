@@ -16,7 +16,7 @@ namespace C969
 	public partial class Form1 : Form
 	{
 		MySqlConnection connect = Database.DBConnection.conn;
-		public event EventHandler<UserLoginEventArgs> UserLogin;
+		public event EventHandler<UserLogin> UserLogin;
 
 		public Form1()
 		{
@@ -41,10 +41,10 @@ namespace C969
 					{
 						if (u.Password == txt_PasswordTextBox.Text)
 						{
-							// Login Successfull
+							// Login Successful
 							OnUserLoggedIn(u);
-
-							Form dashboard = new Dashboard();
+							AssignCurrentUser(u);
+							Form dashboard = new Dashboard(u);
 
 
 							MessageBox.Show("Login Successful.");
@@ -71,7 +71,7 @@ namespace C969
 			}
 			catch (/*LoginInvalidException ex*/Exception ex)
 			{
-				MessageBox.Show(/*ex.Message*/"catch exception");
+				MessageBox.Show(ex.Message);
 			}
 
 		}
@@ -80,16 +80,27 @@ namespace C969
 		{
 			MessageBox.Show("Login Successful");
 			EventLogger.LogSuccessfulLogin(user);
-			UserLogin?.Invoke(null, new UserLoginEventArgs(user));
+			UserLogin?.Invoke(null, new UserLogin(user));
 			//Close();
+		}
+
+		public static CurrentUser AssignCurrentUser(UserAccount user)
+		{
+			MessageBox.Show("user account assigned to: "+ user.Username.ToString());
+			CurrentUser currentUser = new CurrentUser(user.ID, user.Username, user.Password, user.IsActive, user.DateCreated, user.CreatedBy, user.LastUpdated, user.LastUpdatedBy);
+
+			return currentUser;
+
 		}
 
 
 		private void button1_Click(object sender, EventArgs e)
-        {
-			Form dashboard = new Dashboard();
+		{
+			UserAccount u = new UserAccount(1, "foo", "foo", true, DateTime.Now, "foo", DateTime.Now , "foo");
+
+			Form dashboard = new Dashboard(u);
 
 			dashboard.ShowDialog();
 		}
-    }
+	}
 }

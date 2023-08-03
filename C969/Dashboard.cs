@@ -13,40 +13,28 @@ namespace C969
 {
     public partial class Dashboard : Form
     {
-        private UserAccount activeUser;
 
-        public Dashboard()
+        public Dashboard(UserAccount u)
         {
             InitializeComponent();
 
-            // FormRefresh();
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment";
             MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
             MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
             DataTable dt = new DataTable();
             adp.Fill(dt);
+            
+            
             appointmentDGV.DataSource = dt;
-
-            List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
-            //string currentUser = allUsers[0].Username.ToString();
-            ////string currentUser = Database.DBConnection.GetCurrentUser(0);
-            txt_currentUser.Text = allUsers[1].Username.ToString();
-            txt_currentUser.Text = UserAccount.user.ToString();
+            appointmentDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            appointmentDGV.MultiSelect = false;
+            appointmentDGV.RowHeadersVisible = false;
+            appointmentDGV.AllowUserToAddRows = false;
 
 
+            txt_currentUser.Text = u.Username;
         }
-
-        //public static void FormRefresh()
-        //{
-        //    MySqlConnection connect = Database.DBConnection.conn;
-        //    string sqlString = "SELECT * FROM appointment";
-        //    MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
-        //    MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
-        //    DataTable dt = new DataTable();
-        //    adp.Fill(dt);
-        //    appointmentDGV.DataSource = dt;
-        //}
 
         private void btn_AddAppointment_Click(object sender, EventArgs e)
         {
@@ -74,6 +62,24 @@ namespace C969
 
         }
 
+        private void btn_EditAppointment_Click(object sender, EventArgs e)
+        {
+            int selectedRowIndex = appointmentDGV.CurrentCell.RowIndex+1;
+            MessageBox.Show(selectedRowIndex.ToString());
 
+            MySqlConnection connect = Database.DBConnection.conn;
+            string sqlString = $"SELECT * FROM appointment WHERE appointmentId = {selectedRowIndex}";
+            MySqlCommand getAppt = new MySqlCommand(sqlString, connect);
+            MySqlDataReader rdr = getAppt.ExecuteReader();
+            rdr.Read();
+            MessageBox.Show(rdr[0].ToString());
+
+            Appointment selectedAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString(), rdr.GetDateTime(9), rdr.GetDateTime(10), rdr.GetDateTime(11), rdr[12].ToString(), rdr.GetDateTime(13), rdr[14].ToString());
+
+            EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
+            appointmentEditor.ShowDialog();
+            -
+
+        }
     }
 }
