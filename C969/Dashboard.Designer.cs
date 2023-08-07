@@ -49,19 +49,20 @@ namespace C969
             // appointmentDGV
             // 
             this.appointmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentDGV.Location = new System.Drawing.Point(47, 161);
+            this.appointmentDGV.Location = new System.Drawing.Point(48, 84);
             this.appointmentDGV.MultiSelect = false;
             this.appointmentDGV.Name = "appointmentDGV";
             this.appointmentDGV.ReadOnly = true;
             this.appointmentDGV.RowHeadersVisible = false;
-            this.appointmentDGV.Size = new System.Drawing.Size(717, 170);
+            this.appointmentDGV.Size = new System.Drawing.Size(717, 231);
             this.appointmentDGV.TabIndex = 0;
+           
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 114);
+            this.label1.Location = new System.Drawing.Point(45, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 19);
             this.label1.TabIndex = 1;
@@ -71,7 +72,7 @@ namespace C969
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 18.25F);
-            this.label2.Location = new System.Drawing.Point(42, 23);
+            this.label2.Location = new System.Drawing.Point(43, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(304, 32);
             this.label2.TabIndex = 2;
@@ -165,7 +166,7 @@ namespace C969
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(436, 36);
+            this.label3.Location = new System.Drawing.Point(437, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 19);
             this.label3.TabIndex = 9;
@@ -175,7 +176,7 @@ namespace C969
             // 
             this.txt_currentUser.AutoSize = true;
             this.txt_currentUser.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_currentUser.Location = new System.Drawing.Point(499, 36);
+            this.txt_currentUser.Location = new System.Drawing.Point(500, 51);
             this.txt_currentUser.Name = "txt_currentUser";
             this.txt_currentUser.Size = new System.Drawing.Size(37, 19);
             this.txt_currentUser.TabIndex = 10;
@@ -183,9 +184,10 @@ namespace C969
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(633, 23);
+            this.button2.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(607, 38);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 40);
+            this.button2.Size = new System.Drawing.Size(158, 40);
             this.button2.TabIndex = 11;
             this.button2.Text = "Account Settings";
             this.button2.UseVisualStyleBackColor = true;

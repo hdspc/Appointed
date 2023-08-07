@@ -21,7 +21,8 @@ namespace C969
             InitializeComponent();
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
-            txt_CustomerID.Text = _u.ID.ToString();
+            txt_CustomerID.Text = 1.ToString();
+            txt_UserID.Text = _u.ID.ToString();
             txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
             datetime_AppointmentStart.Format = DateTimePickerFormat.Custom;
             datetime_AppointmentEnd.Format = DateTimePickerFormat.Custom;
@@ -57,7 +58,8 @@ namespace C969
             string lastUpdatedBy = txt_LastUpdateBy.Text;
             
             Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);
-        string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{start:yyyy-MM-dd HH:mm:ss}\", \"{end:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
+
+            string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{start:yyyy-MM-dd HH:mm:ss}\", \"{end:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
 
             int rowsAffected = Database.DBConnection.InsertNewRecord("appointment", insertString);
 

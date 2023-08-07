@@ -93,8 +93,7 @@ namespace C969
         private void btn_EditAppointment_Click(object sender, EventArgs e)
         {
             int selectedRowIndex = appointmentDGV.CurrentCell.RowIndex+1;
-            MessageBox.Show(selectedRowIndex.ToString());
-
+           
             // MySqlConnection connect = Database.DBConnection.conn;
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connect = new MySqlConnection(constr);
@@ -113,6 +112,7 @@ namespace C969
                  
 
                 EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
+
                 appointmentEditor.ShowDialog();
                 }
                 connect.Close();
@@ -121,10 +121,6 @@ namespace C969
             {
                 MessageBox.Show(ex.ToString());
             }
-
-
-            
-
         }
     }
 }
