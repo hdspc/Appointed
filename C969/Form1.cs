@@ -46,9 +46,6 @@ namespace C969
 							AssignCurrentUser(u);
 							Form dashboard = new Dashboard(u);
 
-
-							MessageBox.Show("Login Successful.");
-
 							dashboard.ShowDialog();
 
 							return;
@@ -66,7 +63,7 @@ namespace C969
 				// No matching Username was found. Throw Exception
 				EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
 				//throw new LoginInvalidException("User account does not exist");
-				MessageBox.Show("no username match");
+				MessageBox.Show("Check your username.");
 				
 			}
 			catch (/*LoginInvalidException ex*/Exception ex)
@@ -86,7 +83,7 @@ namespace C969
 
 		public static CurrentUser AssignCurrentUser(UserAccount user)
 		{
-			MessageBox.Show("user account assigned to: "+ user.Username.ToString());
+			MessageBox.Show("Login successful, current user: "+ user.Username.ToString());
 			CurrentUser currentUser = new CurrentUser(user.ID, user.Username, user.Password, user.IsActive, user.DateCreated, user.CreatedBy, user.LastUpdated, user.LastUpdatedBy);
 
 			return currentUser;
