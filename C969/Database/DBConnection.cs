@@ -197,7 +197,42 @@ namespace C969.Database
             }
         }
 
+        /// <summary>
+        /// Retrieves a UserAccount from USER table using the provided ID to select
+        /// </summary>
+        /// <param name="userId">ID of the UserAccount to retrieve</param>
+        /// <returns>UserAccount Object or NULL</returns>
+        public static UserAccount GetUserById(int userId)
+        {
+            MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
 
+            string selectUsersQuery = $"SELECT * FROM user WHERE userId = {userId}";
+            MySqlCommand selectUsersCommand = new MySqlCommand(selectUsersQuery, connect);
+
+            try
+            {
+                connect.Open();
+
+                MySqlDataReader reader = selectUsersCommand.ExecuteReader();
+                UserAccount selectedUser = null;
+
+                while (reader.Read())
+                {
+                    selectedUser = new UserAccount(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), reader.GetDateTime(4), reader.GetString(5));
+                }
+
+                return selectedUser;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
 
 
 

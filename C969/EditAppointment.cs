@@ -14,8 +14,13 @@ namespace C969
 {
     public partial class EditAppointment : Form
     {
+        private Appointment _appointment;
+
+
         public EditAppointment(Appointment appointment)
         {
+            _appointment = appointment;
+
             InitializeComponent();
             txt_CustomerID.Text = appointment.CustomerID.ToString();
              txt_UserID.Text = appointment.UserID.ToString();
@@ -49,14 +54,14 @@ namespace C969
             string description = txt_Description.Text;
             string location = txt_Location.Text;
             string contact = txt_Contact.Text;
-            string type = /*dropdown_AppointmentType.Text.ToString();*/ "test";
+            string type = dropdown_AppointmentType.Text;
             string url = txt_URL.Text;
             DateTime start = datetime_AppointmentStart.Value;
             DateTime end = datetime_AppointmentEnd.Value.AddHours(1);
             DateTime createDate = DateTime.Now;
             string createdBy = "CREATE USER IN FORM";
             DateTime lastUpdate = DateTime.Now;
-            string lastUpdatedBy = "CREATE USER IN FORM";
+            string lastUpdatedBy = _appointment.UserID.ToString();
 
             MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
 

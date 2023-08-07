@@ -14,9 +14,12 @@ namespace C969
 {
     public partial class Dashboard : Form
     {
+        private UserAccount _u;
 
         public Dashboard(UserAccount u)
         {
+            _u = u;
+
             InitializeComponent();
 
             MySqlConnection connect = Database.DBConnection.conn;
@@ -25,31 +28,46 @@ namespace C969
             MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
             DataTable dt = new DataTable();
             adp.Fill(dt);
-            
-            
             appointmentDGV.DataSource = dt;
+
             appointmentDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             appointmentDGV.MultiSelect = false;
             appointmentDGV.RowHeadersVisible = false;
             appointmentDGV.AllowUserToAddRows = false;
 
 
-            txt_currentUser.Text = u.Username;
+            txt_currentUser.Text = u.ID.ToString();
         }
+      
+
+
+        //////////////////////////CHECK
+
+
+
 
         private void btn_AddAppointment_Click(object sender, EventArgs e)
         {
-            Form addAppointment = new AddAppointment();
+            UserAccount currentUser = Database.DBConnection.GetUserById(_u.ID);
+
+            Form addAppointment = new AddAppointment(currentUser);
 
             addAppointment.ShowDialog();
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+
+
+        public void FormRefresh()
         {
-            // FormRefresh();
-
-
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment";
             MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
@@ -57,6 +75,15 @@ namespace C969
             DataTable dt = new DataTable();
             adp.Fill(dt);
             appointmentDGV.DataSource = dt;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormRefresh();
+
+
+            
 
 
 

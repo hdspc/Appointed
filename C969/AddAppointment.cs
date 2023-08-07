@@ -8,21 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace C969
 {
     public partial class AddAppointment : Form
     {
-        public AddAppointment()
+        private UserAccount _u;
+        public AddAppointment(UserAccount u)
         {
+
+            _u = u;
             InitializeComponent();
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
-            txt_CustomerID.Text = "1";
-           // txt_UserID.Text = "FUCKKKCKCUI";
+            txt_CustomerID.Text = _u.ID.ToString();
             txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
             datetime_AppointmentStart.Format = DateTimePickerFormat.Custom;
             datetime_AppointmentEnd.Format = DateTimePickerFormat.Custom;
+            txt_CreatedBy.Text = _u.ID.ToString();
             txt_CreatedDate.Text = DateTime.Now.ToString();
+            txt_LastUpdateBy.Text= _u.ID.ToString();
             txt_LastUpdate.Text= DateTime.Now.ToString();
         }
 
@@ -47,9 +52,9 @@ namespace C969
             DateTime start = datetime_AppointmentStart.Value;
             DateTime end = datetime_AppointmentEnd.Value.AddHours(1);
             DateTime createDate = DateTime.Now;
-            string createdBy = "CREATE USER IN FORM";
+            string createdBy = txt_CreatedBy.Text;
             DateTime lastUpdate = DateTime.Now;
-            string lastUpdatedBy = "CREATE USER IN FORM";
+            string lastUpdatedBy = txt_LastUpdateBy.Text;
             
             Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);
         string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{start:yyyy-MM-dd HH:mm:ss}\", \"{end:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
@@ -60,9 +65,12 @@ namespace C969
             if (rowsAffected > 0)
             {
                 // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
-                MessageBox.Show($"{rowsAffected} record saved!");
-                //EventLogger.LogUnspecifiedEntry($"{formOwner} created new Appointment with ID {appointmentId}");
-             //  Dashboard.FormRefresh();
+;                MessageBox.Show($"{rowsAffected} record saved!");
+                EventLogger.LogUnspecifiedEntry($"{userID} created new Appointment with ID {appointmentID}");
+                //UserAccount dashboardRefresh = new UserAccount(null, null, null, null, null, null, null, null);
+                Form dash = new Dashboard(_u);
+
+
                 Close();
             }
             else

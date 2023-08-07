@@ -38,8 +38,10 @@ namespace C969
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_currentUser = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,27 +60,29 @@ namespace C969
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 88);
+            this.label1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.Size = new System.Drawing.Size(110, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Appointments";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 9);
+            this.label2.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(42, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(405, 25);
+            this.label2.Size = new System.Drawing.Size(561, 35);
             this.label2.TabIndex = 2;
             this.label2.Text = "Welcome to your appointment dashboard";
             // 
             // btn_AddAppointment
             // 
+            this.btn_AddAppointment.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddAppointment.Location = new System.Drawing.Point(47, 302);
             this.btn_AddAppointment.Name = "btn_AddAppointment";
-            this.btn_AddAppointment.Size = new System.Drawing.Size(99, 23);
+            this.btn_AddAppointment.Size = new System.Drawing.Size(149, 40);
             this.btn_AddAppointment.TabIndex = 3;
             this.btn_AddAppointment.Text = "Add Appointment";
             this.btn_AddAppointment.UseVisualStyleBackColor = true;
@@ -86,9 +90,10 @@ namespace C969
             // 
             // btn_EditAppointment
             // 
-            this.btn_EditAppointment.Location = new System.Drawing.Point(164, 302);
+            this.btn_EditAppointment.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_EditAppointment.Location = new System.Drawing.Point(233, 302);
             this.btn_EditAppointment.Name = "btn_EditAppointment";
-            this.btn_EditAppointment.Size = new System.Drawing.Size(117, 23);
+            this.btn_EditAppointment.Size = new System.Drawing.Size(158, 40);
             this.btn_EditAppointment.TabIndex = 4;
             this.btn_EditAppointment.Text = "Edit Appointment";
             this.btn_EditAppointment.UseVisualStyleBackColor = true;
@@ -97,10 +102,11 @@ namespace C969
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(47, 374);
+            this.button1.Location = new System.Drawing.Point(86, 369);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 41);
+            this.button1.Size = new System.Drawing.Size(256, 40);
             this.button1.TabIndex = 5;
             this.button1.Text = "refresh appts";
             this.button1.UseVisualStyleBackColor = false;
@@ -109,9 +115,10 @@ namespace C969
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.Location = new System.Drawing.Point(4, 30);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(62, 17);
+            this.radioButton1.Size = new System.Drawing.Size(84, 23);
             this.radioButton1.TabIndex = 6;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Monthly";
@@ -120,9 +127,10 @@ namespace C969
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.Location = new System.Drawing.Point(5, 66);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(61, 17);
+            this.radioButton2.Size = new System.Drawing.Size(79, 23);
             this.radioButton2.TabIndex = 7;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Weekly";
@@ -130,38 +138,64 @@ namespace C969
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(678, 285);
+            this.groupBox1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(600, 285);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(110, 100);
+            this.groupBox1.Size = new System.Drawing.Size(164, 130);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Appointment View";
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.Location = new System.Drawing.Point(6, 101);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(53, 23);
+            this.radioButton3.TabIndex = 8;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "ALL";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(629, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(48, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "User:";
             // 
             // txt_currentUser
             // 
             this.txt_currentUser.AutoSize = true;
+            this.txt_currentUser.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_currentUser.Location = new System.Drawing.Point(692, 23);
             this.txt_currentUser.Name = "txt_currentUser";
-            this.txt_currentUser.Size = new System.Drawing.Size(27, 13);
+            this.txt_currentUser.Size = new System.Drawing.Size(37, 19);
             this.txt_currentUser.TabIndex = 10;
             this.txt_currentUser.Text = "N/A";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(633, 55);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(131, 40);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Account Settings";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 481);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txt_currentUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
@@ -194,5 +228,7 @@ namespace C969
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txt_currentUser;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Button button2;
     }
 }
