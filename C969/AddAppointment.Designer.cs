@@ -143,16 +143,16 @@ namespace C969
             // dropdown_AppointmentType
             // 
             this.dropdown_AppointmentType.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dropdown_AppointmentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dropdown_AppointmentType.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.dropdown_AppointmentType.FormattingEnabled = true;
             this.dropdown_AppointmentType.Items.AddRange(new object[] {
             "Scrum",
             "Presentation"});
-            this.dropdown_AppointmentType.Location = new System.Drawing.Point(72, 140);
+            this.dropdown_AppointmentType.Location = new System.Drawing.Point(99, 140);
             this.dropdown_AppointmentType.Name = "dropdown_AppointmentType";
             this.dropdown_AppointmentType.Size = new System.Drawing.Size(147, 21);
             this.dropdown_AppointmentType.TabIndex = 11;
-            this.dropdown_AppointmentType.Text = "Select Appointment Type";
             // 
             // btn_AddAppointment_Save
             // 
@@ -388,7 +388,6 @@ namespace C969
             this.Controls.Add(this.label1);
             this.Name = "AddAppointment";
             this.Text = "Add Appointment";
-            this.Load += new System.EventHandler(this.AddAppointment_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

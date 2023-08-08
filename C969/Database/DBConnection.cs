@@ -233,10 +233,6 @@ namespace C969.Database
                 connect.Close();
             }
         }
-
-
-
-
     }
 }
 

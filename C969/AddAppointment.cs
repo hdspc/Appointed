@@ -66,11 +66,12 @@ namespace C969
             // Check Rows Affected to see if the record saved correctly
             if (rowsAffected > 0)
             {
+                VerifyStartTime(start);
+
                 // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
 ;                MessageBox.Show($"{rowsAffected} record saved!");
                 EventLogger.LogUnspecifiedEntry($"{userID} created new Appointment with ID {appointmentID}");
-                //UserAccount dashboardRefresh = new UserAccount(null, null, null, null, null, null, null, null);
-                Form dash = new Dashboard(_u);
+               // Form dash = new Dashboard(_u);
 
 
                 Close();
@@ -82,9 +83,16 @@ namespace C969
             }
         }
 
-        private void AddAppointment_Load(object sender, EventArgs e)
+        private void VerifyStartTime(DateTime start)
         {
+            //if (start = xxx)
+            //{
 
+            //}
+            //else
+            //{
+                MessageBox.Show(start.ToString());
+            //}
         }
     }
 }

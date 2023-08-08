@@ -26,9 +26,6 @@ namespace C969
 
 		}
 
-
-
-
 		private void submitButton_Click(object sender, EventArgs e)
         {
 			List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
@@ -47,14 +44,13 @@ namespace C969
 							Form dashboard = new Dashboard(u);
 
 							dashboard.ShowDialog();
-
 							return;
 						}
 						else
 						{
 							// Password doesn't match
 							EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
-							//throw new LoginInvalidException("Password does not match.");
+						//	throw new LoginInvalidException("Password does not match.");
 							MessageBox.Show("Check your password.");
 						}
 					}
@@ -75,10 +71,8 @@ namespace C969
 
 		private void OnUserLoggedIn(UserAccount user)
 		{
-			MessageBox.Show("Login Successful");
 			EventLogger.LogSuccessfulLogin(user);
 			UserLogin?.Invoke(null, new UserLogin(user));
-			//Close();
 		}
 
 		public static CurrentUser AssignCurrentUser(UserAccount user)

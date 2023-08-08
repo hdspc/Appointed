@@ -36,7 +36,7 @@ namespace C969
             appointmentDGV.AllowUserToAddRows = false;
 
 
-            txt_currentUser.Text = u.ID.ToString();
+            txt_currentUser.Text = u.Username.ToString();
         }
       
 
@@ -54,16 +54,6 @@ namespace C969
 
             addAppointment.ShowDialog();
         }
-
-
-
-
-
-
-
-
-
-
 
 
         public void FormRefresh()
@@ -92,7 +82,11 @@ namespace C969
 
         private void btn_EditAppointment_Click(object sender, EventArgs e)
         {
-            int selectedRowIndex = appointmentDGV.CurrentCell.RowIndex+1;
+            int selectedRowIndex = appointmentDGV.CurrentCell.RowIndex;
+            var clickID = appointmentDGV.Rows[selectedRowIndex].Cells[0].Value;
+
+            int editID = Int32.Parse(clickID.ToString());
+
            
             // MySqlConnection connect = Database.DBConnection.conn;
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
@@ -102,7 +96,7 @@ namespace C969
             {
                 connect.Open();
 
-                string sqlString = $"SELECT * FROM appointment WHERE appointmentId = {selectedRowIndex}";
+                string sqlString = $"SELECT * FROM appointment WHERE appointmentId = {editID}";
                 MySqlCommand getAppt = new MySqlCommand(sqlString, connect);
                 MySqlDataReader rdr = getAppt.ExecuteReader();
             
@@ -121,6 +115,33 @@ namespace C969
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void rdo_ALL_CheckedChanged(object sender, EventArgs e)
+        {
+            FormRefresh();
+        }
+
+        private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
+        {
+            MySqlConnection connect = Database.DBConnection.conn;
+            string sqlString = "SELECT * FROM appointment WHERE YEARWEEK(start)= YEARWEEK(CURRENT_DATE()) AND YEAR(start) = YEAR(CURRENT_DATE())";
+            MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
+            MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            appointmentDGV.DataSource = dt;
+        }
+
+        private void rdo_Monthly_CheckedChanged(object sender, EventArgs e)
+        {
+            MySqlConnection connect = Database.DBConnection.conn;
+            string sqlString = "SELECT * FROM appointment WHERE MONTH(start)= MONTH(CURRENT_DATE()) AND YEAR(start) = YEAR(CURRENT_DATE())";
+            MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
+            MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            appointmentDGV.DataSource = dt;
         }
     }
 }

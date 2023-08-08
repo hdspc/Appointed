@@ -74,7 +74,6 @@ namespace C969
             // Check Rows Affected to see if the record saved correctly
             if (rowsAffected > 0)
             {
-                // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
                 MessageBox.Show($"{rowsAffected} record(s) saved!");
                 //EventLogger.LogUnspecifiedEntry($"{formOwner} created new Appointment with ID {appointmentId}");
                 Close();
@@ -83,6 +82,34 @@ namespace C969
             {
                 // Something went wrong, exit with a warning
                 MessageBox.Show("Record did not insert into the database. This appointment has not been saved.");
+            }
+        }
+
+        private void btn_DeleteAppointment_Click(object sender, EventArgs e)
+        {
+            int appointmentID = Int32.Parse(txt_AppointmentID.Text);
+
+            MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
+
+            string deleteUserQuery = $"DELETE FROM appointment WHERE appointmentId = {appointmentID}";
+
+            MySqlCommand deleteUsersCommand = new MySqlCommand(deleteUserQuery, connect);
+
+
+            try
+            {
+                connect.Open();
+                deleteUsersCommand.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                MessageBox.Show("Appointment deleted.");
+                connect.Close();
+                Close();
             }
         }
     }

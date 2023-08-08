@@ -35,10 +35,10 @@ namespace C969
             this.btn_AddAppointment = new System.Windows.Forms.Button();
             this.btn_EditAppointment = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdo_Monthly = new System.Windows.Forms.RadioButton();
+            this.rdo_Weekly = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rdo_ALL = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_currentUser = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -56,7 +56,6 @@ namespace C969
             this.appointmentDGV.RowHeadersVisible = false;
             this.appointmentDGV.Size = new System.Drawing.Size(717, 231);
             this.appointmentDGV.TabIndex = 0;
-           
             // 
             // label1
             // 
@@ -113,35 +112,35 @@ namespace C969
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // radioButton1
+            // rdo_Monthly
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(4, 30);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(84, 23);
-            this.radioButton1.TabIndex = 6;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Monthly";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdo_Monthly.AutoSize = true;
+            this.rdo_Monthly.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdo_Monthly.Location = new System.Drawing.Point(4, 30);
+            this.rdo_Monthly.Name = "rdo_Monthly";
+            this.rdo_Monthly.Size = new System.Drawing.Size(84, 23);
+            this.rdo_Monthly.TabIndex = 6;
+            this.rdo_Monthly.Text = "Monthly";
+            this.rdo_Monthly.UseVisualStyleBackColor = true;
+            this.rdo_Monthly.CheckedChanged += new System.EventHandler(this.rdo_Monthly_CheckedChanged);
             // 
-            // radioButton2
+            // rdo_Weekly
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(5, 66);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(79, 23);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Weekly";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdo_Weekly.AutoSize = true;
+            this.rdo_Weekly.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdo_Weekly.Location = new System.Drawing.Point(5, 66);
+            this.rdo_Weekly.Name = "rdo_Weekly";
+            this.rdo_Weekly.Size = new System.Drawing.Size(79, 23);
+            this.rdo_Weekly.TabIndex = 7;
+            this.rdo_Weekly.Text = "Weekly";
+            this.rdo_Weekly.UseVisualStyleBackColor = true;
+            this.rdo_Weekly.CheckedChanged += new System.EventHandler(this.rdo_Weekly_CheckedChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rdo_ALL);
+            this.groupBox1.Controls.Add(this.rdo_Weekly);
+            this.groupBox1.Controls.Add(this.rdo_Monthly);
             this.groupBox1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(601, 377);
             this.groupBox1.Name = "groupBox1";
@@ -150,17 +149,19 @@ namespace C969
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Appointment View";
             // 
-            // radioButton3
+            // rdo_ALL
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(6, 101);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(53, 23);
-            this.radioButton3.TabIndex = 8;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "ALL";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdo_ALL.AutoSize = true;
+            this.rdo_ALL.Checked = true;
+            this.rdo_ALL.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdo_ALL.Location = new System.Drawing.Point(6, 101);
+            this.rdo_ALL.Name = "rdo_ALL";
+            this.rdo_ALL.Size = new System.Drawing.Size(53, 23);
+            this.rdo_ALL.TabIndex = 8;
+            this.rdo_ALL.TabStop = true;
+            this.rdo_ALL.Text = "ALL";
+            this.rdo_ALL.UseVisualStyleBackColor = true;
+            this.rdo_ALL.CheckedChanged += new System.EventHandler(this.rdo_ALL_CheckedChanged);
             // 
             // label3
             // 
@@ -225,12 +226,12 @@ namespace C969
         private System.Windows.Forms.Button btn_AddAppointment;
         private System.Windows.Forms.Button btn_EditAppointment;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdo_Monthly;
+        private System.Windows.Forms.RadioButton rdo_Weekly;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txt_currentUser;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton rdo_ALL;
         private System.Windows.Forms.Button button2;
     }
 }
