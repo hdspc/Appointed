@@ -56,11 +56,12 @@ namespace C969
             string contact = txt_Contact.Text;
             string type = dropdown_AppointmentType.Text;
             string url = txt_URL.Text;
-            DateTime start = datetime_AppointmentStart.Value;
-            DateTime end = datetime_AppointmentEnd.Value.AddHours(1);
-            DateTime createDate = DateTime.Now;
-            string createdBy = "CREATE USER IN FORM";
-            DateTime lastUpdate = DateTime.Now;
+
+            DateTime start = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentStart.Value);
+            DateTime end = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentEnd.Value.AddHours(1));
+            DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Parse(txt_CreatedDate.Text));
+            string createdBy = txt_CreatedBy.Text;
+            DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
             string lastUpdatedBy = _appointment.UserID.ToString();
 
             MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
@@ -69,7 +70,7 @@ namespace C969
 
             string insertString = $"appointmentId = {appointmentID}, customerId = {customerID}, userId =  {userID}, title = \"{title}\", description = \"{description}\", location =  \"{location}\", contact =  \"{contact}\", type =  \"{type}\", url = \"{url}\", start = \"{start:yyyy-MM-dd HH:mm:ss}\", end = \"{end:yyyy-MM-dd HH:mm:ss}\", createDate =  \"{createDate:yyyy-MM-dd HH:mm:ss}\", createdBy =  \"{createdBy}\", lastUpdate = \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", lastUpdateBy = \"{lastUpdatedBy}\"";
 
-            int rowsAffected = Database.DBConnection.UpdateRecord("appointment", insertString, $"appointmentID ={appointmentID}");
+            int rowsAffected = Database.DBConnection.UpdateRecord("appointment", insertString, $"appointmentID = {appointmentID}");
 
             // Check Rows Affected to see if the record saved correctly
             if (rowsAffected > 0)

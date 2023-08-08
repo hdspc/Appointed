@@ -50,11 +50,11 @@ namespace C969
             string contact = txt_Contact.Text;
             string type = dropdown_AppointmentType.Text;
             string url = txt_URL.Text;
-            DateTime start = datetime_AppointmentStart.Value;
-            DateTime end = datetime_AppointmentEnd.Value.AddHours(1);
-            DateTime createDate = DateTime.Now;
+            DateTime start = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentStart.Value);
+            DateTime end = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentEnd.Value.AddHours(1));
+            DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
             string createdBy = txt_CreatedBy.Text;
-            DateTime lastUpdate = DateTime.Now;
+            DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
             string lastUpdatedBy = txt_LastUpdateBy.Text;
             
             Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);

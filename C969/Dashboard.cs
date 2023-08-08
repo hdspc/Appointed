@@ -28,13 +28,25 @@ namespace C969
             MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
             DataTable dt = new DataTable();
             adp.Fill(dt);
-            appointmentDGV.DataSource = dt;
 
+            appointmentDGV.DataSource = dt;
             appointmentDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             appointmentDGV.MultiSelect = false;
             appointmentDGV.RowHeadersVisible = false;
             appointmentDGV.AllowUserToAddRows = false;
 
+            for (int idx = 0; idx < dt.Rows.Count; idx++)
+            {
+                dt.Rows[idx]["start"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["start"], TimeZoneInfo.Local).ToString();
+
+                dt.Rows[idx]["end"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["end"], TimeZoneInfo.Local).ToString();
+
+                dt.Rows[idx]["createDate"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["createDate"], TimeZoneInfo.Local).ToString();
+
+                dt.Rows[idx]["lastUpdate"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["lastUpdate"], TimeZoneInfo.Local).ToString();
+            }
+
+           
 
             txt_currentUser.Text = u.Username.ToString();
         }
