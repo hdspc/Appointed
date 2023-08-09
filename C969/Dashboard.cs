@@ -46,11 +46,11 @@ namespace C969
                 dt.Rows[idx]["lastUpdate"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["lastUpdate"], TimeZoneInfo.Local).ToString();
             }
 
-           
+
 
             txt_currentUser.Text = u.Username.ToString();
         }
-      
+
 
 
         //////////////////////////CHECK
@@ -85,7 +85,7 @@ namespace C969
             FormRefresh();
 
 
-            
+
 
 
 
@@ -99,7 +99,7 @@ namespace C969
 
             int editID = Int32.Parse(clickID.ToString());
 
-           
+
             // MySqlConnection connect = Database.DBConnection.conn;
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connect = new MySqlConnection(constr);
@@ -111,15 +111,15 @@ namespace C969
                 string sqlString = $"SELECT * FROM appointment WHERE appointmentId = {editID}";
                 MySqlCommand getAppt = new MySqlCommand(sqlString, connect);
                 MySqlDataReader rdr = getAppt.ExecuteReader();
-            
-            while (rdr.Read())
+
+                while (rdr.Read())
                 {
-                Appointment selectedAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString(), rdr.GetDateTime(9), rdr.GetDateTime(10), rdr.GetDateTime(11), rdr[12].ToString(), rdr.GetDateTime(13), rdr[14].ToString());
-                 
+                    Appointment selectedAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString(), rdr.GetDateTime(9), rdr.GetDateTime(10), rdr.GetDateTime(11), rdr[12].ToString(), rdr.GetDateTime(13), rdr[14].ToString());
 
-                EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
 
-                appointmentEditor.ShowDialog();
+                    EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
+
+                    appointmentEditor.ShowDialog();
                 }
                 connect.Close();
             }
@@ -155,5 +155,7 @@ namespace C969
             adp.Fill(dt);
             appointmentDGV.DataSource = dt;
         }
+
+
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using C969.Events;
+using System.Globalization;
 
 namespace C969
 {
@@ -92,6 +93,12 @@ namespace C969
 			Form dashboard = new Dashboard(u);
 
 			dashboard.ShowDialog();
+		}
+
+        private void timer_1sTick_Tick(object sender, EventArgs e)
+        {
+			//System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+			//MessageBox.Show("pw");
 		}
 	}
 }

@@ -62,12 +62,12 @@ namespace C969
             string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{start:yyyy-MM-dd HH:mm:ss}\", \"{end:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
 
             int rowsAffected = Database.DBConnection.InsertNewRecord("appointment", insertString);
+            MessageBox.Show(start.ToString());
 
             // Check Rows Affected to see if the record saved correctly
             if (rowsAffected > 0)
             {
                 VerifyStartTime(start);
-
                 // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
 ;                MessageBox.Show($"{rowsAffected} record saved!");
                 EventLogger.LogUnspecifiedEntry($"{userID} created new Appointment with ID {appointmentID}");

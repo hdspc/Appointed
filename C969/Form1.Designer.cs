@@ -29,6 +29,7 @@ namespace C969
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             this.userIDLabel = new System.Windows.Forms.Label();
             this.txt_UserIDTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@ namespace C969
             this.label1 = new System.Windows.Forms.Label();
             this.sqlStatusLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer_1sTick = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // userIDLabel
@@ -120,6 +122,12 @@ namespace C969
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // timer_1sTick
+            // 
+            this.timer_1sTick.Enabled = true;
+            this.timer_1sTick.Interval = 1000;
+            this.timer_1sTick.Tick += new System.EventHandler(this.timer_1sTick_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +160,7 @@ namespace C969
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sqlStatusLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer_1sTick;
     }
 }
 
