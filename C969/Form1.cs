@@ -25,6 +25,7 @@ namespace C969
 			string c = connect.DataSource;
 			sqlStatusLabel.Text = "Connected to "+ c;
 
+
 		}
 
 		private void submitButton_Click(object sender, EventArgs e)
@@ -91,14 +92,39 @@ namespace C969
 			UserAccount u = new UserAccount(1, "foo", "foo", true, DateTime.Now, "foo", DateTime.Now , "foo");
 
 			Form dashboard = new Dashboard(u);
+			MessageBox.Show(DateTime.Now.ToString());
 
 			dashboard.ShowDialog();
+
 		}
 
         private void timer_1sTick_Tick(object sender, EventArgs e)
         {
-			//System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-			//MessageBox.Show("pw");
-		}
+			//////System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+			//////MessageBox.Show("pw");
+
+			//////dt.Rows[idx]["start"]
+
+
+			CultureInfo currentCulture = CultureInfo.CurrentCulture;
+
+			//MessageBox.Show(currentCulture.ToString());
+
+            if (currentCulture.TwoLetterISOLanguageName == "es")
+            {
+                MessageBox.Show("espanol");
+				loginTitleLabel.Text="spanesh"
+            }
+            else
+            {
+                MessageBox.Show("english");
+
+			}
+
+        }
+
+
 	}
 }
+
+

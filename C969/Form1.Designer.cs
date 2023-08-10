@@ -125,7 +125,7 @@ namespace C969
             // timer_1sTick
             // 
             this.timer_1sTick.Enabled = true;
-            this.timer_1sTick.Interval = 1000;
+            this.timer_1sTick.Interval = 3000;
             this.timer_1sTick.Tick += new System.EventHandler(this.timer_1sTick_Tick);
             // 
             // Form1

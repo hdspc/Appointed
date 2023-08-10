@@ -41,8 +41,12 @@ namespace C969
             this.label3 = new System.Windows.Forms.Label();
             this.txt_currentUser = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.btn_GenerateReports = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // appointmentDGV
@@ -69,9 +73,9 @@ namespace C969
             // btn_AddAppointment
             // 
             this.btn_AddAppointment.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_AddAppointment.Location = new System.Drawing.Point(48, 430);
+            this.btn_AddAppointment.Location = new System.Drawing.Point(48, 408);
             this.btn_AddAppointment.Name = "btn_AddAppointment";
-            this.btn_AddAppointment.Size = new System.Drawing.Size(149, 40);
+            this.btn_AddAppointment.Size = new System.Drawing.Size(256, 40);
             this.btn_AddAppointment.TabIndex = 3;
             this.btn_AddAppointment.Text = "Add Appointment";
             this.btn_AddAppointment.UseVisualStyleBackColor = true;
@@ -80,9 +84,9 @@ namespace C969
             // btn_EditAppointment
             // 
             this.btn_EditAppointment.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_EditAppointment.Location = new System.Drawing.Point(234, 430);
+            this.btn_EditAppointment.Location = new System.Drawing.Point(48, 454);
             this.btn_EditAppointment.Name = "btn_EditAppointment";
-            this.btn_EditAppointment.Size = new System.Drawing.Size(158, 40);
+            this.btn_EditAppointment.Size = new System.Drawing.Size(256, 40);
             this.btn_EditAppointment.TabIndex = 4;
             this.btn_EditAppointment.Text = "Edit Appointment";
             this.btn_EditAppointment.UseVisualStyleBackColor = true;
@@ -93,7 +97,7 @@ namespace C969
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.Font = new System.Drawing.Font("Meiryo UI", 12F);
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(87, 497);
+            this.button1.Location = new System.Drawing.Point(48, 500);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(256, 40);
             this.button1.TabIndex = 5;
@@ -131,7 +135,7 @@ namespace C969
             this.groupBox1.Controls.Add(this.rdo_Weekly);
             this.groupBox1.Controls.Add(this.rdo_Monthly);
             this.groupBox1.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(585, 430);
+            this.groupBox1.Location = new System.Drawing.Point(585, 408);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(180, 130);
             this.groupBox1.TabIndex = 8;
@@ -171,7 +175,6 @@ namespace C969
             this.txt_currentUser.Size = new System.Drawing.Size(46, 24);
             this.txt_currentUser.TabIndex = 10;
             this.txt_currentUser.Text = "N/A";
-      
             // 
             // button2
             // 
@@ -183,11 +186,40 @@ namespace C969
             this.button2.Text = "Account Settings";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // btn_GenerateReports
+            // 
+            this.btn_GenerateReports.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.btn_GenerateReports.Location = new System.Drawing.Point(48, 546);
+            this.btn_GenerateReports.Name = "btn_GenerateReports";
+            this.btn_GenerateReports.Size = new System.Drawing.Size(256, 40);
+            this.btn_GenerateReports.TabIndex = 12;
+            this.btn_GenerateReports.Text = "Generate Reports";
+            this.btn_GenerateReports.UseVisualStyleBackColor = true;
+            this.btn_GenerateReports.Click += new System.EventHandler(this.btn_GenerateReports_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(412, 397);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(385, 486);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 15;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 612);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btn_GenerateReports);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txt_currentUser);
             this.Controls.Add(this.label3);
@@ -202,6 +234,7 @@ namespace C969
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +254,8 @@ namespace C969
         private System.Windows.Forms.Label txt_currentUser;
         private System.Windows.Forms.RadioButton rdo_ALL;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_GenerateReports;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
