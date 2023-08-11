@@ -38,61 +38,111 @@ namespace C969
             return;
         }
 
-  
+
         private void btn_AddAppointment_Save_Click(object sender, EventArgs e)
         {
-            int appointmentID = Int32.Parse(txt_AppointmentID.Text);
-            int customerID = Int32.Parse(txt_CustomerID.Text);
-            int userID = Int32.Parse(txt_UserID.Text);
-            string title = txt_Title.Text;
-            string description = txt_Description.Text;
-            string location = txt_Location.Text;
-            string contact = txt_Contact.Text;
-            string type = dropdown_AppointmentType.Text;
-            string url = txt_URL.Text;
-            DateTime start = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentStart.Value);
-            DateTime end = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentEnd.Value.AddHours(1));
-            DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
-            string createdBy = txt_CreatedBy.Text;
-            DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
-            string lastUpdatedBy = txt_LastUpdateBy.Text;
-            
-            Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
-            string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{start:yyyy-MM-dd HH:mm:ss}\", \"{end:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
-
-            int rowsAffected = Database.DBConnection.InsertNewRecord("appointment", insertString);
-            MessageBox.Show(start.ToString());
-
-            // Check Rows Affected to see if the record saved correctly
-            if (rowsAffected > 0)
+            try
             {
-                VerifyStartTime(start);
-                // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
-;                MessageBox.Show($"{rowsAffected} record saved!");
-                EventLogger.LogUnspecifiedEntry($"{userID} created new Appointment with ID {appointmentID}");
-               // Form dash = new Dashboard(_u);
+                List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
+
+                //DateTime otherApptStart = 
+                //    DateTime proposedEnd = 
+
+                int appointmentID = Int32.Parse(txt_AppointmentID.Text);
+                int customerID = Int32.Parse(txt_CustomerID.Text);
+                int userID = Int32.Parse(txt_UserID.Text);
+                string title = txt_Title.Text;
+                string description = txt_Description.Text;
+                string location = txt_Location.Text;
+                string contact = txt_Contact.Text;
+                string type = dropdown_AppointmentType.Text;
+                string url = txt_URL.Text;
+                DateTime proposedStart = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentStart.Value);
+                DateTime proposedEnd = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentEnd.Value/*.AddHours(1)*/);
+                DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
+                string createdBy = txt_CreatedBy.Text;
+                DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
+                string lastUpdatedBy = txt_LastUpdateBy.Text;
+
+                if (proposedStart > proposedEnd)
+                {
+                    // MessageBox.Show("Please change End Time");
+                    throw new AppointmentTimesInvalidException("chekc");
+                }
+
+                if (datetime_AppointmentStart.Value.Hour < 8 || datetime_AppointmentStart.Value.Hour > 17)
+                {
+                    MessageBox.Show("proposed start eror");
+                }
+
+                if (datetime_AppointmentStart.Value.Hour < 8 || datetime_AppointmentStart.Value.Hour > 17)
+                {
+                    MessageBox.Show("proposed end error");
+                }
 
 
-                Close();
+                IEnumerable<Appointment> userAppointments =
+                    from appt in allAppointments
+                    where appt.Start.ToLocalTime().Date == datetime_AppointmentStart.Value.Date || appt.End.ToLocalTime().Date == datetime_AppointmentEnd.Value.Date
+                    select appt;
+
+                foreach (var appt in userAppointments)
+                {
+                    DateTime apptStart = appt.Start.ToLocalTime();
+                    DateTime apptEnd = appt.End.ToLocalTime();
+
+                    if ((apptStart >= datetime_AppointmentStart.Value && apptStart <= datetime_AppointmentEnd.Value)
+                        || (apptEnd >= datetime_AppointmentStart.Value && apptEnd <= datetime_AppointmentEnd.Value)
+                        || (datetime_AppointmentStart.Value >= apptStart && datetime_AppointmentStart.Value <= apptEnd)
+                        || (datetime_AppointmentEnd.Value >= apptStart && datetime_AppointmentEnd.Value <= apptEnd))
+                    {
+                        //throw new AppointmentOverlapException($"Appointment overlaps with another appointment [ApptID #{appt.AppointmentID}]");
+                        MessageBox.Show("there's an error");
+                    }
+                }
+
+
+
+                Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, proposedStart, proposedEnd, createDate, createdBy, lastUpdate, lastUpdatedBy);
+
+                string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{proposedStart:yyyy-MM-dd HH:mm:ss}\", \"{proposedEnd:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
+
+                int rowsAffected = Database.DBConnection.InsertNewRecord("appointment", insertString);
+
+                // Check Rows Affected to see if the record saved correctly
+                if (rowsAffected > 0)
+                {
+
+                    //checkOverlap(appt.Start, appt.End, proposedStart, proposedEnd)
+                    // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
+                     MessageBox.Show($"{rowsAffected} record saved!");
+                    EventLogger.LogUnspecifiedEntry($"{userID} created new Appointment with ID {appointmentID}");
+                    // Form dash = new Dashboard(_u);
+                    Close();
+
+                    UserAccount currentUser = Database.DBConnection.GetUserById(userID);
+                    Form dashboard = new Dashboard(currentUser);
+
+                    dashboard.ShowDialog();
+
+                }
+                else
+                {
+                    // Something went wrong, exit with a warning
+                    MessageBox.Show("Record did not insert into the database. This appointment has not been saved.");
+                }
             }
-            else
+            catch
             {
-                // Something went wrong, exit with a warning
-                MessageBox.Show("Record did not insert into the database. This appointment has not been saved.");
+                MessageBox.Show("check what");
             }
         }
+       
 
-        private void VerifyStartTime(DateTime start)
-        {
-            //if (start = xxx)
-            //{
-
-            //}
-            //else
-            //{
-                MessageBox.Show(start.ToString());
-            //}
-        }
+    //private bool checkOverlap(DateTime start, DateTime end, DateTime appointmentStart, DateTime appointmentEnd)
+    //    {
+    //        return (start < appointmentStart) ? (end < appointmentStart) ? false : true : (start > appointmentEnd) ? false : true;
+    //    }
     }
 }

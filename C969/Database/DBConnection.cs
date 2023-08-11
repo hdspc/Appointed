@@ -116,9 +116,8 @@ namespace C969.Database
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(query);
+                MessageBox.Show(ex.ToString());
 
-                MessageBox.Show(ex.Message +"FUCK");
                 return -1;
             }
             finally
@@ -127,7 +126,7 @@ namespace C969.Database
             }
         }
 
-
+        
         public static List<UserAccount> GetAllUserAccounts()
         {
             List<UserAccount> allUsers = new List<UserAccount>();
@@ -233,6 +232,82 @@ namespace C969.Database
                 connect.Close();
             }
         }
+        /*
+        public static DateTime GetAllStartTimesByID(int userID)
+        {
+            DateTime startTime = new DateTime();
+            List<Appointment> allAppointments = new List<Appointment>();
+
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection db = new MySqlConnection(constr);
+
+            string allStartsQuery = $"SELECT start FROM appointment where userId = {userID}";
+            MySqlCommand selectAllStartTimesCommand = new MySqlCommand(allStartsQuery, db);
+
+            try
+            {
+                db.Open();
+                return selectAllStartTimesCommand.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+                return DateTime.Now;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+*/
+
+        public static List<Appointment> GetAllAppointments()
+        {
+            List<Appointment> allAppointments = new List<Appointment>();
+
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection db = new MySqlConnection(constr);
+            
+            string allAppointmentsQuery = "SELECT * FROM appointment";
+            MySqlCommand selectAllAppointmentsCommand = new MySqlCommand(allAppointmentsQuery, db);
+
+            try
+            {
+                db.Open();
+
+                MySqlDataReader reader = selectAllAppointmentsCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Appointment appointment = new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6),
+                        reader.GetString(7), reader.GetString(8), reader.GetDateTime(9), reader.GetDateTime(10), reader.GetDateTime(11), reader.GetString(12), reader.GetDateTime(13), reader.GetString(14));
+
+                    allAppointments.Add(appointment);
+                }
+
+                return allAppointments;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }
 

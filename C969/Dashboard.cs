@@ -35,16 +35,7 @@ namespace C969
             appointmentDGV.RowHeadersVisible = false;
             appointmentDGV.AllowUserToAddRows = false;
 
-            //for (int idx = 0; idx < dt.Rows.Count; idx++)
-            //{
-            //    dt.Rows[idx]["start"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["start"], TimeZoneInfo.Local).ToString();
 
-            //    dt.Rows[idx]["end"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["end"], TimeZoneInfo.Local).ToString();
-
-            //    dt.Rows[idx]["createDate"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["createDate"], TimeZoneInfo.Local).ToString();
-
-            //    dt.Rows[idx]["lastUpdate"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["lastUpdate"], TimeZoneInfo.Local).ToString();
-            //}
 
             changeTimeFromUTC(dt);
 
@@ -62,28 +53,35 @@ namespace C969
 
         private void btn_AddAppointment_Click(object sender, EventArgs e)
         {
+            this.Dispose();
+
             UserAccount currentUser = Database.DBConnection.GetUserById(_u.ID);
 
             Form addAppointment = new AddAppointment(currentUser);
 
             addAppointment.ShowDialog();
+
         }
 
 
         public void FormRefresh()
         {
+            Close();
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment";
-            MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
-            MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
+            MySqlCommand refresh = new MySqlCommand(sqlString, connect);
+            MySqlDataAdapter adp = new MySqlDataAdapter(refresh);
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
             changeTimeFromUTC(dt);
 
             appointmentDGV.DataSource = dt;
+            //UserAccount currentUser = Database.DBConnection.GetUserById(_u.ID);
 
+            //Form dashboard = new Dashboard(_u);
 
+            //dashboard.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -116,6 +114,7 @@ namespace C969
                 {
                     Appointment selectedAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString(), rdr.GetDateTime(9), rdr.GetDateTime(10), rdr.GetDateTime(11), rdr[12].ToString(), rdr.GetDateTime(13), rdr[14].ToString());
 
+                    this.Dispose();
 
                     EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
 
@@ -158,7 +157,7 @@ namespace C969
             appointmentDGV.DataSource = dt;
         }
 
-        private void changeTimeFromUTC(DataTable dt)
+        private static void changeTimeFromUTC(DataTable dt)
         {
             for (int idx = 0; idx < dt.Rows.Count; idx++)
             {

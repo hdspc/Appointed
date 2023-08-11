@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="EventLogger.cs" />
     <Compile Include="Events\UserLogin.cs" />
+    <Compile Include="Exceptions\AppointmentTimesInvalidException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

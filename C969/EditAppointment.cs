@@ -42,6 +42,15 @@ namespace C969
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             Close();
+
+            int userID = Int32.Parse(txt_UserID.Text);
+
+
+            UserAccount currentUser = Database.DBConnection.GetUserById(userID);
+            Form dashboard = new Dashboard(currentUser);
+
+            dashboard.ShowDialog();
+            
         }
 
         private void btn_EditAppointment_Save_Click(object sender, EventArgs e)
@@ -77,7 +86,11 @@ namespace C969
             {
                 MessageBox.Show($"{rowsAffected} record(s) saved!");
                 //EventLogger.LogUnspecifiedEntry($"{formOwner} created new Appointment with ID {appointmentId}");
-                Close();
+                //Close();
+                UserAccount currentUser = Database.DBConnection.GetUserById(userID);
+                Form dashboard = new Dashboard(currentUser);
+
+                dashboard.ShowDialog();
             }
             else
             {

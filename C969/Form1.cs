@@ -24,7 +24,7 @@ namespace C969
 			InitializeComponent();
 			string c = connect.DataSource;
 			sqlStatusLabel.Text = "Connected to "+ c;
-
+			loginTitleLabel.Text = "hello:";
 
 		}
 
@@ -45,7 +45,7 @@ namespace C969
 							AssignCurrentUser(u);
 							Form dashboard = new Dashboard(u);
 
-							dashboard.ShowDialog();
+							dashboard.Show();
 							return;
 						}
 						else
@@ -73,6 +73,7 @@ namespace C969
 
 		private void OnUserLoggedIn(UserAccount user)
 		{
+
 			EventLogger.LogSuccessfulLogin(user);
 			UserLogin?.Invoke(null, new UserLogin(user));
 		}
@@ -83,6 +84,7 @@ namespace C969
 			CurrentUser currentUser = new CurrentUser(user.ID, user.Username, user.Password, user.IsActive, user.DateCreated, user.CreatedBy, user.LastUpdated, user.LastUpdatedBy);
 
 			return currentUser;
+			
 
 		}
 
@@ -92,7 +94,6 @@ namespace C969
 			UserAccount u = new UserAccount(1, "foo", "foo", true, DateTime.Now, "foo", DateTime.Now , "foo");
 
 			Form dashboard = new Dashboard(u);
-			MessageBox.Show(DateTime.Now.ToString());
 
 			dashboard.ShowDialog();
 
@@ -112,16 +113,17 @@ namespace C969
 
             if (currentCulture.TwoLetterISOLanguageName == "es")
             {
-                MessageBox.Show("espanol");
-				loginTitleLabel.Text = "spanesh";
             }
             else
             {
-                MessageBox.Show("english");
+                //MessageBox.Show("else");
+				loginTitleLabel.Text = "spanesh";
+
 
 			}
 
-        }
+
+		}
 
 
 	}
