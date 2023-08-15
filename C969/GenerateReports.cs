@@ -17,31 +17,30 @@ namespace C969
 		private List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
 		private List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
-		public GenerateReports()
+		public GenerateReports(UserAccount u)
 		{
 			InitializeComponent();
+			_u = u;
 		}
 
 		private void btn_NumberAppointmentTypesByMonth_Click(object sender, EventArgs e)
 		{
 			List<Appointment> dt = allAppointments;
+			int currentUserID = _u.ID;
 
-			Array appointmentInfo = dt.ToArray();
 
+			Database.DBConnection.GetAppointmentTypeCount(currentUserID);
+			//Array appointmentInfo = dt.ToArray();
 
-			for (int idx = 0; idx < appointmentInfo.Length; idx++)
+			//MessageBox.Show(appointmentInfo.Length.ToString());
+
+			for (int idx = 0; idx < dt.Count(); idx++)
 			{
-				////int selectedRowIndex = appointme`ntDGV.CurrentCell.RowIndex;
-				////var clickID = appointmentDGV.Rows[selectedRowIndex].Cells[0].Value;
-				////int editID = Int32.Parse(clickID.ToString());
-				///
+				string reportString = "";
+				MessageBox.Show("REPORT GENERATOR " + idx.ToString());
 
 
 
-				MessageBox.Show("REPORT GENERATOR "/* + appointmentInfo[idx].ToString()*/);
-
-
-				//MessageBox.Show(dt[0].ToString());
 			}
 		}
 	}

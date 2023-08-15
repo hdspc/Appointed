@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace C969.Exceptions
 {
-    class AppointmentTimesInvalidException
+    public class AppointmentTimesInvalidException : Exception
     {
+        public AppointmentTimesInvalidException() : base("Appointment Times Invalid based on"){
+
+            }
+
+
     }
 }

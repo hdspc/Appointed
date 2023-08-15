@@ -196,11 +196,7 @@ namespace C969.Database
             }
         }
 
-        /// <summary>
-        /// Retrieves a UserAccount from USER table using the provided ID to select
-        /// </summary>
-        /// <param name="userId">ID of the UserAccount to retrieve</param>
-        /// <returns>UserAccount Object or NULL</returns>
+ 
         public static UserAccount GetUserById(int userId)
         {
             MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
@@ -298,6 +294,35 @@ namespace C969.Database
                 db.Close();
             }
         }
+
+
+        
+    public static int GetAppointmentTypeCount(int userID)
+    {
+        List<Appointment> allAppointments = new List<Appointment>();
+
+        string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+        MySqlConnection db = new MySqlConnection(constr);
+
+        string typeCountQuery = $"SELECT COUNT(type) as typez FROM appointment where userId = {userID}";
+        MySqlCommand countTypesCommand = new MySqlCommand(typeCountQuery, db);
+
+        try
+        {
+            db.Open();
+            return countTypesCommand.ExecuteNonQuery();
+        }
+        catch (MySqlException ex)
+        {
+            MessageBox.Show(ex.ToString());
+                return -1;
+        }
+        finally
+        {
+            db.Close();
+        }
+    }
+
 
 
 
