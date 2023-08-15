@@ -10,7 +10,7 @@ namespace C969
     public class CurrentUser
     {
         //static variable to store the instance
-        private static CurrentUser currentUser;
+       // private static CurrentUser currentUser;
 
 
         private int userID;

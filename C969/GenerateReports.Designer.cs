@@ -32,7 +32,8 @@ namespace C969
 			this.btn_NumberAppointmentTypesByMonth = new System.Windows.Forms.Button();
 			this.btn_ConsultantSchedule = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
-			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+			this.txt_ReportTextBox = new System.Windows.Forms.RichTextBox();
+			this.dropdown_Months = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// btn_NumberAppointmentTypesByMonth
@@ -53,6 +54,7 @@ namespace C969
 			this.btn_ConsultantSchedule.TabIndex = 1;
 			this.btn_ConsultantSchedule.Text = "Consultant Schedule";
 			this.btn_ConsultantSchedule.UseVisualStyleBackColor = true;
+			this.btn_ConsultantSchedule.Click += new System.EventHandler(this.btn_ConsultantSchedule_Click);
 			// 
 			// button3
 			// 
@@ -63,20 +65,44 @@ namespace C969
 			this.button3.Text = "Report of my choice";
 			this.button3.UseVisualStyleBackColor = true;
 			// 
-			// richTextBox1
+			// txt_ReportTextBox
 			// 
-			this.richTextBox1.Location = new System.Drawing.Point(425, 64);
-			this.richTextBox1.Name = "richTextBox1";
-			this.richTextBox1.Size = new System.Drawing.Size(293, 248);
-			this.richTextBox1.TabIndex = 3;
-			this.richTextBox1.Text = "";
+			this.txt_ReportTextBox.Location = new System.Drawing.Point(431, 106);
+			this.txt_ReportTextBox.Name = "txt_ReportTextBox";
+			this.txt_ReportTextBox.Size = new System.Drawing.Size(293, 248);
+			this.txt_ReportTextBox.TabIndex = 3;
+			this.txt_ReportTextBox.Text = "";
+			// 
+			// dropdown_Months
+			// 
+			this.dropdown_Months.FormattingEnabled = true;
+			this.dropdown_Months.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+			this.dropdown_Months.Location = new System.Drawing.Point(431, 53);
+			this.dropdown_Months.Name = "dropdown_Months";
+			this.dropdown_Months.Size = new System.Drawing.Size(121, 21);
+			this.dropdown_Months.TabIndex = 4;
+			this.dropdown_Months.Tag = "MMMonth";
+			this.dropdown_Months.Text = "January";
 			// 
 			// GenerateReports
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.richTextBox1);
+			this.Controls.Add(this.dropdown_Months);
+			this.Controls.Add(this.txt_ReportTextBox);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.btn_ConsultantSchedule);
 			this.Controls.Add(this.btn_NumberAppointmentTypesByMonth);
@@ -91,6 +117,7 @@ namespace C969
 		private System.Windows.Forms.Button btn_NumberAppointmentTypesByMonth;
 		private System.Windows.Forms.Button btn_ConsultantSchedule;
 		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.RichTextBox richTextBox1;
+		private System.Windows.Forms.RichTextBox txt_ReportTextBox;
+		private System.Windows.Forms.ComboBox dropdown_Months;
 	}
 }

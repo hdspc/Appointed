@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MySql.Data.MySqlClient;
+using System.Configuration;
+
 namespace C969
 {
 	public partial class GenerateReports : Form
@@ -21,27 +24,32 @@ namespace C969
 		{
 			InitializeComponent();
 			_u = u;
+
+			dropdown_Months.DropDownStyle = ComboBoxStyle.DropDownList;
 		}
 
 		private void btn_NumberAppointmentTypesByMonth_Click(object sender, EventArgs e)
 		{
 			List<Appointment> dt = allAppointments;
 			int currentUserID = _u.ID;
+			string currentUsername = _u.Username;
+
+			string chosenMonth = dropdown_Months.Text;
 
 
-			Database.DBConnection.GetAppointmentTypeCount(currentUserID);
-			//Array appointmentInfo = dt.ToArray();
+			int presentationNumber = Database.DBConnection.GetAppointmentTypeCount(currentUserID, "presentation", chosenMonth);
 
-			//MessageBox.Show(appointmentInfo.Length.ToString());
+			int scrumNumber =
+			Database.DBConnection.GetAppointmentTypeCount(currentUserID, "scrum", chosenMonth);
 
-			for (int idx = 0; idx < dt.Count(); idx++)
-			{
-				string reportString = "";
-				MessageBox.Show("REPORT GENERATOR " + idx.ToString());
+			
 
+			txt_ReportTextBox.Text = $"Number of presentations for {currentUsername} in {chosenMonth}: {presentationNumber.ToString()} \r\n\r\n Number of scrums:  {scrumNumber.ToString()}";
+		}
 
+		private void btn_ConsultantSchedule_Click(object sender, EventArgs e)
+		{
 
-			}
 		}
 	}
 }

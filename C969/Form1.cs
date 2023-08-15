@@ -113,11 +113,13 @@ namespace C969
 
             if (currentCulture.TwoLetterISOLanguageName == "es")
             {
-            }
-            else
+				loginTitleLabel.Text = "Spanish";
+
+			}
+			else
             {
-                //MessageBox.Show("else");
-				loginTitleLabel.Text = "spanesh";
+				//MessageBox.Show("else");
+				loginTitleLabel.Text = "English";
 
 
 			}
