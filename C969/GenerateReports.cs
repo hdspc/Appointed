@@ -38,7 +38,7 @@ namespace C969
 
 
 
-				MessageBox.Show("REPORT GENERATOR " + appointmentInfo[idx].ToString());
+				MessageBox.Show("REPORT GENERATOR "/* + appointmentInfo[idx].ToString()*/);
 
 
 				//MessageBox.Show(dt[0].ToString());

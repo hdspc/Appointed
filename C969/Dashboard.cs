@@ -64,7 +64,6 @@ namespace C969
 
         public void FormRefresh()
         {
-            Close();
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment";
             MySqlCommand refresh = new MySqlCommand(sqlString, connect);
@@ -131,7 +130,11 @@ namespace C969
             FormRefresh();
         }
 
-        private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
+
+///////////////////////////////////CHECKKCKCK
+
+
+private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
         {
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment WHERE YEARWEEK(start)= YEARWEEK(CURRENT_DATE()) AND YEAR(start) = YEAR(CURRENT_DATE())";
