@@ -65,42 +65,71 @@ namespace C969
                 DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdatedBy = txt_LastUpdateBy.Text;
 
-                if (proposedStart > proposedEnd)
-                {
-                    // MessageBox.Show("Please change End Time");
-                    throw new AppointmentTimesInvalidException("chekc");
-                }
-
-                if (datetime_AppointmentStart.Value.Hour < 8 || datetime_AppointmentStart.Value.Hour > 17)
-                {
-                    MessageBox.Show("proposed start eror");
-                }
-
-                if (datetime_AppointmentStart.Value.Hour < 8 || datetime_AppointmentStart.Value.Hour > 17)
-                {
-                    MessageBox.Show("proposed end error");
-                }
 
 
-                IEnumerable<Appointment> userAppointments =
-                    from appt in allAppointments
-                    where appt.Start.ToLocalTime().Date == datetime_AppointmentStart.Value.Date || appt.End.ToLocalTime().Date == datetime_AppointmentEnd.Value.Date
-                    select appt;
+                #region exceptions 
 
-                foreach (var appt in userAppointments)
-                {
-                    DateTime apptStart = appt.Start.ToLocalTime();
-                    DateTime apptEnd = appt.End.ToLocalTime();
+                ////////if (proposedStart > proposedEnd)
+                ////////            {
+                ////////                // MessageBox.Show("Please change End Time");
+                ////////                throw new AppointmentTimesInvalidException("chekc");
+                ////////            }
 
-                    if ((apptStart >= datetime_AppointmentStart.Value && apptStart <= datetime_AppointmentEnd.Value)
-                        || (apptEnd >= datetime_AppointmentStart.Value && apptEnd <= datetime_AppointmentEnd.Value)
-                        || (datetime_AppointmentStart.Value >= apptStart && datetime_AppointmentStart.Value <= apptEnd)
-                        || (datetime_AppointmentEnd.Value >= apptStart && datetime_AppointmentEnd.Value <= apptEnd))
-                    {
-                        //throw new AppointmentOverlapException($"Appointment overlaps with another appointment [ApptID #{appt.AppointmentID}]");
-                        MessageBox.Show("there's an error");
-                    }
-                }
+                ////////            if (datetime_AppointmentStart.Value.Hour < 8 || datetime_AppointmentStart.Value.Hour > 17)
+                ////////            {
+                ////////                MessageBox.Show("proposed start eror");
+                ////////            }
+
+                ////////            if (datetime_AppointmentStart.Value.Hour < 8 || datetime_AppointmentStart.Value.Hour > 17)
+                ////////            {
+                ////////                MessageBox.Show("proposed end error");
+                ////////            }
+
+
+
+
+
+                //IEnumerable<Appointment> userAppointments =
+                //                from appt in allAppointments
+                //                where appt.Start.ToLocalTime().Date == datetime_AppointmentStart.Value.Date || appt.End.ToLocalTime().Date == datetime_AppointmentEnd.Value.Date
+                //                select appt;
+
+                //            foreach (var appt in userAppointments)
+                //            {
+                //                DateTime apptStart = appt.Start.ToLocalTime();
+                //                DateTime apptEnd = appt.End.ToLocalTime();
+
+                //                if ((apptStart >= datetime_AppointmentStart.Value && apptStart <= datetime_AppointmentEnd.Value)
+                //                    || (apptEnd >= datetime_AppointmentStart.Value && apptEnd <= datetime_AppointmentEnd.Value)
+                //                    || (datetime_AppointmentStart.Value >= apptStart && datetime_AppointmentStart.Value <= apptEnd)
+                //                    || (datetime_AppointmentEnd.Value >= apptStart && datetime_AppointmentEnd.Value <= apptEnd))
+                //                {
+                //                    //throw new AppointmentOverlapException($"Appointment overlaps with another appointment [ApptID #{appt.AppointmentID}]");
+                //                    MessageBox.Show("there's an error");
+                //                }
+                //            }
+
+
+
+
+
+
+
+
+
+
+                //////////////////////PROFESSOR OVERLAP
+
+                //private bool checkOverlap(DateTime start, DateTime end, DateTime appointmentStart, DateTime appointmentEnd)
+                //    {
+                //        return (start < appointmentStart) ? (end < appointmentStart) ? false : true : (start > appointmentEnd) ? false : true;
+                //    }
+
+
+                #endregion
+
+
+
 
 
 
@@ -133,16 +162,12 @@ namespace C969
                     MessageBox.Show("Record did not insert into the database. This appointment has not been saved.");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("check what");
+                MessageBox.Show(ex.StackTrace);
             }
         }
        
 
-    //private bool checkOverlap(DateTime start, DateTime end, DateTime appointmentStart, DateTime appointmentEnd)
-    //    {
-    //        return (start < appointmentStart) ? (end < appointmentStart) ? false : true : (start > appointmentEnd) ? false : true;
-    //    }
     }
 }

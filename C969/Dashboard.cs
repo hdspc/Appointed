@@ -171,18 +171,13 @@ namespace C969
 
         private void btn_GenerateReports_Click(object sender, EventArgs e)
         {
+            Close();
+            Form generateReports = new GenerateReports();
+            generateReports.ShowDialog();
+
 
         }
 
-        private void ReportWriter(DataTable dt)
-        {
-            for (int idx = 0; idx < dt.Rows.Count; idx++)
-            {
-                //dt.Rows[idx]["start"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["start"], TimeZoneInfo.Local).ToString();
-
-                MessageBox.Show("REPORT GENERATOR " + dt.Rows[idx]["start"].ToString());
-
-            }
-        }
+      
     }
 }

@@ -15,7 +15,7 @@ namespace C969
 
 		private UserAccount _u;
 		private List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
-		private List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts;
+		private List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
 		public GenerateReports()
 		{
@@ -24,7 +24,25 @@ namespace C969
 
 		private void btn_NumberAppointmentTypesByMonth_Click(object sender, EventArgs e)
 		{
+			List<Appointment> dt = allAppointments;
 
+			Array appointmentInfo = dt.ToArray();
+
+
+			for (int idx = 0; idx < appointmentInfo.Length; idx++)
+			{
+				////int selectedRowIndex = appointme`ntDGV.CurrentCell.RowIndex;
+				////var clickID = appointmentDGV.Rows[selectedRowIndex].Cells[0].Value;
+				////int editID = Int32.Parse(clickID.ToString());
+				///
+
+
+
+				MessageBox.Show("REPORT GENERATOR " + appointmentInfo[idx].ToString());
+
+
+				//MessageBox.Show(dt[0].ToString());
+			}
 		}
 	}
 }
@@ -80,3 +98,24 @@ namespace C969
 ////////////{
 ////////////    MessageBox.Show(ex.ToString());
 ////////////}
+///
+
+
+
+
+
+
+
+
+
+
+//private void ReportWriter(DataTable dt)
+//{
+//	for (int idx = 0; idx < dt.Rows.Count; idx++)
+//	{
+//		//dt.Rows[idx]["start"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["start"], TimeZoneInfo.Local).ToString();
+
+//		MessageBox.Show("REPORT GENERATOR " + dt.Rows[idx]["start"].ToString());
+
+//	}
+//}
