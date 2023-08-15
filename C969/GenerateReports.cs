@@ -44,12 +44,16 @@ namespace C969
 
 			
 
-			txt_ReportTextBox.Text = $"Number of presentations for {currentUsername} in {chosenMonth}: {presentationNumber.ToString()} \r\n\r\n Number of scrums:  {scrumNumber.ToString()}";
+			txt_ReportTextBox.Text = $"Appointments for {currentUsername} in {chosenMonth} \r\n\r\nNumber of presentations: {presentationNumber.ToString()} \r\n\r\nNumber of scrums:  {scrumNumber.ToString()}";
 		}
 
 		private void btn_ConsultantSchedule_Click(object sender, EventArgs e)
 		{
+			List<Appointment> dt = allAppointments;
+			int currentUserID = _u.ID;
+			string currentUsername = _u.Username;
 
+			Database.DBConnection.
 		}
 	}
 }

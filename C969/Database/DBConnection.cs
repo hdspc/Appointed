@@ -305,7 +305,8 @@ namespace C969.Database
 			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
 			MySqlConnection db = new MySqlConnection(constr);
 
-			string typeCountQuery = $"SELECT COUNT(type) FROM appointment WHERE type='{appointmentType}' && userId = {userID} && MONTHNAME = '{chosenMonth}'"; 
+			string typeCountQuery = $"SELECT COUNT(type) FROM appointment WHERE type='{appointmentType}' && userId = {userID} && MONTHNAME(start) = '{chosenMonth}'";
+
 			MySqlCommand countTypesCommand = new MySqlCommand(typeCountQuery, db);
 
 
