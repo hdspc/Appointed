@@ -74,11 +74,6 @@ namespace C969
             changeTimeFromUTC(dt);
 
             appointmentDGV.DataSource = dt;
-            //UserAccount currentUser = Database.DBConnection.GetUserById(_u.ID);
-
-            //Form dashboard = new Dashboard(_u);
-
-            //dashboard.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -95,7 +90,6 @@ namespace C969
             int editID = Int32.Parse(clickID.ToString());
 
 
-            // MySqlConnection connect = Database.DBConnection.conn;
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connect = new MySqlConnection(constr);
 
@@ -125,6 +119,8 @@ namespace C969
             }
         }
 
+       
+        
         private void rdo_ALL_CheckedChanged(object sender, EventArgs e)
         {
             FormRefresh();
@@ -158,7 +154,7 @@ private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
             appointmentDGV.DataSource = dt;
         }
 
-        private static void changeTimeFromUTC(DataTable dt)
+        public static void changeTimeFromUTC(DataTable dt)
         {
             for (int idx = 0; idx < dt.Rows.Count; idx++)
             {

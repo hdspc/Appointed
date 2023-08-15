@@ -30,6 +30,11 @@ namespace C969
 
 		private void btn_NumberAppointmentTypesByMonth_Click(object sender, EventArgs e)
 		{
+			dgv_consultantSchedule.Visible = false;
+			txt_ReportTextBox.Text = "";
+			txt_ReportTextBox.Visible = true;
+
+
 			List<Appointment> dt = allAppointments;
 			int currentUserID = _u.ID;
 			string currentUsername = _u.Username;
@@ -49,11 +54,50 @@ namespace C969
 
 		private void btn_ConsultantSchedule_Click(object sender, EventArgs e)
 		{
-			List<Appointment> dt = allAppointments;
+			//THEY WANT ALL APPOINTMENTS
+
+			txt_ReportTextBox.Visible = false;
+			dgv_consultantSchedule.Visible = true;
+
+			MySqlConnection connect = Database.DBConnection.conn;
+			string sqlString = "SELECT * FROM appointment";
+			MySqlCommand refresh = new MySqlCommand(sqlString, connect);
+			MySqlDataAdapter adp = new MySqlDataAdapter(refresh);
+			DataTable dt = new DataTable();
+			adp.Fill(dt);
+
+			Dashboard.changeTimeFromUTC(dt);
+
+			dgv_consultantSchedule.DataSource = dt;
+
+		}
+
+		private void btn_customReport_Click(object sender, EventArgs e)
+		{
+
+			txt_ReportTextBox.Visible = false;
+			dgv_consultantSchedule.Visible = true;
+
+
 			int currentUserID = _u.ID;
 			string currentUsername = _u.Username;
 
-			Database.DBConnection.
+
+			DataTable userAppointmentList = Database.DBConnection.GetAppointmentsByID(currentUserID);
+			dgv_consultantSchedule.DataSource = userAppointmentList;
+
+
+
+
+			//txt_ReportTextBox.Text = String.Join(Environment.NewLine, userAppointmentList);
+
+			//for (int idx = 0; idx < userAppointmentList.Count; idx++)
+			//{
+			//	//dt.Rows[idx]["start"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["start"], TimeZoneInfo.Local).ToString();
+
+			//	MessageBox.Show("penis");
+
+			//}
 		}
 	}
 }

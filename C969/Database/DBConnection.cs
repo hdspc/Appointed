@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
@@ -297,10 +298,7 @@ namespace C969.Database
 
 		public static int GetAppointmentTypeCount(int userID, string appointmentType, string chosenMonth)
 		{
-			UserAccount _u = Database.DBConnection.GetUserById(userID);
-
-			List<Appointment> allAppointments = new List<Appointment>();
-
+			UserAccount _u = GetUserById(userID);
 
 			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
 			MySqlConnection db = new MySqlConnection(constr);
@@ -340,7 +338,64 @@ namespace C969.Database
 		}
 
 
+		public static DataTable GetAppointmentsByID(int userID)
+		{
 
+			List<Appointment> userAppointments = new List<Appointment>();
+
+			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+			MySqlConnection db = new MySqlConnection(constr);
+			db.Close();
+
+			string sql = $"SELECT * FROM appointment WHERE userId = {userID}";
+			MySqlCommand selectUserAppointmentsCommand = new MySqlCommand(sql, db);
+
+
+			try
+			{
+				db.Open();
+
+				MySqlDataReader reader = selectUserAppointmentsCommand.ExecuteReader();
+
+				while (reader.Read())
+				{
+					Appointment appointment = new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6),
+						reader.GetString(7), reader.GetString(8), reader.GetDateTime(9), reader.GetDateTime(10), reader.GetDateTime(11), reader.GetString(12), reader.GetDateTime(13), reader.GetString(14));
+
+					userAppointments.Add(appointment);
+				}
+
+
+				MySqlDataAdapter adp = new MySqlDataAdapter(selectUserAppointmentsCommand);
+				DataTable dt = new DataTable();
+				adp.Fill(dt);
+				//Dashboard.changeTimeFromUTC(dt);
+				db.Close();
+
+
+				return dt;
+			}
+			catch (MySqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+			finally
+			{
+				db.Close();
+			}
+
+
+
+
+
+
+
+
+
+
+
+		}
 
 
 
