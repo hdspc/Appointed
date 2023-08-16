@@ -117,6 +117,7 @@ namespace C969
 			this.dgv_consultantSchedule.Location = new System.Drawing.Point(465, 168);
 			this.dgv_consultantSchedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.dgv_consultantSchedule.Name = "dgv_consultantSchedule";
+			this.dgv_consultantSchedule.RowHeadersVisible = false;
 			this.dgv_consultantSchedule.Size = new System.Drawing.Size(558, 324);
 			this.dgv_consultantSchedule.TabIndex = 5;
 			this.dgv_consultantSchedule.Visible = false;
