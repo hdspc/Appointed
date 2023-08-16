@@ -43,13 +43,6 @@ namespace C969
         {
             Close();
 
-            int userID = Int32.Parse(txt_UserID.Text);
-
-
-            UserAccount currentUser = Database.DBConnection.GetUserById(userID);
-            Form dashboard = new Dashboard(currentUser);
-
-            dashboard.ShowDialog();
             
         }
 

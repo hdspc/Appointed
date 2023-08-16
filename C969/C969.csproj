@@ -125,7 +125,6 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\CurrentUser.cs" />
     <Compile Include="Database\DBConnection.cs" />
     <Compile Include="EditAppointment.cs">
       <SubType>Form</SubType>

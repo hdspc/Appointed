@@ -51,7 +51,6 @@ namespace C969
 
         private void btn_AddAppointment_Click(object sender, EventArgs e)
         {
-            this.Dispose();
 
             UserAccount currentUser = Database.DBConnection.GetUserById(_u.ID);
 
@@ -105,7 +104,6 @@ namespace C969
                 {
                     Appointment selectedAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString(), rdr.GetDateTime(9), rdr.GetDateTime(10), rdr.GetDateTime(11), rdr[12].ToString(), rdr.GetDateTime(13), rdr[14].ToString());
 
-                    this.Dispose();
 
                     EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
 
@@ -170,7 +168,7 @@ private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
 
         private void btn_GenerateReports_Click(object sender, EventArgs e)
         {
-            Close();
+           // Close();
             Form generateReports = new GenerateReports(_u);
             generateReports.ShowDialog();
 

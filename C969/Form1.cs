@@ -19,17 +19,19 @@ namespace C969
 		MySqlConnection connect = Database.DBConnection.conn;
 		public event EventHandler<UserLogin> UserLogin;
 
+		bool isSpanish = false;
+
 		public Form1()
 		{
 			InitializeComponent();
 			string c = connect.DataSource;
-			sqlStatusLabel.Text = "Connected to "+ c;
+			sqlStatusLabel.Text = "Connected to " + c;
 			loginTitleLabel.Text = "hello:";
 
 		}
 
 		private void submitButton_Click(object sender, EventArgs e)
-        {
+		{
 			List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
 			try
@@ -42,7 +44,6 @@ namespace C969
 						{
 							// Login Successful
 							OnUserLoggedIn(u);
-							AssignCurrentUser(u);
 							Form dashboard = new Dashboard(u);
 
 							dashboard.Show();
@@ -52,17 +53,29 @@ namespace C969
 						{
 							// Password doesn't match
 							EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
-						//	throw new LoginInvalidException("Password does not match.");
-							MessageBox.Show("Check your password.");
+							if (isSpanish)
+							{
+								MessageBox.Show("Verifica tu contraseña");
+							}
+							else
+							{
+								MessageBox.Show("Check your password.");
+							}
 						}
 					}
 
 				}
 				// No matching Username was found. Throw Exception
 				EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
-				//throw new LoginInvalidException("User account does not exist");
-				MessageBox.Show("Check your username.");
-				
+				if (isSpanish)
+				{
+					MessageBox.Show("Verifica tu nombre de usuario");
+				}
+				else
+				{
+					MessageBox.Show("Check your username.");
+				}
+
 			}
 			catch (/*LoginInvalidException ex*/Exception ex)
 			{
@@ -78,20 +91,10 @@ namespace C969
 			UserLogin?.Invoke(null, new UserLogin(user));
 		}
 
-		public static CurrentUser AssignCurrentUser(UserAccount user)
-		{
-			MessageBox.Show("Login successful, current user: "+ user.Username.ToString());
-			CurrentUser currentUser = new CurrentUser(user.ID, user.Username, user.Password, user.IsActive, user.DateCreated, user.CreatedBy, user.LastUpdated, user.LastUpdatedBy);
-
-			return currentUser;
-			
-
-		}
-
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			UserAccount u = new UserAccount(1, "foo", "foo", true, DateTime.Now, "foo", DateTime.Now , "foo");
+			UserAccount u = new UserAccount(1, "foo", "foo", true, DateTime.Now, "foo", DateTime.Now, "foo");
 
 			Form dashboard = new Dashboard(u);
 
@@ -99,35 +102,33 @@ namespace C969
 
 		}
 
-        private void timer_1sTick_Tick(object sender, EventArgs e)
-        {
-			//////System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-			//////MessageBox.Show("pw");
-
-			//////dt.Rows[idx]["start"]
-
-
+		private void timer_1sTick_Tick(object sender, EventArgs e)
+		{
 			CultureInfo currentCulture = CultureInfo.CurrentCulture;
 
-			//MessageBox.Show(currentCulture.ToString());
 
-            if (currentCulture.TwoLetterISOLanguageName == "es")
-            {
-				loginTitleLabel.Text = "Spanish";
-
+			if (currentCulture.TwoLetterISOLanguageName == "es")
+			{
+				isSpanish = true;
+				loginTitleLabel.Text = "Acceso";
+				userIDLabel.Text = "Nombre de usuario";
+				passwordLabel.Text = "Contraseña";
+				SqlConnectionLabel.Text = "Estado de conexión SQL";
+				submitButton.Text = "Enviar";
+				lbl_regionCheck.Text = currentCulture.TwoLetterISOLanguageName;
 			}
 			else
-            {
-				//MessageBox.Show("else");
+			{
+				isSpanish = false;
 				loginTitleLabel.Text = "English";
-
+				lbl_regionCheck.Text = currentCulture.TwoLetterISOLanguageName;
 
 			}
 
 
 		}
 
-
+	
 	}
 }
 

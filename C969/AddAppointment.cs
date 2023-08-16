@@ -47,7 +47,6 @@ namespace C969
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            return;
         }
 
 
@@ -173,6 +172,7 @@ namespace C969
             }
             catch (Exceptions.AppointmentTimesInvalidException ex)
             {
+                MessageBox.Show(ex.Message);
             }
         }
        
