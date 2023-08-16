@@ -98,6 +98,12 @@ namespace C969
 			dgv_consultantSchedule.DataSource = dt;
 
 		}
+
+		private void btn_Close_Click(object sender, EventArgs e)
+		{
+			Close();
+
+		}
 	}
 }
 
