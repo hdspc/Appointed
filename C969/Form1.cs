@@ -20,6 +20,7 @@ namespace C969
 		public event EventHandler<UserLogin> UserLogin;
 
 		bool isSpanish = false;
+		CultureInfo currentCulture = CultureInfo.CurrentCulture;
 
 		public Form1()
 		{
@@ -104,24 +105,20 @@ namespace C969
 
 		private void timer_1sTick_Tick(object sender, EventArgs e)
 		{
-			CultureInfo currentCulture = CultureInfo.CurrentCulture;
 
 
 			if (currentCulture.TwoLetterISOLanguageName == "es")
 			{
 				isSpanish = true;
-				loginTitleLabel.Text = "Acceso";
+				loginTitleLabel.Text = "Hola";
 				userIDLabel.Text = "Nombre de usuario";
 				passwordLabel.Text = "Contraseña";
 				SqlConnectionLabel.Text = "Estado de conexión SQL";
 				submitButton.Text = "Enviar";
-				lbl_regionCheck.Text = currentCulture.TwoLetterISOLanguageName;
 			}
 			else
 			{
 				isSpanish = false;
-				loginTitleLabel.Text = "English";
-				lbl_regionCheck.Text = currentCulture.TwoLetterISOLanguageName;
 
 			}
 
