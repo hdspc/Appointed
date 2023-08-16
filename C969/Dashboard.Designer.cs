@@ -42,11 +42,8 @@ namespace C969
             this.txt_currentUser = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_GenerateReports = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // appointmentDGV
@@ -197,28 +194,11 @@ namespace C969
             this.btn_GenerateReports.UseVisualStyleBackColor = true;
             this.btn_GenerateReports.Click += new System.EventHandler(this.btn_GenerateReports_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(412, 397);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(385, 486);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 15;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 612);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btn_GenerateReports);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txt_currentUser);
@@ -234,7 +214,6 @@ namespace C969
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,7 +234,5 @@ namespace C969
         private System.Windows.Forms.RadioButton rdo_ALL;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_GenerateReports;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel1;
     }
 }

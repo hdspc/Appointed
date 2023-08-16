@@ -8,9 +8,9 @@ namespace C969.Exceptions
 {
     public class AppointmentTimesInvalidException : Exception
     {
-        public AppointmentTimesInvalidException() : base("Appointment Times Invalid based on"){
-
-            }
+        public AppointmentTimesInvalidException(string error) : base(/*"Check appointment times. Business hours are 8am-5pm PST."*/error)
+        {
+        }
 
 
     }

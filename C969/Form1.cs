@@ -78,7 +78,7 @@ namespace C969
 				}
 
 			}
-			catch (/*LoginInvalidException ex*/Exception ex)
+			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
