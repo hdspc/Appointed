@@ -104,22 +104,18 @@ namespace C969
                     DateTime exStart = datetime_AppointmentStart.Value;
                     DateTime exEnd = datetime_AppointmentEnd.Value; 
 
-                    if ((apptStart >= exStart && apptStart <= datetime_AppointmentEnd.Value)
-                        || (apptEnd >= exStart && apptEnd <= datetime_AppointmentEnd.Value)
-                        || (datetime_AppointmentStart.Value >= apptStart && datetime_AppointmentStart.Value <= apptEnd)
-                        || (datetime_AppointmentEnd.Value >= apptStart && datetime_AppointmentEnd.Value <= apptEnd))
+                    if ((apptStart >= exStart && apptStart <= exEnd)
+                        || (apptEnd >= exStart && apptEnd <= exEnd)
+                        || (exStart >= apptStart && exStart <= apptEnd)
+                        || (exEnd >= apptStart && exEnd <= apptEnd))
                     {
 
 
-                        throw new Exceptions.AppointmentTimesInvalidException($"Appointment overlaps with another appointment [ApptID #{appt.AppointmentID} at {appt.Start}]");
+                        throw new Exceptions.AppointmentTimesInvalidException($"Appointment overlaps with another appointment [Apptointment #{appt.AppointmentID} at {appt.Start}]");
                       
-
-                        MessageBox.Show("a");
 
                     }
                 }
-
-
 
 
                 #endregion

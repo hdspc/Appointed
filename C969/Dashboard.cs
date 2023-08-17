@@ -175,6 +175,10 @@ private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
 
         }
 
-      
+        private void btn_addUser_Click(object sender, EventArgs e)
+        {
+            Form addCustomer = new AddCustomer(_u);
+            addCustomer.ShowDialog();
+        }
     }
 }

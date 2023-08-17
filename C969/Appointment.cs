@@ -34,7 +34,7 @@ namespace C969
 
 
 
-        // public Appointment() { }
+
 
         // Appointment Constructor
 
