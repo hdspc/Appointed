@@ -38,9 +38,9 @@ namespace C969
                 int cityID = Int32.Parse(txt_cityID.Text);
                 string postalCode = txt_postalcode.Text;
                 string phone = txt_phoneNumber.Text;
-                DateTime createDate = DateTime.Now;
+                DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string createdBy = _u.Username;
-                DateTime lastUpdate = DateTime.Now;
+                DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdateBy = _u.Username;
 
 
@@ -53,10 +53,9 @@ namespace C969
                 if (rowsAffected > 0)
                 {
 
-                    //checkOverlap(appt.Start, appt.End, proposedStart, proposedEnd)
-                    // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
+              
                     MessageBox.Show($"{rowsAffected} record saved!");
-                    EventLogger.LogUnspecifiedEntry($"{_u.Username.ToString()} created new Address with ID {addressID}");
+                    EventLogger.LogUnspecifiedEntry($"{_u.Username} created new Address with ID {addressID}");
                     Close();
 
 

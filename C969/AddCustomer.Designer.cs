@@ -127,7 +127,7 @@ namespace C969
             // 
             // btn_newAddress
             // 
-            this.btn_newAddress.Location = new System.Drawing.Point(170, 117);
+            this.btn_newAddress.Location = new System.Drawing.Point(170, 128);
             this.btn_newAddress.Name = "btn_newAddress";
             this.btn_newAddress.Size = new System.Drawing.Size(100, 23);
             this.btn_newAddress.TabIndex = 14;

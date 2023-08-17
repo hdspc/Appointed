@@ -37,10 +37,10 @@ namespace C969
                 string customerName = txt_customerName.Text;
                 int addressID = Int32.Parse(txt_addressID.Text);
                 
-                DateTime createDate = DateTime.Now;
+                DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string createdBy = _u.Username;
 
-                DateTime lastUpdate = DateTime.Now;
+                DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdatedBy = _u.Username;
 
                 int active = 0;
