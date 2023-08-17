@@ -24,7 +24,7 @@ namespace C969
 
         private void btn_newAddress_Click(object sender, EventArgs e)
         {
-            AddAddress addAddress = new AddAddress();
+            AddAddress addAddress = new AddAddress(_u);
 
             addAddress.ShowDialog();
         }
@@ -91,6 +91,11 @@ namespace C969
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
