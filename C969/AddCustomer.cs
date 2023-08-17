@@ -36,29 +36,56 @@ namespace C969
                 int customerID = Int32.Parse(txt_customerID.Text);
                 string customerName = txt_customerName.Text;
                 int addressID = Int32.Parse(txt_addressID.Text);
-                bool activeChecked = checkbox_activeCustomer.Checked;
-
-
-
-
-                int active = 0;
+                
                 DateTime createDate = DateTime.Now;
                 string createdBy = _u.Username;
 
                 DateTime lastUpdate = DateTime.Now;
                 string lastUpdatedBy = _u.Username;
 
+                int active = 0;
+
+                bool activeChecked = checkbox_activeCustomer.Checked;
+
+                if (activeChecked)
+                {
+                    active = 1;
+                }
+
+
+
+
 
                 Customer customer = new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
-                //string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{proposedStart:yyyy-MM-dd HH:mm:ss}\", \"{proposedEnd:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
+                string customerString = $"{customerID}, \"{customerName}\", {addressID}, \"{active}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
 
-                //int rowsAffected = Database.DBConnection.InsertNewRecord("appointment", insertString);
+                int rowsAffected = Database.DBConnection.InsertNewRecord("customer", customerString);
+
+                if (rowsAffected > 0)
+                {
+
+                    //checkOverlap(appt.Start, appt.End, proposedStart, proposedEnd)
+                    // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
+                    MessageBox.Show($"{rowsAffected} record saved!");
+                    EventLogger.LogUnspecifiedEntry($"{_u.Username.ToString()} created new Customer with ID {customerID}");
+                    Close();
 
 
 
-
+                }
+                else
+                {
+                    // Something went wrong, exit with a warning
+                    MessageBox.Show("Record did not insert into the database. This customer has not been saved.");
+                }
             }
+       
+
+
+
+
+        
 
             catch(Exception ex) 
             {

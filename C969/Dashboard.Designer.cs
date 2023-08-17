@@ -42,7 +42,7 @@ namespace C969
             this.txt_currentUser = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_GenerateReports = new System.Windows.Forms.Button();
-            this.btn_addUser = new System.Windows.Forms.Button();
+            this.btn_addCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -195,23 +195,23 @@ namespace C969
             this.btn_GenerateReports.UseVisualStyleBackColor = true;
             this.btn_GenerateReports.Click += new System.EventHandler(this.btn_GenerateReports_Click);
             // 
-            // btn_addUser
+            // btn_addCustomer
             // 
-            this.btn_addUser.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_addUser.Location = new System.Drawing.Point(310, 408);
-            this.btn_addUser.Name = "btn_addUser";
-            this.btn_addUser.Size = new System.Drawing.Size(256, 40);
-            this.btn_addUser.TabIndex = 13;
-            this.btn_addUser.Text = "Add User";
-            this.btn_addUser.UseVisualStyleBackColor = true;
-            this.btn_addUser.Click += new System.EventHandler(this.btn_addUser_Click);
+            this.btn_addCustomer.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.btn_addCustomer.Location = new System.Drawing.Point(310, 408);
+            this.btn_addCustomer.Name = "btn_addCustomer";
+            this.btn_addCustomer.Size = new System.Drawing.Size(256, 40);
+            this.btn_addCustomer.TabIndex = 13;
+            this.btn_addCustomer.Text = "Add Customer";
+            this.btn_addCustomer.UseVisualStyleBackColor = true;
+            this.btn_addCustomer.Click += new System.EventHandler(this.btn_addUser_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 612);
-            this.Controls.Add(this.btn_addUser);
+            this.Controls.Add(this.btn_addCustomer);
             this.Controls.Add(this.btn_GenerateReports);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txt_currentUser);
@@ -247,6 +247,6 @@ namespace C969
         private System.Windows.Forms.RadioButton rdo_ALL;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_GenerateReports;
-        private System.Windows.Forms.Button btn_addUser;
+        private System.Windows.Forms.Button btn_addCustomer;
     }
 }

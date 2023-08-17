@@ -80,7 +80,6 @@ namespace C969.Database
 			}
 			finally
 			{
-				// Dashboard.FormRefresh();
 			}
 		}
 
