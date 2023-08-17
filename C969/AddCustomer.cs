@@ -34,8 +34,12 @@ namespace C969
                 int customerID = Int32.Parse(txt_customerID.Text);
                 string customerName = txt_customerName.Text;
                 int addressID = Int32.Parse(txt_addressID.Text);
-                bool active = checkbox_activeCustomer.Checked;
+                bool activeChecked = checkbox_activeCustomer.Checked;
 
+
+
+
+                int active = 0;
                 DateTime createDate = DateTime.Now;
                 string createdBy = _u.Username;
 
@@ -43,7 +47,7 @@ namespace C969
                 string lastUpdatedBy = _u.Username;
 
 
-                customerID customer = new Customer(appointmentID, customerID, userID, title, description, location, contact, type, url, proposedStart, proposedEnd, createDate, createdBy, lastUpdate, lastUpdatedBy);
+                Customer customer = new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
                 //string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{proposedStart:yyyy-MM-dd HH:mm:ss}\", \"{proposedEnd:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
 

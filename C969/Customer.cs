@@ -28,7 +28,14 @@ namespace C969
 
     public Customer (int customerID, string customerName, int addressID, int active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
         {
-
+            CustomerID = customerID;
+            CustomerName = customerName;
+            AddressID = addressID;
+            Active = active;
+            CreateDate = createDate;
+            CreatedBy = createdBy;
+            LastUpdate = lastUpdate;
+            LastUpdateBy = lastUpdateBy;
 
 
 
