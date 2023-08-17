@@ -18,6 +18,8 @@ namespace C969
         {
             _u = u;
             InitializeComponent();
+
+            txt_customerID.Text = Database.DBConnection.GetNewIdFromTable("customer", "customerId").ToString();
         }
 
         private void btn_newAddress_Click(object sender, EventArgs e)

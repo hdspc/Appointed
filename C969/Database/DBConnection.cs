@@ -227,35 +227,6 @@ namespace C969.Database
 				connect.Close();
 			}
 		}
-		/*
-        public static DateTime GetAllStartTimesByID(int userID)
-        {
-            DateTime startTime = new DateTime();
-            List<Appointment> allAppointments = new List<Appointment>();
-
-            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            MySqlConnection db = new MySqlConnection(constr);
-
-            string allStartsQuery = $"SELECT start FROM appointment where userId = {userID}";
-            MySqlCommand selectAllStartTimesCommand = new MySqlCommand(allStartsQuery, db);
-
-            try
-            {
-                db.Open();
-                return selectAllStartTimesCommand.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
-
-                return DateTime.Now;
-            }
-            finally
-            {
-                db.Close();
-            }
-        }
-*/
 
 		public static List<Appointment> GetAllAppointments()
 		{

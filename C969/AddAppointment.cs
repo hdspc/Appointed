@@ -23,7 +23,7 @@ namespace C969
             InitializeComponent();
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
-            txt_CustomerID.Text = 1.ToString();
+            //txt_CustomerID.Text = 1.ToString();
             txt_UserID.Text = _u.ID.ToString();
             txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
 
@@ -125,7 +125,7 @@ namespace C969
 
 
 
-                Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, proposedStart, proposedEnd, createDate, createdBy, lastUpdate, lastUpdatedBy);
+                Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url,  proposedStart, proposedEnd, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
                 string insertString = $"{appointmentID}, {customerID}, {userID}, \"{title}\", \"{description}\", \"{location}\", \"{contact}\", \"{type}\", \"{url}\", \"{proposedStart:yyyy-MM-dd HH:mm:ss}\", \"{proposedEnd:yyyy-MM-dd HH:mm:ss}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
 

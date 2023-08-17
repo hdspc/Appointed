@@ -13,7 +13,7 @@ namespace C969
         public int AddressID { get; set; }
 
         public string CustomerName { get; set; }
-        
+
         public int Active { get; set; }
 
         public DateTime CreateDate { get; set; }
@@ -24,9 +24,9 @@ namespace C969
 
 
 
-    
 
-    public Customer (int customerID, string customerName, int addressID, int active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
+
+        public Customer(int customerID, string customerName, int addressID, int active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
         {
             CustomerID = customerID;
             CustomerName = customerName;
@@ -41,4 +41,5 @@ namespace C969
 
 
         }
+    }
 }
