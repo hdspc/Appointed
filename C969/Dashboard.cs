@@ -11,13 +11,12 @@ namespace C969
     {
         private UserAccount _u;
         private List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
-       
 
         public Dashboard(UserAccount u)
         {
             _u = u;
 
-            InitializeComponent();
+        InitializeComponent();
 
 
             MySqlConnection connect = Database.DBConnection.conn;
@@ -54,9 +53,10 @@ namespace C969
             UserAccount currentUser = Database.DBConnection.GetUserById(_u.ID);
 
             Form addAppointment = new AddAppointment(currentUser);
+            
 
             addAppointment.ShowDialog();
-            this.Close();
+            //this.Close();
 
         }
 
@@ -212,6 +212,11 @@ namespace C969
             CustomerViewChangeTimeFromUTC(dt);
 
             appointmentDGV.DataSource = dt;
+        }
+
+        private void Dashboard_Activated(object sender, EventArgs e)
+        {
+            FormRefresh();
         }
     }
 }

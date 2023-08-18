@@ -51,7 +51,7 @@ namespace C969
             // appointmentDGV
             // 
             this.appointmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentDGV.Location = new System.Drawing.Point(44, 91);
+            this.appointmentDGV.Location = new System.Drawing.Point(44, 100);
             this.appointmentDGV.MultiSelect = false;
             this.appointmentDGV.Name = "appointmentDGV";
             this.appointmentDGV.ReadOnly = true;
@@ -93,14 +93,15 @@ namespace C969
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.CausesValidation = false;
             this.button1.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(44, 454);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(256, 40);
             this.button1.TabIndex = 5;
-            this.button1.Text = "refresh appts";
+            this.button1.Text = "View Appointments";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -238,6 +239,7 @@ namespace C969
             this.Controls.Add(this.appointmentDGV);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
+            this.Activated += new System.EventHandler(this.Dashboard_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

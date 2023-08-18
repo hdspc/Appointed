@@ -142,12 +142,8 @@ namespace C969
                      MessageBox.Show($"{rowsAffected} record saved!");
                     EventLogger.LogUnspecifiedEntry($"{userID} created new Appointment with ID {appointmentID}");
                     // Form dash = new Dashboard(_u);
-                    Close();
+                    this.Close();
 
-                    UserAccount currentUser = Database.DBConnection.GetUserById(userID);
-                    Form dashboard = new Dashboard(currentUser);
-
-                    dashboard.ShowDialog();
 
                 }
                 else

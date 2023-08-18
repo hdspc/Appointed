@@ -91,9 +91,9 @@ namespace C969
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label3.Location = new System.Drawing.Point(79, 177);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 19);
+            this.label3.Size = new System.Drawing.Size(59, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "City";
+            this.label3.Text = "City ID";
             // 
             // label4
             // 

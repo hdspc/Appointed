@@ -74,12 +74,6 @@ namespace C969
                     MessageBox.Show("Record did not insert into the database. This customer has not been saved.");
                 }
             }
-       
-
-
-
-
-        
 
             catch(Exception ex) 
             {

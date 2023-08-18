@@ -78,12 +78,10 @@ namespace C969
             if (rowsAffected > 0)
             {
                 MessageBox.Show($"{rowsAffected} record(s) saved!");
-                //EventLogger.LogUnspecifiedEntry($"{formOwner} created new Appointment with ID {appointmentId}");
-                //Close();
-                UserAccount currentUser = Database.DBConnection.GetUserById(userID);
-                Form dashboard = new Dashboard(currentUser);
+                EventLogger.LogUnspecifiedEntry($"User ID {userID} created new Appointment with ID {appointmentID}");
+                
 
-                dashboard.ShowDialog();
+                Close();
             }
             else
             {

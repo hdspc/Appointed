@@ -10,7 +10,7 @@ namespace C969
     public partial class Form1 : Form
     {
         MySqlConnection connect = Database.DBConnection.conn;
-        public event EventHandler<UserLogin> UserLogin;
+        //public event EventHandler<UserLogin> UserLogin;
 
         bool isSpanish = false;
         CultureInfo currentCulture = CultureInfo.CurrentCulture;
@@ -27,8 +27,6 @@ namespace C969
         private void submitButton_Click(object sender, EventArgs e)
         {
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
-
-            string spanishPass = "Verifica tu contraseña";
 
 
             try
@@ -52,13 +50,14 @@ namespace C969
 
                             }
 
-                            Form dashboard = new Dashboard(u);
                             List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
 
                             AppointmentNotification(allAppointments, u);
 
+
+                            Form dashboard = new Dashboard(u);
+
                             dashboard.Show();
-                            
                         }
 
                         else
@@ -101,6 +100,7 @@ namespace C969
             {
                 MessageBox.Show(ex.Message);
             }
+            
 
         }
 
@@ -108,7 +108,7 @@ namespace C969
         {
 
             EventLogger.LogSuccessfulLogin(user);
-           // UserLogin?.Invoke(null, new UserLogin(user));
+            // UserLogin?.Invoke(null, new UserLogin(user));
         }
 
 
