@@ -30,7 +30,7 @@ namespace C969
         private void InitializeComponent()
         {
             this.appointmentDGV = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_DashboardTitle = new System.Windows.Forms.Label();
             this.btn_AddAppointment = new System.Windows.Forms.Button();
             this.btn_EditAppointment = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,6 +43,7 @@ namespace C969
             this.btn_GenerateReports = new System.Windows.Forms.Button();
             this.btn_addCustomer = new System.Windows.Forms.Button();
             this.btn_EditCustomer = new System.Windows.Forms.Button();
+            this.btn_ViewCustomers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,15 +59,15 @@ namespace C969
             this.appointmentDGV.Size = new System.Drawing.Size(717, 231);
             this.appointmentDGV.TabIndex = 0;
             // 
-            // label2
+            // lbl_DashboardTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Meiryo UI", 18.25F);
-            this.label2.Location = new System.Drawing.Point(38, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(304, 32);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Appointment dashboard";
+            this.lbl_DashboardTitle.AutoSize = true;
+            this.lbl_DashboardTitle.Font = new System.Drawing.Font("Meiryo UI", 18.25F);
+            this.lbl_DashboardTitle.Location = new System.Drawing.Point(38, 37);
+            this.lbl_DashboardTitle.Name = "lbl_DashboardTitle";
+            this.lbl_DashboardTitle.Size = new System.Drawing.Size(304, 32);
+            this.lbl_DashboardTitle.TabIndex = 2;
+            this.lbl_DashboardTitle.Text = "Appointment dashboard";
             // 
             // btn_AddAppointment
             // 
@@ -207,11 +208,23 @@ namespace C969
             this.btn_EditCustomer.UseVisualStyleBackColor = true;
             this.btn_EditCustomer.Click += new System.EventHandler(this.btn_EditCustomer_Click);
             // 
+            // btn_ViewCustomers
+            // 
+            this.btn_ViewCustomers.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.btn_ViewCustomers.Location = new System.Drawing.Point(306, 454);
+            this.btn_ViewCustomers.Name = "btn_ViewCustomers";
+            this.btn_ViewCustomers.Size = new System.Drawing.Size(256, 40);
+            this.btn_ViewCustomers.TabIndex = 15;
+            this.btn_ViewCustomers.Text = "View Customers";
+            this.btn_ViewCustomers.UseVisualStyleBackColor = true;
+            this.btn_ViewCustomers.Click += new System.EventHandler(this.btn_ViewCustomers_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 577);
+            this.Controls.Add(this.btn_ViewCustomers);
             this.Controls.Add(this.btn_EditCustomer);
             this.Controls.Add(this.btn_addCustomer);
             this.Controls.Add(this.btn_GenerateReports);
@@ -221,7 +234,7 @@ namespace C969
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_EditAppointment);
             this.Controls.Add(this.btn_AddAppointment);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_DashboardTitle);
             this.Controls.Add(this.appointmentDGV);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
@@ -236,7 +249,7 @@ namespace C969
         #endregion
 
         private System.Windows.Forms.DataGridView appointmentDGV;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_DashboardTitle;
         private System.Windows.Forms.Button btn_AddAppointment;
         private System.Windows.Forms.Button btn_EditAppointment;
         private System.Windows.Forms.Button button1;
@@ -249,5 +262,6 @@ namespace C969
         private System.Windows.Forms.Button btn_GenerateReports;
         private System.Windows.Forms.Button btn_addCustomer;
         private System.Windows.Forms.Button btn_EditCustomer;
+        private System.Windows.Forms.Button btn_ViewCustomers;
     }
 }

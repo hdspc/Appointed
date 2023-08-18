@@ -134,6 +134,7 @@ namespace C969
             this.txt_addressID.Size = new System.Drawing.Size(100, 20);
             this.txt_addressID.TabIndex = 13;
             this.txt_addressID.Text = "1";
+            this.txt_addressID.TextChanged += new System.EventHandler(this.txt_addressID_TextChanged);
             // 
             // btn_newAddress
             // 

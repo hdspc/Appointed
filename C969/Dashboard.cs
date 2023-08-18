@@ -18,6 +18,7 @@ namespace C969
 
             InitializeComponent();
 
+
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment";
             MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
@@ -60,6 +61,8 @@ namespace C969
 
         public void FormRefresh()
         {
+            lbl_DashboardTitle.Text = "Appointment Dashboard";
+
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment";
             MySqlCommand refresh = new MySqlCommand(sqlString, connect);
@@ -163,6 +166,17 @@ namespace C969
             }
         }
 
+        public static void CustomerViewChangeTimeFromUTC(DataTable dt)
+        {
+            for (int idx = 0; idx < dt.Rows.Count; idx++)
+            {
+
+                dt.Rows[idx]["createDate"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["createDate"], TimeZoneInfo.Local).ToString();
+
+                dt.Rows[idx]["lastUpdate"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["lastUpdate"], TimeZoneInfo.Local).ToString();
+            }
+        }
+
         private void btn_GenerateReports_Click(object sender, EventArgs e)
         {
             // Close();
@@ -181,6 +195,21 @@ namespace C969
         private void btn_EditCustomer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_ViewCustomers_Click(object sender, EventArgs e)
+        {
+            lbl_DashboardTitle.Text = "All Customers";
+            MySqlConnection connect = Database.DBConnection.conn;
+            string sqlString = "SELECT * FROM customer";
+            MySqlCommand refresh = new MySqlCommand(sqlString, connect);
+            MySqlDataAdapter adp = new MySqlDataAdapter(refresh);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            CustomerViewChangeTimeFromUTC(dt);
+
+            appointmentDGV.DataSource = dt;
         }
     }
 }
