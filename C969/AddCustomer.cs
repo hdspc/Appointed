@@ -65,18 +65,13 @@ namespace C969
                 if (rowsAffected > 0)
                 {
 
-                    //checkOverlap(appt.Start, appt.End, proposedStart, proposedEnd)
-                    // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
                     MessageBox.Show($"{rowsAffected} record saved!");
                     EventLogger.LogUnspecifiedEntry($"{_u.Username.ToString()} created new Customer with ID {customerID}");
                     Close();
-
-
-
+                    
                 }
                 else
                 {
-                    // Something went wrong, exit with a warning
                     MessageBox.Show("Record did not insert into the database. This customer has not been saved.");
                 }
             }

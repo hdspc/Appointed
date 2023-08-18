@@ -23,7 +23,7 @@ namespace C969
             InitializeComponent();
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
-            //txt_CustomerID.Text = 1.ToString();
+            txt_CustomerID.Text = 1.ToString();
             txt_UserID.Text = _u.ID.ToString();
             txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
 
@@ -74,9 +74,21 @@ namespace C969
                 DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdatedBy = txt_LastUpdateBy.Text;
 
+                /*
 
+
+                /////////////////////////////////////////////
+                /////////////////////////////////////////////////////
 
 				#region exceptions 
+                
+
+
+
+
+
+
+
 
 				if (datetime_AppointmentStart.Value > datetime_AppointmentEnd.Value)
 				{
@@ -120,7 +132,7 @@ namespace C969
 
                 #endregion
 
-
+                //*/
 
 
 

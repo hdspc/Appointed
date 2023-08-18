@@ -1,20 +1,16 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.Configuration;
+using System.Data;
+using System.Windows.Forms;
 
 namespace C969
 {
     public partial class Dashboard : Form
     {
         private UserAccount _u;
+        private List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
 
         public Dashboard(UserAccount u)
         {
@@ -39,6 +35,25 @@ namespace C969
 
             changeTimeFromUTC(dt);
 
+            MessageBox.Show(DateTime.Now.AddMinutes(15).ToString() + " initial load");
+
+            foreach (Appointment appt in allAppointments)
+            {
+                if (appt.Start.ToLocalTime().Date == DateTime.Now.ToLocalTime().Date)
+                {
+
+                    if (appt.Start.ToLocalTime() <= DateTime.Now.AddMinutes(15) && appt.Start.ToLocalTime()>DateTime.Now.ToLocalTime())
+                    {
+
+
+                   
+                    MessageBox.Show($"appointment {appt.AppointmentID} {appt.Start.ToLocalTime()}");
+
+                    }
+                }
+
+
+            }
 
 
             txt_currentUser.Text = u.Username.ToString();
@@ -117,18 +132,18 @@ namespace C969
             }
         }
 
-       
-        
+
+
         private void rdo_ALL_CheckedChanged(object sender, EventArgs e)
         {
             FormRefresh();
         }
 
 
-///////////////////////////////////CHECKKCKCK
+        ///////////////////////////////////CHECKKCKCK
 
 
-private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
+        private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
         {
             MySqlConnection connect = Database.DBConnection.conn;
             string sqlString = "SELECT * FROM appointment WHERE YEARWEEK(start)= YEARWEEK(CURRENT_DATE()) AND YEAR(start) = YEAR(CURRENT_DATE())";
@@ -168,7 +183,7 @@ private void rdo_Weekly_CheckedChanged(object sender, EventArgs e)
 
         private void btn_GenerateReports_Click(object sender, EventArgs e)
         {
-           // Close();
+            // Close();
             Form generateReports = new GenerateReports(_u);
             generateReports.ShowDialog();
 
