@@ -35,24 +35,7 @@ namespace C969
 
             changeTimeFromUTC(dt);
 
-            foreach (Appointment appt in allAppointments)
-            {
-                if (appt.Start.ToLocalTime().Date == DateTime.Now.ToLocalTime().Date &&
-                    appt.Start.ToLocalTime() <= DateTime.Now.AddMinutes(15) &&
-                    appt.Start.ToLocalTime() > DateTime.Now.ToLocalTime() &&
-                    appt.UserID == _u.ID
-                    )
-                    {
-
-
-                   
-                    MessageBox.Show($"appointment {appt.AppointmentID} {appt.Start.ToLocalTime()}");
-
-                    }
-                
-
-
-            }
+           
 
 
             txt_currentUser.Text = u.Username.ToString();

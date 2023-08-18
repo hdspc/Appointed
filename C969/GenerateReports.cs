@@ -26,6 +26,11 @@ namespace C969
 			_u = u;
 
 			dropdown_Months.DropDownStyle = ComboBoxStyle.DropDownList;
+
+			txt_UserID.Visible = false;
+			btn_UserIDRefresh.Visible = false;
+
+			lbl_UserIDEntry.Text = "Month:";
 		}
 
 		private void btn_NumberAppointmentTypesByMonth_Click(object sender, EventArgs e)
@@ -34,6 +39,8 @@ namespace C969
 			txt_ReportTextBox.Text = "";
 			txt_ReportTextBox.Visible = true;
 			dropdown_Months.Visible = true;
+			txt_UserID.Visible = false;
+			btn_UserIDRefresh.Visible = false;
 
 
 
@@ -56,15 +63,19 @@ namespace C969
 
 		private void btn_ConsultantSchedule_Click(object sender, EventArgs e)
 		{
-			//THEY WANT ALL APPOINTMENTS
 
 			txt_ReportTextBox.Visible = false;
 			dgv_consultantSchedule.Visible = true;
 			dropdown_Months.Visible = false;
+			txt_UserID.Visible = true;
+			btn_UserIDRefresh.Visible = true;
+			lbl_UserIDEntry.Text = "User:";
+
+			int userIDEntry = Int32.Parse(txt_UserID.Text);
 
 
 			MySqlConnection connect = Database.DBConnection.conn;
-			string sqlString = "SELECT * FROM appointment";
+			string sqlString = $"SELECT * FROM appointment WHERE UserID = {userIDEntry}";
 			MySqlCommand refresh = new MySqlCommand(sqlString, connect);
 			MySqlDataAdapter adp = new MySqlDataAdapter(refresh);
 			DataTable dt = new DataTable();
@@ -76,13 +87,51 @@ namespace C969
 
 		}
 
+		private void btn_UserIDRefresh_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				txt_ReportTextBox.Visible = false;
+				dgv_consultantSchedule.Visible = true;
+				dropdown_Months.Visible = false;
+				txt_UserID.Visible = true;
+				btn_UserIDRefresh.Visible = true;
+				lbl_UserIDEntry.Visible = true;
+				lbl_UserIDEntry.Text = "User ID:";
+
+				int userIDEntry = Int32.Parse(txt_UserID.Text);
+
+
+				MySqlConnection connect = Database.DBConnection.conn;
+				string sqlString = $"SELECT * FROM appointment WHERE UserID = {userIDEntry}";
+				MySqlCommand refresh = new MySqlCommand(sqlString, connect);
+				MySqlDataAdapter adp = new MySqlDataAdapter(refresh);
+				DataTable dt = new DataTable();
+				adp.Fill(dt);
+
+				Dashboard.changeTimeFromUTC(dt);
+
+				dgv_consultantSchedule.DataSource = dt;
+			}
+
+			catch (Exception ex)
+            {
+				MessageBox.Show(ex.Message);
+            }
+		}
+
+
+
 		private void btn_customReport_Click(object sender, EventArgs e)
 		{
 
 			txt_ReportTextBox.Visible = false;
 			dgv_consultantSchedule.Visible = true;
 			dropdown_Months.Visible = false;
-
+			txt_UserID.Visible = true;
+			btn_UserIDRefresh.Visible = true;
+			lbl_UserIDEntry.Visible = true;
+			lbl_UserIDEntry.Text = "User ID:";
 
 			int currentUserID = _u.ID;
 
@@ -104,6 +153,8 @@ namespace C969
 			Close();
 
 		}
-	}
+
+       
+    }
 }
 
