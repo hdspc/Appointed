@@ -35,18 +35,21 @@ namespace C969
 
             changeTimeFromUTC(dt);
 
-
             foreach (Appointment appt in allAppointments)
             {
-                if (appt.Start.ToLocalTime().Date == DateTime.Now.ToLocalTime().Date)
-                {
-
-                    if (appt.Start.ToLocalTime() <= DateTime.Now.AddMinutes(15) && appt.Start.ToLocalTime()>DateTime.Now.ToLocalTime())
+                if (appt.Start.ToLocalTime().Date == DateTime.Now.ToLocalTime().Date &&
+                    appt.Start.ToLocalTime() <= DateTime.Now.AddMinutes(15) &&
+                    appt.Start.ToLocalTime() > DateTime.Now.ToLocalTime() &&
+                    appt.UserID == _u.ID
+                    )
                     {
-                    MessageBox.Show($"You have an appointment #{appt.AppointmentID} at{appt.Start.ToLocalTime()}");
+
+
+                   
+                    MessageBox.Show($"appointment {appt.AppointmentID} {appt.Start.ToLocalTime()}");
 
                     }
-                }
+                
 
 
             }

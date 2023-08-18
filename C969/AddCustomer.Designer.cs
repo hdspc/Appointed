@@ -39,12 +39,15 @@ namespace C969
             this.checkbox_activeCustomer = new System.Windows.Forms.CheckBox();
             this.txt_addressID = new System.Windows.Forms.TextBox();
             this.btn_newAddress = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Save
             // 
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btn_Save.Location = new System.Drawing.Point(37, 205);
+            this.btn_Save.Location = new System.Drawing.Point(37, 295);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(85, 37);
             this.btn_Save.TabIndex = 0;
@@ -55,7 +58,7 @@ namespace C969
             // btn_Cancel
             // 
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btn_Cancel.Location = new System.Drawing.Point(170, 205);
+            this.btn_Cancel.Location = new System.Drawing.Point(170, 295);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(100, 37);
             this.btn_Cancel.TabIndex = 1;
@@ -111,7 +114,7 @@ namespace C969
             // checkbox_activeCustomer
             // 
             this.checkbox_activeCustomer.AutoSize = true;
-            this.checkbox_activeCustomer.Location = new System.Drawing.Point(37, 172);
+            this.checkbox_activeCustomer.Location = new System.Drawing.Point(37, 262);
             this.checkbox_activeCustomer.Name = "checkbox_activeCustomer";
             this.checkbox_activeCustomer.Size = new System.Drawing.Size(103, 17);
             this.checkbox_activeCustomer.TabIndex = 12;
@@ -135,11 +138,44 @@ namespace C969
             this.btn_newAddress.UseVisualStyleBackColor = true;
             this.btn_newAddress.Click += new System.EventHandler(this.btn_newAddress_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.Location = new System.Drawing.Point(34, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 18);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "City ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label4.Location = new System.Drawing.Point(34, 222);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 18);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Country";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label5.Location = new System.Drawing.Point(34, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 18);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Phone Number";
+            // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 297);
+            this.ClientSize = new System.Drawing.Size(308, 386);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_newAddress);
             this.Controls.Add(this.txt_addressID);
             this.Controls.Add(this.checkbox_activeCustomer);
@@ -169,5 +205,8 @@ namespace C969
         private System.Windows.Forms.CheckBox checkbox_activeCustomer;
         private System.Windows.Forms.TextBox txt_addressID;
         private System.Windows.Forms.Button btn_newAddress;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
