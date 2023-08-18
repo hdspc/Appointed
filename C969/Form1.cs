@@ -25,7 +25,7 @@ namespace C969
         }
 
         private void submitButton_Click(object sender, EventArgs e)
-        //{
+        {
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
             string spanishPass = "Verifica tu contraseña";
