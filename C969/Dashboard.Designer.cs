@@ -40,9 +40,9 @@ namespace C969
             this.rdo_ALL = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_currentUser = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.btn_GenerateReports = new System.Windows.Forms.Button();
             this.btn_addCustomer = new System.Windows.Forms.Button();
+            this.btn_EditCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,7 @@ namespace C969
             // appointmentDGV
             // 
             this.appointmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentDGV.Location = new System.Drawing.Point(48, 137);
+            this.appointmentDGV.Location = new System.Drawing.Point(44, 91);
             this.appointmentDGV.MultiSelect = false;
             this.appointmentDGV.Name = "appointmentDGV";
             this.appointmentDGV.ReadOnly = true;
@@ -62,7 +62,7 @@ namespace C969
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 18.25F);
-            this.label2.Location = new System.Drawing.Point(43, 91);
+            this.label2.Location = new System.Drawing.Point(38, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(304, 32);
             this.label2.TabIndex = 2;
@@ -71,7 +71,7 @@ namespace C969
             // btn_AddAppointment
             // 
             this.btn_AddAppointment.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_AddAppointment.Location = new System.Drawing.Point(48, 408);
+            this.btn_AddAppointment.Location = new System.Drawing.Point(44, 362);
             this.btn_AddAppointment.Name = "btn_AddAppointment";
             this.btn_AddAppointment.Size = new System.Drawing.Size(256, 40);
             this.btn_AddAppointment.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace C969
             // btn_EditAppointment
             // 
             this.btn_EditAppointment.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_EditAppointment.Location = new System.Drawing.Point(48, 454);
+            this.btn_EditAppointment.Location = new System.Drawing.Point(44, 408);
             this.btn_EditAppointment.Name = "btn_EditAppointment";
             this.btn_EditAppointment.Size = new System.Drawing.Size(256, 40);
             this.btn_EditAppointment.TabIndex = 4;
@@ -95,7 +95,7 @@ namespace C969
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.Font = new System.Drawing.Font("Meiryo UI", 12F);
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(48, 500);
+            this.button1.Location = new System.Drawing.Point(44, 454);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(256, 40);
             this.button1.TabIndex = 5;
@@ -133,7 +133,7 @@ namespace C969
             this.groupBox1.Controls.Add(this.rdo_Weekly);
             this.groupBox1.Controls.Add(this.rdo_Monthly);
             this.groupBox1.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(585, 408);
+            this.groupBox1.Location = new System.Drawing.Point(581, 362);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(180, 130);
             this.groupBox1.TabIndex = 8;
@@ -158,7 +158,7 @@ namespace C969
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 14.25F);
-            this.label3.Location = new System.Drawing.Point(609, 91);
+            this.label3.Location = new System.Drawing.Point(605, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 24);
             this.label3.TabIndex = 9;
@@ -168,26 +168,16 @@ namespace C969
             // 
             this.txt_currentUser.AutoSize = true;
             this.txt_currentUser.Font = new System.Drawing.Font("Meiryo UI", 14.25F);
-            this.txt_currentUser.Location = new System.Drawing.Point(672, 91);
+            this.txt_currentUser.Location = new System.Drawing.Point(668, 45);
             this.txt_currentUser.Name = "txt_currentUser";
             this.txt_currentUser.Size = new System.Drawing.Size(46, 24);
             this.txt_currentUser.TabIndex = 10;
             this.txt_currentUser.Text = "N/A";
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Meiryo UI", 12.25F);
-            this.button2.Location = new System.Drawing.Point(607, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 40);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Account Settings";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // btn_GenerateReports
             // 
             this.btn_GenerateReports.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_GenerateReports.Location = new System.Drawing.Point(48, 546);
+            this.btn_GenerateReports.Location = new System.Drawing.Point(44, 500);
             this.btn_GenerateReports.Name = "btn_GenerateReports";
             this.btn_GenerateReports.Size = new System.Drawing.Size(256, 40);
             this.btn_GenerateReports.TabIndex = 12;
@@ -198,7 +188,7 @@ namespace C969
             // btn_addCustomer
             // 
             this.btn_addCustomer.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_addCustomer.Location = new System.Drawing.Point(310, 408);
+            this.btn_addCustomer.Location = new System.Drawing.Point(306, 362);
             this.btn_addCustomer.Name = "btn_addCustomer";
             this.btn_addCustomer.Size = new System.Drawing.Size(256, 40);
             this.btn_addCustomer.TabIndex = 13;
@@ -206,14 +196,25 @@ namespace C969
             this.btn_addCustomer.UseVisualStyleBackColor = true;
             this.btn_addCustomer.Click += new System.EventHandler(this.btn_addUser_Click);
             // 
+            // btn_EditCustomer
+            // 
+            this.btn_EditCustomer.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.btn_EditCustomer.Location = new System.Drawing.Point(306, 408);
+            this.btn_EditCustomer.Name = "btn_EditCustomer";
+            this.btn_EditCustomer.Size = new System.Drawing.Size(256, 40);
+            this.btn_EditCustomer.TabIndex = 14;
+            this.btn_EditCustomer.Text = "Edit Customer";
+            this.btn_EditCustomer.UseVisualStyleBackColor = true;
+            this.btn_EditCustomer.Click += new System.EventHandler(this.btn_EditCustomer_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 612);
+            this.ClientSize = new System.Drawing.Size(800, 577);
+            this.Controls.Add(this.btn_EditCustomer);
             this.Controls.Add(this.btn_addCustomer);
             this.Controls.Add(this.btn_GenerateReports);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.txt_currentUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
@@ -245,8 +246,8 @@ namespace C969
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txt_currentUser;
         private System.Windows.Forms.RadioButton rdo_ALL;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_GenerateReports;
         private System.Windows.Forms.Button btn_addCustomer;
+        private System.Windows.Forms.Button btn_EditCustomer;
     }
 }

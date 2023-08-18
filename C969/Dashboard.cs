@@ -177,5 +177,10 @@ namespace C969
             Form addCustomer = new AddCustomer(_u);
             addCustomer.ShowDialog();
         }
+
+        private void btn_EditCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

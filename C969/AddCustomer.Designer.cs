@@ -42,6 +42,9 @@ namespace C969
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txt_PhoneNumber = new System.Windows.Forms.TextBox();
+            this.txt_City = new System.Windows.Forms.TextBox();
+            this.txt_Country = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_Save
@@ -168,11 +171,35 @@ namespace C969
             this.label5.TabIndex = 17;
             this.label5.Text = "Phone Number";
             // 
+            // txt_PhoneNumber
+            // 
+            this.txt_PhoneNumber.Location = new System.Drawing.Point(170, 161);
+            this.txt_PhoneNumber.Name = "txt_PhoneNumber";
+            this.txt_PhoneNumber.Size = new System.Drawing.Size(100, 20);
+            this.txt_PhoneNumber.TabIndex = 18;
+            // 
+            // txt_City
+            // 
+            this.txt_City.Location = new System.Drawing.Point(170, 191);
+            this.txt_City.Name = "txt_City";
+            this.txt_City.Size = new System.Drawing.Size(100, 20);
+            this.txt_City.TabIndex = 19;
+            // 
+            // txt_Country
+            // 
+            this.txt_Country.Location = new System.Drawing.Point(170, 223);
+            this.txt_Country.Name = "txt_Country";
+            this.txt_Country.Size = new System.Drawing.Size(100, 20);
+            this.txt_Country.TabIndex = 20;
+            // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 386);
+            this.Controls.Add(this.txt_Country);
+            this.Controls.Add(this.txt_City);
+            this.Controls.Add(this.txt_PhoneNumber);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -208,5 +235,8 @@ namespace C969
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_PhoneNumber;
+        private System.Windows.Forms.TextBox txt_City;
+        private System.Windows.Forms.TextBox txt_Country;
     }
 }

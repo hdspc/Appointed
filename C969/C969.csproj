@@ -132,6 +132,8 @@
     </Compile>
     <Compile Include="Address.cs" />
     <Compile Include="Appointment.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
