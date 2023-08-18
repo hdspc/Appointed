@@ -74,20 +74,11 @@ namespace C969
                 DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdatedBy = txt_LastUpdateBy.Text;
 
-                /*
-
-
-                /////////////////////////////////////////////
-                /////////////////////////////////////////////////////
-
-				#region exceptions 
                 
 
 
-
-
-
-
+				#region exceptions 
+                
 
 
 				if (datetime_AppointmentStart.Value > datetime_AppointmentEnd.Value)
@@ -132,7 +123,6 @@ namespace C969
 
                 #endregion
 
-                //*/
 
 
 

@@ -35,7 +35,6 @@ namespace C969
 
             changeTimeFromUTC(dt);
 
-            MessageBox.Show(DateTime.Now.AddMinutes(15).ToString() + " initial load");
 
             foreach (Appointment appt in allAppointments)
             {
@@ -44,10 +43,7 @@ namespace C969
 
                     if (appt.Start.ToLocalTime() <= DateTime.Now.AddMinutes(15) && appt.Start.ToLocalTime()>DateTime.Now.ToLocalTime())
                     {
-
-
-                   
-                    MessageBox.Show($"appointment {appt.AppointmentID} {appt.Start.ToLocalTime()}");
+                    MessageBox.Show($"You have an appointment #{appt.AppointmentID} at{appt.Start.ToLocalTime()}");
 
                     }
                 }
