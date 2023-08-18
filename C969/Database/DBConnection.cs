@@ -345,42 +345,24 @@ namespace C969.Database
 		}
 
 
-		public static DataTable GetAppointmentsByID(int userID)
+		public static string GetStringFromTable(int IDNumber, string IDType, string columnName, string table)
 		{
+			MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
 
-			List<Appointment> userAppointments = new List<Appointment>();
-
-			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-			MySqlConnection db = new MySqlConnection(constr);
-			db.Close();
-
-			string sql = $"SELECT * FROM appointment WHERE userId = {userID}";
-			MySqlCommand selectUserAppointmentsCommand = new MySqlCommand(sql, db);
-
+			string getStringQuery = $"SELECT {columnName} FROM {table} WHERE {IDType} = {IDNumber}";
+			MySqlCommand selectUsersCommand = new MySqlCommand(getStringQuery, connect);
 
 			try
 			{
-				db.Open();
+				connect.Open();
 
-				MySqlDataReader reader = selectUserAppointmentsCommand.ExecuteReader();
+				MySqlDataReader reader = selectUsersCommand.ExecuteReader();
 
 				while (reader.Read())
 				{
-					Appointment appointment = new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6),
-						reader.GetString(7), reader.GetString(8), reader.GetDateTime(9), reader.GetDateTime(10), reader.GetDateTime(11), reader.GetString(12), reader.GetDateTime(13), reader.GetString(14));
-
-					userAppointments.Add(appointment);
 				}
 
-
-				MySqlDataAdapter adp = new MySqlDataAdapter(selectUserAppointmentsCommand);
-				DataTable dt = new DataTable();
-				adp.Fill(dt);
-				//Dashboard.changeTimeFromUTC(dt);
-				db.Close();
-
-
-				return dt;
+				return reader[0].ToString();
 			}
 			catch (MySqlException ex)
 			{
@@ -389,19 +371,8 @@ namespace C969.Database
 			}
 			finally
 			{
-				db.Close();
+				connect.Close();
 			}
-
-
-
-
-
-
-
-
-
-
-
 		}
 
 
@@ -414,3 +385,63 @@ namespace C969.Database
 	}
 }
 
+
+
+//public static DataTable GetAppointmentsByID(int userID)
+//{
+
+//	List<Appointment> userAppointments = new List<Appointment>();
+
+//	string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+//	MySqlConnection db = new MySqlConnection(constr);
+//	db.Close();
+
+//	string sql = $"SELECT * FROM appointment WHERE userId = {userID}";
+//	MySqlCommand selectUserAppointmentsCommand = new MySqlCommand(sql, db);
+
+
+//	try
+//	{
+//		db.Open();
+
+//		MySqlDataReader reader = selectUserAppointmentsCommand.ExecuteReader();
+
+//		while (reader.Read())
+//		{
+//			Appointment appointment = new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6),
+//				reader.GetString(7), reader.GetString(8), reader.GetDateTime(9), reader.GetDateTime(10), reader.GetDateTime(11), reader.GetString(12), reader.GetDateTime(13), reader.GetString(14));
+
+//			userAppointments.Add(appointment);
+//		}
+
+
+//		MySqlDataAdapter adp = new MySqlDataAdapter(selectUserAppointmentsCommand);
+//		DataTable dt = new DataTable();
+//		adp.Fill(dt);
+//		//Dashboard.changeTimeFromUTC(dt);
+//		db.Close();
+
+
+//		return dt;
+//	}
+//	catch (MySqlException ex)
+//	{
+//		MessageBox.Show(ex.Message);
+//		return null;
+//	}
+//	finally
+//	{
+//		db.Close();
+//	}
+
+
+
+
+
+
+
+
+
+
+
+//}

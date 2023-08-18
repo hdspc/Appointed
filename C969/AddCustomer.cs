@@ -20,6 +20,15 @@ namespace C969
             InitializeComponent();
 
             txt_customerID.Text = Database.DBConnection.GetNewIdFromTable("customer", "customerId").ToString();
+
+            int addressIDInForm = Int32.Parse(txt_addressID.Text);
+
+
+
+            string phone = Database.DBConnection.GetStringFromTable(addressIDInForm, "addressId", "phone", "address" );
+            string country = Database.DBConnection.GetStringFromTable(addressIDInForm, "addressId", "phone", "country");
+
+            lbl_Phone.Text = phone;
         }
 
         private void btn_newAddress_Click(object sender, EventArgs e)
@@ -36,10 +45,11 @@ namespace C969
                 int customerID = Int32.Parse(txt_customerID.Text);
                 string customerName = txt_customerName.Text;
                 int addressID = Int32.Parse(txt_addressID.Text);
-                
+                string phoneNumber = txt_PhoneNumber.Text;
+
+
                 DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string createdBy = _u.Username;
-
                 DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdatedBy = _u.Username;
 
@@ -51,9 +61,6 @@ namespace C969
                 {
                     active = 1;
                 }
-
-
-
 
 
                 Customer customer = new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdatedBy);

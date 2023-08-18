@@ -45,6 +45,9 @@ namespace C969
             this.txt_PhoneNumber = new System.Windows.Forms.TextBox();
             this.txt_City = new System.Windows.Forms.TextBox();
             this.txt_Country = new System.Windows.Forms.TextBox();
+            this.lbl_Phone = new System.Windows.Forms.Label();
+            this.lbl_City = new System.Windows.Forms.Label();
+            this.lbl_Country = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Save
@@ -130,6 +133,7 @@ namespace C969
             this.txt_addressID.Name = "txt_addressID";
             this.txt_addressID.Size = new System.Drawing.Size(100, 20);
             this.txt_addressID.TabIndex = 13;
+            this.txt_addressID.Text = "1";
             // 
             // btn_newAddress
             // 
@@ -173,30 +177,63 @@ namespace C969
             // 
             // txt_PhoneNumber
             // 
-            this.txt_PhoneNumber.Location = new System.Drawing.Point(170, 161);
+            this.txt_PhoneNumber.Location = new System.Drawing.Point(104, 339);
             this.txt_PhoneNumber.Name = "txt_PhoneNumber";
             this.txt_PhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.txt_PhoneNumber.TabIndex = 18;
             // 
             // txt_City
             // 
-            this.txt_City.Location = new System.Drawing.Point(170, 191);
+            this.txt_City.Location = new System.Drawing.Point(104, 369);
             this.txt_City.Name = "txt_City";
             this.txt_City.Size = new System.Drawing.Size(100, 20);
             this.txt_City.TabIndex = 19;
             // 
             // txt_Country
             // 
-            this.txt_Country.Location = new System.Drawing.Point(170, 223);
+            this.txt_Country.Location = new System.Drawing.Point(104, 401);
             this.txt_Country.Name = "txt_Country";
             this.txt_Country.Size = new System.Drawing.Size(100, 20);
             this.txt_Country.TabIndex = 20;
+            // 
+            // lbl_Phone
+            // 
+            this.lbl_Phone.AutoSize = true;
+            this.lbl_Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_Phone.Location = new System.Drawing.Point(167, 160);
+            this.lbl_Phone.Name = "lbl_Phone";
+            this.lbl_Phone.Size = new System.Drawing.Size(45, 18);
+            this.lbl_Phone.TabIndex = 21;
+            this.lbl_Phone.Text = "numb";
+            // 
+            // lbl_City
+            // 
+            this.lbl_City.AutoSize = true;
+            this.lbl_City.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_City.Location = new System.Drawing.Point(167, 190);
+            this.lbl_City.Name = "lbl_City";
+            this.lbl_City.Size = new System.Drawing.Size(45, 18);
+            this.lbl_City.TabIndex = 22;
+            this.lbl_City.Text = "numb";
+            // 
+            // lbl_Country
+            // 
+            this.lbl_Country.AutoSize = true;
+            this.lbl_Country.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_Country.Location = new System.Drawing.Point(167, 222);
+            this.lbl_Country.Name = "lbl_Country";
+            this.lbl_Country.Size = new System.Drawing.Size(45, 18);
+            this.lbl_Country.TabIndex = 23;
+            this.lbl_Country.Text = "numb";
             // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 386);
+            this.Controls.Add(this.lbl_Country);
+            this.Controls.Add(this.lbl_City);
+            this.Controls.Add(this.lbl_Phone);
             this.Controls.Add(this.txt_Country);
             this.Controls.Add(this.txt_City);
             this.Controls.Add(this.txt_PhoneNumber);
@@ -238,5 +275,8 @@ namespace C969
         private System.Windows.Forms.TextBox txt_PhoneNumber;
         private System.Windows.Forms.TextBox txt_City;
         private System.Windows.Forms.TextBox txt_Country;
+        private System.Windows.Forms.Label lbl_Phone;
+        private System.Windows.Forms.Label lbl_City;
+        private System.Windows.Forms.Label lbl_Country;
     }
 }
