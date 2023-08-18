@@ -11,6 +11,7 @@ namespace C969
     {
         private UserAccount _u;
         private List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
+       
 
         public Dashboard(UserAccount u)
         {
@@ -49,12 +50,13 @@ namespace C969
 
         private void btn_AddAppointment_Click(object sender, EventArgs e)
         {
-
+            
             UserAccount currentUser = Database.DBConnection.GetUserById(_u.ID);
 
             Form addAppointment = new AddAppointment(currentUser);
 
             addAppointment.ShowDialog();
+            this.Close();
 
         }
 

@@ -6,12 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
-
-
 using C969.Database;
-
-
 
 
 namespace C969

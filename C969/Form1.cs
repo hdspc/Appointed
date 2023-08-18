@@ -25,8 +25,11 @@ namespace C969
         }
 
         private void submitButton_Click(object sender, EventArgs e)
-        {
+        //{
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
+
+            string spanishPass = "Verifica tu contraseña";
+
 
             try
             {
@@ -38,19 +41,33 @@ namespace C969
                         {
                             // Login Successful
                             OnUserLoggedIn(u);
+
+                            if (isSpanish)
+                            {
+                                MessageBox.Show($"{u.Username} conectado");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"User \"{u.Username}\" logged in.");
+
+                            }
+
                             Form dashboard = new Dashboard(u);
                             List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
 
                             AppointmentNotification(allAppointments, u);
 
-                           
-
                             dashboard.Show();
+                            
                         }
+
                         else
                         {
                             // Password doesn't match
                             EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
+
+
+
                             if (isSpanish)
                             {
                                 MessageBox.Show("Verifica tu contraseña");
@@ -60,19 +77,24 @@ namespace C969
                                 MessageBox.Show("Check your password.");
                             }
                         }
+                        // No matching Username was found. Throw Exception
+
                     }
 
+                    else
+                    {
+                        EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
+                        if (isSpanish)
+                        {
+                            MessageBox.Show("Verifica tu nombre de usuario");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Check your username.");
+                        }
+                    }
                 }
-                // No matching Username was found. Throw Exception
-                EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
-                if (isSpanish)
-                {
-                    MessageBox.Show("Verifica tu nombre de usuario");
-                }
-                else
-                {
-                    MessageBox.Show("Check your username.");
-                }
+
 
             }
             catch (Exception ex)
@@ -86,7 +108,7 @@ namespace C969
         {
 
             EventLogger.LogSuccessfulLogin(user);
-            UserLogin?.Invoke(null, new UserLogin(user));
+           // UserLogin?.Invoke(null, new UserLogin(user));
         }
 
 
