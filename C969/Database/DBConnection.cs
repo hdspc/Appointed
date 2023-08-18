@@ -307,6 +307,43 @@ namespace C969.Database
 			}
 		}
 
+		public static int GetNumberAppointmentsForCustomer(int customerID)
+		{
+
+			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+			MySqlConnection db = new MySqlConnection(constr);
+
+			string typeCountQuery = $"SELECT COUNT(customerId) FROM appointment WHERE customerID = {customerID}";
+
+			MySqlCommand countTypesCommand = new MySqlCommand(typeCountQuery, db);
+
+
+			try
+			{
+				db.Open();
+				MySqlDataReader rdr = countTypesCommand.ExecuteReader();
+
+				while (rdr.Read())
+				{
+				}
+
+				return Int32.Parse(rdr[0].ToString());
+
+
+
+			}
+			catch (MySqlException ex)
+			{
+				MessageBox.Show(ex.ToString());
+				return -1;
+			}
+			finally
+			{
+
+				db.Close();
+			}
+		}
+
 
 		public static DataTable GetAppointmentsByID(int userID)
 		{

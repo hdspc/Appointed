@@ -41,6 +41,7 @@ namespace C969
 			dropdown_Months.Visible = true;
 			txt_UserID.Visible = false;
 			btn_UserIDRefresh.Visible = false;
+			lbl_UserIDEntry.Text = "User ID:";
 
 
 
@@ -125,26 +126,18 @@ namespace C969
 		private void btn_customReport_Click(object sender, EventArgs e)
 		{
 
-			txt_ReportTextBox.Visible = false;
-			dgv_consultantSchedule.Visible = true;
+			txt_ReportTextBox.Visible = true;
+			dgv_consultantSchedule.Visible = false;
 			dropdown_Months.Visible = false;
-			txt_UserID.Visible = true;
-			btn_UserIDRefresh.Visible = true;
-			lbl_UserIDEntry.Visible = true;
-			lbl_UserIDEntry.Text = "User ID:";
+			txt_UserID.Visible = false;
+			btn_UserIDRefresh.Visible = false;
+			lbl_UserIDEntry.Visible = false;
 
-			int currentUserID = _u.ID;
 
-			MySqlConnection connect = Database.DBConnection.conn;
-			string sqlString = $"SELECT * FROM appointment WHERE userId = {currentUserID}";
-			MySqlCommand refresh = new MySqlCommand(sqlString, connect);
-			MySqlDataAdapter adp = new MySqlDataAdapter(refresh);
-			DataTable dt = new DataTable();
-			adp.Fill(dt);
+			int appointmentNumber = Database.DBConnection.GetNumberAppointmentsForCustomer(1);
 
-			Dashboard.changeTimeFromUTC(dt);
 
-			dgv_consultantSchedule.DataSource = dt;
+			txt_ReportTextBox.Text = $"Appointments for Customer ID #1: {appointmentNumber.ToString()}";
 
 		}
 

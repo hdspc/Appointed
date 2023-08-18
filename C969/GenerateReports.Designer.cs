@@ -73,9 +73,9 @@ namespace C969
             this.btn_customReport.Location = new System.Drawing.Point(82, 284);
             this.btn_customReport.Margin = new System.Windows.Forms.Padding(4);
             this.btn_customReport.Name = "btn_customReport";
-            this.btn_customReport.Size = new System.Drawing.Size(272, 30);
+            this.btn_customReport.Size = new System.Drawing.Size(272, 62);
             this.btn_customReport.TabIndex = 2;
-            this.btn_customReport.Text = "My Schedule";
+            this.btn_customReport.Text = "Get number of appointments for Customer ID #1";
             this.btn_customReport.UseVisualStyleBackColor = true;
             this.btn_customReport.Click += new System.EventHandler(this.btn_customReport_Click);
             // 
