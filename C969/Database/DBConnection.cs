@@ -451,32 +451,33 @@ namespace C969.Database
 
 		public static int GetIntFromTable(string columnName, string table, string where, string lookup)
 		{
+			int retrievedInt = -1;
+
 			MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
 
-			string getStringQuery = $"SELECT {columnName} FROM {table} WHERE {where} = \"{lookup}\"";
-			MySqlCommand selectUsersCommand = new MySqlCommand(getStringQuery, connect);
+			string getIntQuery = $"SELECT {columnName} FROM {table} WHERE {where} = \"{lookup}\"";
+			MySqlCommand selectIntCommand = new MySqlCommand(getIntQuery, connect);
 
 			try
 			{
 				connect.Open();
 
-				MySqlDataReader reader = selectUsersCommand.ExecuteReader();
+				retrievedInt = (Int32)selectIntCommand.ExecuteScalar();
 
-				while (reader.Read())
-				{
-				}
+				//if (reader.Read())
+				//{
+				//}
 
-				return Int32.Parse(reader[0].ToString());
 			}
 			catch (MySqlException ex)
 			{
 				MessageBox.Show(ex.Message);
 				return -1;
 			}
-			finally
-			{
-				connect.Close();
-			}
+				return /*Int32.Parse(reader[0].ToString());*/ retrievedInt;
+
+				//connect.Close();
+			
 		}
 
 

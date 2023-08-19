@@ -163,7 +163,6 @@ namespace C969
             this.txt_cityName.Name = "txt_cityName";
             this.txt_cityName.Size = new System.Drawing.Size(142, 26);
             this.txt_cityName.TabIndex = 11;
-            this.txt_cityName.Text = "1";
             // 
             // txt_postalcode
             // 
