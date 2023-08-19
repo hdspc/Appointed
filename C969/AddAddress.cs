@@ -30,7 +30,7 @@ namespace C969
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            List<City> allCities = Database.DBConnection.GetAllCities();
+           // List<City> allCities = Database.DBConnection.GetAllCities();
 
 
             try
@@ -60,43 +60,23 @@ namespace C969
                 //Validating City and adding to Database if necessary
 
 
-
-                //////foreach (City city in allCities)
-                //////{
-                //////    if (cityName == city.CityName)
-                //////    {
-
-                //////        int newCityID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
-
-                //////        Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", 1, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
-                //////    }
-
-                //////    else
-                //////    {
-                //////        cityID = city.CityID;
-
-                //////        MessageBox.Show("if");
-                //////    }
-                //////}
-
-
-                /*
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * CHECK
-                 * 
-                 * 
-                 * 
-                 *
-                 *
-                 */
-
-
                 int retrieveCityID = getCityID(cityName);
+
+               
+                    if (retrieveCityID == -1)
+                    {
+
+                        int newCityID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
+
+                        Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", 1, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
+
+                        MessageBox.Show("if");
+
+                    retrieveCityID = newCityID;
+                    }
+               
+                    int retrieveCountryID
+
 
 
                 Address address = new Address(addressID, address1, address2, retrieveCityID, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy);
