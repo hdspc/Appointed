@@ -14,11 +14,12 @@ namespace C969
     {
 
         private UserAccount _u;
-        private List<City> allCities = Database.DBConnection.GetAllCities();
+        private List<City> allCities;
 
         public AddAddress(UserAccount u)
         {
             _u = u;
+            allCities = Database.DBConnection.GetAllCities();
             InitializeComponent();
             txt_addressID.Text = Database.DBConnection.GetNewIdFromTable("address", "addressId").ToString();
                    
@@ -69,7 +70,7 @@ namespace C969
                         int newCityID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
 
 
-                        Database.DBConnection.InsertNewRecord("city", $"\"{newCityID}\", \"{cityName}\", 1, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
+                        Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", 1, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
 
                         MessageBox.Show($"Added new city {cityName} with ID {newCityID}");
 

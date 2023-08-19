@@ -308,7 +308,7 @@ namespace C969.Database
 			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
 			MySqlConnection db = new MySqlConnection(constr);
 
-			string allCitiesQuery = $"SELECT * FROM address";
+			string allCitiesQuery = $"SELECT * FROM city";
 			MySqlCommand selectAllCitiesCommand = new MySqlCommand(allCitiesQuery, db);
 
 			try
