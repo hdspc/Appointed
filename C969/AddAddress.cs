@@ -14,13 +14,11 @@ namespace C969
     {
 
         private UserAccount _u;
-
         public AddAddress(UserAccount u)
         {
             _u = u;
             InitializeComponent();
             txt_addressID.Text = Database.DBConnection.GetNewIdFromTable("address", "addressId").ToString();
-
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

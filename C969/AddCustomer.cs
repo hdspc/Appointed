@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace C969
 {
-    public delegate int NewAddressID(int x);
+    //public delegate int NewAddressID(int x);
 
-
+    
     public partial class AddCustomer : Form
     {
         private UserAccount _u;
+        List<Address> allAddresses = Database.DBConnection.GetAllAddresses();
 
         public AddCustomer(UserAccount u)
         {
@@ -41,7 +42,7 @@ namespace C969
 
                 int customerID = Int32.Parse(txt_customerID.Text);
                 string customerName = txt_customerName.Text;
-                int addressID = Int32.Parse(txt_addressID.Text);
+                int addressID = Int32.Parse(dropdown_AddressIDs.Text);
 
 
                 DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
@@ -55,7 +56,6 @@ namespace C969
                 {
                     active = 1;
                 }
-
 
                 Customer customer = new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
@@ -103,9 +103,9 @@ namespace C969
         private void AddressLoad()
         {
 
-            int addressIDInForm = Int32.Parse(txt_addressID.Text);
+            //int addressIDInForm = Int32.Parse(txt_addressID.Text);
 
-
+            int addressIDInForm = Int32.Parse(dropdown_AddressIDs.Text);
 
             string phone = Database.DBConnection.GetStringFromTable(addressIDInForm, "addressId", "phone", "address");
 
@@ -120,6 +120,11 @@ namespace C969
             lbl_Phone.Text = phone;
             lbl_City.Text = cityName;
             lbl_Country.Text = countryName;
+        }
+
+        private void dropdown_AddressIDs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddressLoad();
         }
 
         //public int FireEvent(int newAddressID)

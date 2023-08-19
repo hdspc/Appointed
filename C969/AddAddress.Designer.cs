@@ -44,6 +44,8 @@ namespace C969
             this.txt_postalcode = new System.Windows.Forms.TextBox();
             this.txt_phoneNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_CountryName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -52,14 +54,14 @@ namespace C969
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label1.Location = new System.Drawing.Point(24, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 19);
+            this.label1.Size = new System.Drawing.Size(97, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Address ID";
+            this.label1.Text = "Address ID*";
             // 
             // btn_Save
             // 
             this.btn_Save.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.btn_Save.Location = new System.Drawing.Point(46, 352);
+            this.btn_Save.Location = new System.Drawing.Point(45, 376);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(90, 34);
             this.btn_Save.TabIndex = 1;
@@ -92,9 +94,9 @@ namespace C969
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label3.Location = new System.Drawing.Point(24, 210);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 19);
+            this.label3.Size = new System.Drawing.Size(68, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "City ID";
+            this.label3.Text = "City ID*";
             // 
             // label4
             // 
@@ -119,7 +121,7 @@ namespace C969
             // btn_Cancel
             // 
             this.btn_Cancel.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.btn_Cancel.Location = new System.Drawing.Point(179, 352);
+            this.btn_Cancel.Location = new System.Drawing.Point(178, 376);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(90, 34);
             this.btn_Cancel.TabIndex = 7;
@@ -133,9 +135,9 @@ namespace C969
             this.label6.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label6.Location = new System.Drawing.Point(24, 294);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 19);
+            this.label6.Size = new System.Drawing.Size(63, 19);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Phone";
+            this.label6.Text = "Phone*";
             // 
             // txt_address_1
             // 
@@ -187,11 +189,31 @@ namespace C969
             this.label7.TabIndex = 14;
             this.label7.Text = "Add Address";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label8.Location = new System.Drawing.Point(24, 332);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 19);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Country*";
+            // 
+            // txt_CountryName
+            // 
+            this.txt_CountryName.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.txt_CountryName.Location = new System.Drawing.Point(149, 332);
+            this.txt_CountryName.Name = "txt_CountryName";
+            this.txt_CountryName.Size = new System.Drawing.Size(142, 26);
+            this.txt_CountryName.TabIndex = 16;
+            // 
             // AddAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 418);
+            this.ClientSize = new System.Drawing.Size(308, 452);
+            this.Controls.Add(this.txt_CountryName);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_phoneNumber);
             this.Controls.Add(this.txt_postalcode);
@@ -231,5 +253,7 @@ namespace C969
         private System.Windows.Forms.TextBox txt_postalcode;
         private System.Windows.Forms.TextBox txt_phoneNumber;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt_CountryName;
     }
 }

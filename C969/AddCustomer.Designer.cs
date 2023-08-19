@@ -37,7 +37,6 @@ namespace C969
             this.txt_customerID = new System.Windows.Forms.TextBox();
             this.txt_customerName = new System.Windows.Forms.TextBox();
             this.checkbox_activeCustomer = new System.Windows.Forms.CheckBox();
-            this.txt_addressID = new System.Windows.Forms.TextBox();
             this.btn_newAddress = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@ namespace C969
             this.lbl_City = new System.Windows.Forms.Label();
             this.lbl_Country = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.dropdown_AddressIDs = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_Save
@@ -128,16 +128,6 @@ namespace C969
             this.checkbox_activeCustomer.Text = "Active Customer";
             this.checkbox_activeCustomer.UseVisualStyleBackColor = true;
             // 
-            // txt_addressID
-            // 
-            this.txt_addressID.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_addressID.Location = new System.Drawing.Point(170, 132);
-            this.txt_addressID.Name = "txt_addressID";
-            this.txt_addressID.Size = new System.Drawing.Size(100, 26);
-            this.txt_addressID.TabIndex = 13;
-            this.txt_addressID.Text = "1";
-            this.txt_addressID.TextChanged += new System.EventHandler(this.txt_addressID_TextChanged);
-            // 
             // btn_newAddress
             // 
             this.btn_newAddress.Font = new System.Drawing.Font("Meiryo UI", 11F);
@@ -195,9 +185,9 @@ namespace C969
             this.lbl_City.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.lbl_City.Location = new System.Drawing.Point(168, 251);
             this.lbl_City.Name = "lbl_City";
-            this.lbl_City.Size = new System.Drawing.Size(86, 19);
+            this.lbl_City.Size = new System.Drawing.Size(45, 19);
             this.lbl_City.TabIndex = 22;
-            this.lbl_City.Text = "numbError";
+            this.lbl_City.Text = "Error";
             // 
             // lbl_Country
             // 
@@ -219,11 +209,29 @@ namespace C969
             this.label7.TabIndex = 24;
             this.label7.Text = "Add Customer";
             // 
+            // dropdown_AddressIDs
+            // 
+            this.dropdown_AddressIDs.FormattingEnabled = true;
+            this.dropdown_AddressIDs.ItemHeight = 13;
+            this.dropdown_AddressIDs.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.dropdown_AddressIDs.Location = new System.Drawing.Point(171, 135);
+            this.dropdown_AddressIDs.Name = "dropdown_AddressIDs";
+            this.dropdown_AddressIDs.Size = new System.Drawing.Size(99, 21);
+            this.dropdown_AddressIDs.TabIndex = 25;
+            this.dropdown_AddressIDs.Text = "1";
+            this.dropdown_AddressIDs.SelectedIndexChanged += new System.EventHandler(this.dropdown_AddressIDs_SelectedIndexChanged);
+            // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 418);
+            this.Controls.Add(this.dropdown_AddressIDs);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbl_Country);
             this.Controls.Add(this.lbl_City);
@@ -232,7 +240,6 @@ namespace C969
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_newAddress);
-            this.Controls.Add(this.txt_addressID);
             this.Controls.Add(this.checkbox_activeCustomer);
             this.Controls.Add(this.txt_customerName);
             this.Controls.Add(this.txt_customerID);
@@ -258,7 +265,6 @@ namespace C969
         private System.Windows.Forms.TextBox txt_customerID;
         private System.Windows.Forms.TextBox txt_customerName;
         private System.Windows.Forms.CheckBox checkbox_activeCustomer;
-        private System.Windows.Forms.TextBox txt_addressID;
         private System.Windows.Forms.Button btn_newAddress;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -267,5 +273,6 @@ namespace C969
         private System.Windows.Forms.Label lbl_City;
         private System.Windows.Forms.Label lbl_Country;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox dropdown_AddressIDs;
     }
 }
