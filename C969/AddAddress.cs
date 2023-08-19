@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace C969
 {
@@ -18,22 +13,24 @@ namespace C969
 
         public AddAddress(UserAccount u)
         {
-            _u = u;
-            allCities = Database.DBConnection.GetAllCities();
             InitializeComponent();
+
+            string dacity = "Los Angeles";
+            MessageBox.Show(getCityID(dacity).ToString());
+            _u = u;
+
+
             txt_addressID.Text = Database.DBConnection.GetNewIdFromTable("address", "addressId").ToString();
-                   
-
-
         }
 
-    private void btn_Cancel_Click(object sender, EventArgs e)
+        private void btn_Cancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            List<City> allCities = Database.DBConnection.GetAllCities();
 
 
             try
@@ -44,7 +41,9 @@ namespace C969
 
 
                 string cityName = txt_cityName.Text;
-                int cityID = Int32.Parse(txt_cityName.Text);
+
+                
+                //int cityID = Int32.Parse(txt_cityName.Text);
 
                 string countryName = txt_CountryName.Text;
 
@@ -59,35 +58,56 @@ namespace C969
                 string lastUpdateBy = _u.Username;
 
                 //Validating City and adding to Database if necessary
-                foreach(City city in allCities)
-                {
-                    if (city.CityName == txt_cityName.Text)
-                    {
-                    }
-
-                    else
-                    {
-                        int newCityID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
-
-
-                        Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", 1, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
-
-                        MessageBox.Show($"Added new city {cityName} with ID {newCityID}");
-
-                    }
-                }
 
 
 
-                Address address = new Address(addressID, address1, address2, cityID, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy);
+                //////foreach (City city in allCities)
+                //////{
+                //////    if (cityName == city.CityName)
+                //////    {
 
-                string addressString = $"{addressID}, \"{address1}\", \"{address2}\", {cityID}, \"{postalCode}\", \"{phone}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"";
+                //////        int newCityID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
+
+                //////        Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", 1, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
+                //////    }
+
+                //////    else
+                //////    {
+                //////        cityID = city.CityID;
+
+                //////        MessageBox.Show("if");
+                //////    }
+                //////}
+
+
+                /*
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * CHECK
+                 * 
+                 * 
+                 * 
+                 *
+                 *
+                 */
+
+
+                int retrieveCityID = getCityID(cityName);
+
+
+                Address address = new Address(addressID, address1, address2, retrieveCityID, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy);
+
+                string addressString = $"{addressID}, \"{address1}\", \"{address2}\", {retrieveCityID}, \"{postalCode}\", \"{phone}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"";
 
                 int rowsAffected = Database.DBConnection.InsertNewRecord("address", addressString);
 
                 if (rowsAffected > 0)
                 {
-              
+
                     MessageBox.Show($"{rowsAffected} record saved!");
                     EventLogger.LogUnspecifiedEntry($"{_u.Username} created new Address with ID {addressID}");
                     Close();
@@ -104,7 +124,7 @@ namespace C969
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -112,7 +132,12 @@ namespace C969
         }
 
 
+        private int getCityID(string cityName)
+        {
+            int cityID = Database.DBConnection.GetIntFromTable("cityId", "city", "city", cityName);
 
+            return cityID;
+        }
 
 
 

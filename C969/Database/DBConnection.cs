@@ -449,7 +449,35 @@ namespace C969.Database
 			}
 		}
 
+		public static int GetIntFromTable(string columnName, string table, string where, string lookup)
+		{
+			MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
 
+			string getStringQuery = $"SELECT {columnName} FROM {table} WHERE {where} = \"{lookup}\"";
+			MySqlCommand selectUsersCommand = new MySqlCommand(getStringQuery, connect);
+
+			try
+			{
+				connect.Open();
+
+				MySqlDataReader reader = selectUsersCommand.ExecuteReader();
+
+				while (reader.Read())
+				{
+				}
+
+				return Int32.Parse(reader[0].ToString());
+			}
+			catch (MySqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return -1;
+			}
+			finally
+			{
+				connect.Close();
+			}
+		}
 
 
 
@@ -461,61 +489,4 @@ namespace C969.Database
 
 
 
-//public static DataTable GetAppointmentsByID(int userID)
-//{
 
-//	List<Appointment> userAppointments = new List<Appointment>();
-
-//	string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-//	MySqlConnection db = new MySqlConnection(constr);
-//	db.Close();
-
-//	string sql = $"SELECT * FROM appointment WHERE userId = {userID}";
-//	MySqlCommand selectUserAppointmentsCommand = new MySqlCommand(sql, db);
-
-
-//	try
-//	{
-//		db.Open();
-
-//		MySqlDataReader reader = selectUserAppointmentsCommand.ExecuteReader();
-
-//		while (reader.Read())
-//		{
-//			Appointment appointment = new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6),
-//				reader.GetString(7), reader.GetString(8), reader.GetDateTime(9), reader.GetDateTime(10), reader.GetDateTime(11), reader.GetString(12), reader.GetDateTime(13), reader.GetString(14));
-
-//			userAppointments.Add(appointment);
-//		}
-
-
-//		MySqlDataAdapter adp = new MySqlDataAdapter(selectUserAppointmentsCommand);
-//		DataTable dt = new DataTable();
-//		adp.Fill(dt);
-//		//Dashboard.changeTimeFromUTC(dt);
-//		db.Close();
-
-
-//		return dt;
-//	}
-//	catch (MySqlException ex)
-//	{
-//		MessageBox.Show(ex.Message);
-//		return null;
-//	}
-//	finally
-//	{
-//		db.Close();
-//	}
-
-
-
-
-
-
-
-
-
-
-
-//}
