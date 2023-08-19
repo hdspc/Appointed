@@ -25,6 +25,11 @@ namespace C969
 
             txt_customerID.Text = Database.DBConnection.GetNewIdFromTable("customer", "customerId").ToString();
 
+            foreach(Address address in allAddresses)
+            {
+                dropdown_AddressIDs.Items.Add(address.AddressID);
+            }
+
 
             AddressLoad();
         }

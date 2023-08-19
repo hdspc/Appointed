@@ -213,12 +213,6 @@ namespace C969
             // 
             this.dropdown_AddressIDs.FormattingEnabled = true;
             this.dropdown_AddressIDs.ItemHeight = 13;
-            this.dropdown_AddressIDs.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
             this.dropdown_AddressIDs.Location = new System.Drawing.Point(171, 135);
             this.dropdown_AddressIDs.Name = "dropdown_AddressIDs";
             this.dropdown_AddressIDs.Size = new System.Drawing.Size(99, 21);

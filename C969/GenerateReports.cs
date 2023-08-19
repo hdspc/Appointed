@@ -137,7 +137,7 @@ namespace C969
 			int appointmentNumber = Database.DBConnection.GetNumberAppointmentsForCustomer(1);
 
 
-			txt_ReportTextBox.Text = $"Appointments for Customer ID #1: {appointmentNumber.ToString()}";
+			txt_ReportTextBox.Text = $"Number of appointments with Customer ID #1: {appointmentNumber.ToString()}";
 
 		}
 

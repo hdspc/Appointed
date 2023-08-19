@@ -14,14 +14,19 @@ namespace C969
     {
 
         private UserAccount _u;
+        private List<City> allCities = Database.DBConnection.GetAllCities();
+
         public AddAddress(UserAccount u)
         {
             _u = u;
             InitializeComponent();
             txt_addressID.Text = Database.DBConnection.GetNewIdFromTable("address", "addressId").ToString();
+                   
+
+
         }
 
-        private void btn_Cancel_Click(object sender, EventArgs e)
+    private void btn_Cancel_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -35,13 +40,42 @@ namespace C969
                 int addressID = Int32.Parse(txt_addressID.Text);
                 string address1 = txt_address_1.Text;
                 string address2 = txt_address_2.Text;
-                int cityID = Int32.Parse(txt_cityID.Text);
+
+
+                string cityName = txt_cityName.Text;
+                int cityID = Int32.Parse(txt_cityName.Text);
+
+                string countryName = txt_CountryName.Text;
+
+
+
+
                 string postalCode = txt_postalcode.Text;
                 string phone = txt_phoneNumber.Text;
                 DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string createdBy = _u.Username;
                 DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdateBy = _u.Username;
+
+                //Validating City and adding to Database if necessary
+                foreach(City city in allCities)
+                {
+                    if (city.CityName == txt_cityName.Text)
+                    {
+                    }
+
+                    else
+                    {
+                        int newCityID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
+
+
+                        Database.DBConnection.InsertNewRecord("city", $"\"{newCityID}\", \"{cityName}\", 1, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
+
+                        MessageBox.Show($"Added new city {cityName} with ID {newCityID}");
+
+                    }
+                }
+
 
 
                 Address address = new Address(addressID, address1, address2, cityID, postalCode, phone, createDate, createdBy, lastUpdate, lastUpdateBy);

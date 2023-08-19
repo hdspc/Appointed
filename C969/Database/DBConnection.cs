@@ -301,6 +301,43 @@ namespace C969.Database
 			}
 		}
 
+		public static List<City> GetAllCities()
+		{
+			List<City> allCities = new List<City>();
+
+			string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+			MySqlConnection db = new MySqlConnection(constr);
+
+			string allCitiesQuery = $"SELECT * FROM address";
+			MySqlCommand selectAllCitiesCommand = new MySqlCommand(allCitiesQuery, db);
+
+			try
+			{
+				db.Open();
+
+				MySqlDataReader reader = selectAllCitiesCommand.ExecuteReader();
+
+				while (reader.Read())
+				{
+					City city = new City(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetString(4), reader.GetDateTime(5), reader.GetString(6));
+
+
+					allCities.Add(city);
+				}
+
+				return allCities;
+			}
+			catch (MySqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return null;
+			}
+			finally
+			{
+				db.Close();
+			}
+		}
+
 
 
 		public static int GetAppointmentTypeCount(int userID, string appointmentType, string chosenMonth)

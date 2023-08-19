@@ -40,7 +40,7 @@ namespace C969
             this.label6 = new System.Windows.Forms.Label();
             this.txt_address_1 = new System.Windows.Forms.TextBox();
             this.txt_address_2 = new System.Windows.Forms.TextBox();
-            this.txt_cityID = new System.Windows.Forms.TextBox();
+            this.txt_cityName = new System.Windows.Forms.TextBox();
             this.txt_postalcode = new System.Windows.Forms.TextBox();
             this.txt_phoneNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,12 +51,13 @@ namespace C969
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label1.Location = new System.Drawing.Point(24, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 19);
+            this.label1.Size = new System.Drawing.Size(88, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Address ID*";
+            this.label1.Text = "Address ID";
             // 
             // btn_Save
             // 
@@ -94,9 +95,9 @@ namespace C969
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label3.Location = new System.Drawing.Point(24, 210);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 19);
+            this.label3.Size = new System.Drawing.Size(94, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "City ID*";
+            this.label3.Text = "City Name*";
             // 
             // label4
             // 
@@ -112,7 +113,7 @@ namespace C969
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.label5.Location = new System.Drawing.Point(24, 252);
+            this.label5.Location = new System.Drawing.Point(24, 287);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 19);
             this.label5.TabIndex = 6;
@@ -133,7 +134,7 @@ namespace C969
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.label6.Location = new System.Drawing.Point(24, 294);
+            this.label6.Location = new System.Drawing.Point(24, 329);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 19);
             this.label6.TabIndex = 8;
@@ -155,18 +156,19 @@ namespace C969
             this.txt_address_2.Size = new System.Drawing.Size(142, 26);
             this.txt_address_2.TabIndex = 10;
             // 
-            // txt_cityID
+            // txt_cityName
             // 
-            this.txt_cityID.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_cityID.Location = new System.Drawing.Point(149, 207);
-            this.txt_cityID.Name = "txt_cityID";
-            this.txt_cityID.Size = new System.Drawing.Size(142, 26);
-            this.txt_cityID.TabIndex = 11;
+            this.txt_cityName.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.txt_cityName.Location = new System.Drawing.Point(149, 207);
+            this.txt_cityName.Name = "txt_cityName";
+            this.txt_cityName.Size = new System.Drawing.Size(142, 26);
+            this.txt_cityName.TabIndex = 11;
+            this.txt_cityName.Text = "1";
             // 
             // txt_postalcode
             // 
             this.txt_postalcode.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_postalcode.Location = new System.Drawing.Point(149, 249);
+            this.txt_postalcode.Location = new System.Drawing.Point(149, 284);
             this.txt_postalcode.Name = "txt_postalcode";
             this.txt_postalcode.Size = new System.Drawing.Size(142, 26);
             this.txt_postalcode.TabIndex = 12;
@@ -174,7 +176,7 @@ namespace C969
             // txt_phoneNumber
             // 
             this.txt_phoneNumber.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_phoneNumber.Location = new System.Drawing.Point(149, 291);
+            this.txt_phoneNumber.Location = new System.Drawing.Point(149, 326);
             this.txt_phoneNumber.Name = "txt_phoneNumber";
             this.txt_phoneNumber.Size = new System.Drawing.Size(142, 26);
             this.txt_phoneNumber.TabIndex = 13;
@@ -193,7 +195,7 @@ namespace C969
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.label8.Location = new System.Drawing.Point(24, 332);
+            this.label8.Location = new System.Drawing.Point(24, 248);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 19);
             this.label8.TabIndex = 15;
@@ -202,7 +204,7 @@ namespace C969
             // txt_CountryName
             // 
             this.txt_CountryName.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_CountryName.Location = new System.Drawing.Point(149, 332);
+            this.txt_CountryName.Location = new System.Drawing.Point(149, 245);
             this.txt_CountryName.Name = "txt_CountryName";
             this.txt_CountryName.Size = new System.Drawing.Size(142, 26);
             this.txt_CountryName.TabIndex = 16;
@@ -217,7 +219,7 @@ namespace C969
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_phoneNumber);
             this.Controls.Add(this.txt_postalcode);
-            this.Controls.Add(this.txt_cityID);
+            this.Controls.Add(this.txt_cityName);
             this.Controls.Add(this.txt_address_2);
             this.Controls.Add(this.txt_address_1);
             this.Controls.Add(this.label6);
@@ -249,7 +251,7 @@ namespace C969
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_address_1;
         private System.Windows.Forms.TextBox txt_address_2;
-        private System.Windows.Forms.TextBox txt_cityID;
+        private System.Windows.Forms.TextBox txt_cityName;
         private System.Windows.Forms.TextBox txt_postalcode;
         private System.Windows.Forms.TextBox txt_phoneNumber;
         private System.Windows.Forms.Label label7;
