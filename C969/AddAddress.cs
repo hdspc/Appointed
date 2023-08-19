@@ -59,7 +59,6 @@ namespace C969
                     Close();
 
 
-
                 }
                 else
                 {

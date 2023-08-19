@@ -37,7 +37,6 @@ namespace C969
                 int customerID = Int32.Parse(txt_customerID.Text);
                 string customerName = txt_customerName.Text;
                 int addressID = Int32.Parse(txt_addressID.Text);
-                string phoneNumber = txt_PhoneNumber.Text;
 
 
                 DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);

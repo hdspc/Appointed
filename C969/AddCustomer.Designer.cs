@@ -42,18 +42,16 @@ namespace C969
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_PhoneNumber = new System.Windows.Forms.TextBox();
-            this.txt_City = new System.Windows.Forms.TextBox();
-            this.txt_Country = new System.Windows.Forms.TextBox();
             this.lbl_Phone = new System.Windows.Forms.Label();
             this.lbl_City = new System.Windows.Forms.Label();
             this.lbl_Country = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Save
             // 
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btn_Save.Location = new System.Drawing.Point(37, 295);
+            this.btn_Save.Location = new System.Drawing.Point(39, 362);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(85, 37);
             this.btn_Save.TabIndex = 0;
@@ -64,7 +62,7 @@ namespace C969
             // btn_Cancel
             // 
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btn_Cancel.Location = new System.Drawing.Point(170, 295);
+            this.btn_Cancel.Location = new System.Drawing.Point(172, 362);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(100, 37);
             this.btn_Cancel.TabIndex = 1;
@@ -75,72 +73,77 @@ namespace C969
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(34, 34);
+            this.label1.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label1.Location = new System.Drawing.Point(34, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 18);
+            this.label1.Size = new System.Drawing.Size(101, 19);
             this.label1.TabIndex = 2;
             this.label1.Text = "Customer ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label2.Location = new System.Drawing.Point(34, 62);
+            this.label2.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label2.Location = new System.Drawing.Point(34, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 18);
+            this.label2.Size = new System.Drawing.Size(127, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "Customer Name";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label6.Location = new System.Drawing.Point(34, 93);
+            this.label6.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label6.Location = new System.Drawing.Point(34, 135);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 18);
+            this.label6.Size = new System.Drawing.Size(88, 19);
             this.label6.TabIndex = 7;
             this.label6.Text = "Address ID";
             // 
             // txt_customerID
             // 
             this.txt_customerID.Enabled = false;
-            this.txt_customerID.Location = new System.Drawing.Point(170, 32);
+            this.txt_customerID.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.txt_customerID.Location = new System.Drawing.Point(171, 62);
             this.txt_customerID.Name = "txt_customerID";
-            this.txt_customerID.Size = new System.Drawing.Size(100, 20);
+            this.txt_customerID.Size = new System.Drawing.Size(100, 26);
             this.txt_customerID.TabIndex = 10;
             // 
             // txt_customerName
             // 
-            this.txt_customerName.Location = new System.Drawing.Point(170, 63);
+            this.txt_customerName.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.txt_customerName.Location = new System.Drawing.Point(170, 97);
             this.txt_customerName.Name = "txt_customerName";
-            this.txt_customerName.Size = new System.Drawing.Size(100, 20);
+            this.txt_customerName.Size = new System.Drawing.Size(100, 26);
             this.txt_customerName.TabIndex = 11;
             // 
             // checkbox_activeCustomer
             // 
             this.checkbox_activeCustomer.AutoSize = true;
-            this.checkbox_activeCustomer.Location = new System.Drawing.Point(37, 262);
+            this.checkbox_activeCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.checkbox_activeCustomer.Location = new System.Drawing.Point(87, 318);
             this.checkbox_activeCustomer.Name = "checkbox_activeCustomer";
-            this.checkbox_activeCustomer.Size = new System.Drawing.Size(103, 17);
+            this.checkbox_activeCustomer.Size = new System.Drawing.Size(136, 22);
             this.checkbox_activeCustomer.TabIndex = 12;
             this.checkbox_activeCustomer.Text = "Active Customer";
             this.checkbox_activeCustomer.UseVisualStyleBackColor = true;
             // 
             // txt_addressID
             // 
-            this.txt_addressID.Location = new System.Drawing.Point(170, 91);
+            this.txt_addressID.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.txt_addressID.Location = new System.Drawing.Point(170, 132);
             this.txt_addressID.Name = "txt_addressID";
-            this.txt_addressID.Size = new System.Drawing.Size(100, 20);
+            this.txt_addressID.Size = new System.Drawing.Size(100, 26);
             this.txt_addressID.TabIndex = 13;
             this.txt_addressID.Text = "1";
             this.txt_addressID.TextChanged += new System.EventHandler(this.txt_addressID_TextChanged);
             // 
             // btn_newAddress
             // 
-            this.btn_newAddress.Location = new System.Drawing.Point(170, 128);
+            this.btn_newAddress.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.btn_newAddress.Location = new System.Drawing.Point(37, 176);
             this.btn_newAddress.Name = "btn_newAddress";
-            this.btn_newAddress.Size = new System.Drawing.Size(100, 23);
+            this.btn_newAddress.Size = new System.Drawing.Size(233, 29);
             this.btn_newAddress.TabIndex = 14;
             this.btn_newAddress.Text = "New Address";
             this.btn_newAddress.UseVisualStyleBackColor = true;
@@ -149,95 +152,82 @@ namespace C969
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(34, 190);
+            this.label3.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label3.Location = new System.Drawing.Point(35, 251);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 18);
+            this.label3.Size = new System.Drawing.Size(42, 19);
             this.label3.TabIndex = 15;
             this.label3.Text = "City ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.Location = new System.Drawing.Point(34, 222);
+            this.label4.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label4.Location = new System.Drawing.Point(35, 283);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 18);
+            this.label4.Size = new System.Drawing.Size(66, 19);
             this.label4.TabIndex = 16;
             this.label4.Text = "Country";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(34, 160);
+            this.label5.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label5.Location = new System.Drawing.Point(35, 221);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 18);
+            this.label5.Size = new System.Drawing.Size(117, 19);
             this.label5.TabIndex = 17;
             this.label5.Text = "Phone Number";
-            // 
-            // txt_PhoneNumber
-            // 
-            this.txt_PhoneNumber.Location = new System.Drawing.Point(104, 339);
-            this.txt_PhoneNumber.Name = "txt_PhoneNumber";
-            this.txt_PhoneNumber.Size = new System.Drawing.Size(100, 20);
-            this.txt_PhoneNumber.TabIndex = 18;
-            // 
-            // txt_City
-            // 
-            this.txt_City.Location = new System.Drawing.Point(104, 369);
-            this.txt_City.Name = "txt_City";
-            this.txt_City.Size = new System.Drawing.Size(100, 20);
-            this.txt_City.TabIndex = 19;
-            // 
-            // txt_Country
-            // 
-            this.txt_Country.Location = new System.Drawing.Point(104, 401);
-            this.txt_Country.Name = "txt_Country";
-            this.txt_Country.Size = new System.Drawing.Size(100, 20);
-            this.txt_Country.TabIndex = 20;
             // 
             // lbl_Phone
             // 
             this.lbl_Phone.AutoSize = true;
-            this.lbl_Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbl_Phone.Location = new System.Drawing.Point(167, 160);
+            this.lbl_Phone.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.lbl_Phone.Location = new System.Drawing.Point(168, 221);
             this.lbl_Phone.Name = "lbl_Phone";
-            this.lbl_Phone.Size = new System.Drawing.Size(45, 18);
+            this.lbl_Phone.Size = new System.Drawing.Size(45, 19);
             this.lbl_Phone.TabIndex = 21;
-            this.lbl_Phone.Text = "numb";
+            this.lbl_Phone.Text = "Error";
             // 
             // lbl_City
             // 
             this.lbl_City.AutoSize = true;
-            this.lbl_City.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbl_City.Location = new System.Drawing.Point(167, 190);
+            this.lbl_City.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.lbl_City.Location = new System.Drawing.Point(168, 251);
             this.lbl_City.Name = "lbl_City";
-            this.lbl_City.Size = new System.Drawing.Size(45, 18);
+            this.lbl_City.Size = new System.Drawing.Size(86, 19);
             this.lbl_City.TabIndex = 22;
-            this.lbl_City.Text = "numb";
+            this.lbl_City.Text = "numbError";
             // 
             // lbl_Country
             // 
             this.lbl_Country.AutoSize = true;
-            this.lbl_Country.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbl_Country.Location = new System.Drawing.Point(167, 222);
+            this.lbl_Country.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.lbl_Country.Location = new System.Drawing.Point(168, 283);
             this.lbl_Country.Name = "lbl_Country";
-            this.lbl_Country.Size = new System.Drawing.Size(45, 18);
+            this.lbl_Country.Size = new System.Drawing.Size(45, 19);
             this.lbl_Country.TabIndex = 23;
-            this.lbl_Country.Text = "numb";
+            this.lbl_Country.Text = "Error";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Meiryo UI", 18F);
+            this.label7.Location = new System.Drawing.Point(61, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(180, 30);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Add Customer";
             // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 386);
+            this.ClientSize = new System.Drawing.Size(308, 418);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lbl_Country);
             this.Controls.Add(this.lbl_City);
             this.Controls.Add(this.lbl_Phone);
-            this.Controls.Add(this.txt_Country);
-            this.Controls.Add(this.txt_City);
-            this.Controls.Add(this.txt_PhoneNumber);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -273,11 +263,9 @@ namespace C969
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_PhoneNumber;
-        private System.Windows.Forms.TextBox txt_City;
-        private System.Windows.Forms.TextBox txt_Country;
         private System.Windows.Forms.Label lbl_Phone;
         private System.Windows.Forms.Label lbl_City;
         private System.Windows.Forms.Label lbl_Country;
+        private System.Windows.Forms.Label label7;
     }
 }
