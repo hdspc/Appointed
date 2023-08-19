@@ -164,9 +164,23 @@ namespace C969
 
         public static int getCityID(string cityName)
         {
-            int cityID = Database.DBConnection.GetIntFromTable("cityId", "city", "city", cityName);
+            try
+            {
+                int cityID = Database.DBConnection.GetIntFromTable("cityId", "city", "city", cityName);
 
-            return cityID;
+                if (cityID == -1)
+                {
+                    int newID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
+                    cityID = newID;
+                }
+
+                return cityID;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
         }
     }
 }
