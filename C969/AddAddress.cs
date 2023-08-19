@@ -57,7 +57,27 @@ namespace C969
                 DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdateBy = _u.Username;
 
+                //Validating Country and adding to Database if necessary
+
+
+
+                int retrieveCountryID = getCountryID(countryName);
+
+                if (retrieveCountryID == -1)
+                {
+
+                    int newCountryID = Database.DBConnection.GetNewIdFromTable("country", "countryId");
+
+                    Database.DBConnection.InsertNewRecord("country", $"{newCountryID}, \"{countryName}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
+
+                    MessageBox.Show($"New Country {countryName} added to the database.");
+
+                    retrieveCountryID = newCountryID;
+                }
+
+
                 //Validating City and adding to Database if necessary
+
 
 
                 int retrieveCityID = getCityID(cityName);
@@ -70,12 +90,15 @@ namespace C969
 
                         Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", 1, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
 
-                        MessageBox.Show("if");
+                        MessageBox.Show($"New City {cityName} added to the database.");
 
                     retrieveCityID = newCityID;
                     }
-               
-                    int retrieveCountryID
+
+
+
+
+                
 
 
 
@@ -115,6 +138,13 @@ namespace C969
         private int getCityID(string cityName)
         {
             int cityID = Database.DBConnection.GetIntFromTable("cityId", "city", "city", cityName);
+
+            return cityID;
+        }
+
+        private int getCountryID(string countryName)
+        {
+            int cityID = Database.DBConnection.GetIntFromTable("countryId", "country", "country", countryName);
 
             return cityID;
         }
