@@ -8,7 +8,7 @@ namespace C969.Events
 {
     public class MyEventArgs : EventArgs
     {
-        public int addressID { get; set; }
+        public int NewAddressID { get; set; }
 
     }
 }

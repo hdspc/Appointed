@@ -20,6 +20,7 @@ namespace C969
             _u = u;
             InitializeComponent();
             txt_addressID.Text = Database.DBConnection.GetNewIdFromTable("address", "addressId").ToString();
+
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace C969
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+
 
             try
             {
@@ -52,7 +54,6 @@ namespace C969
 
                 if (rowsAffected > 0)
                 {
-
               
                     MessageBox.Show($"{rowsAffected} record saved!");
                     EventLogger.LogUnspecifiedEntry($"{_u.Username} created new Address with ID {addressID}");

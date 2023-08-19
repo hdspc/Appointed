@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace C969
 {
+    public delegate int NewAddressID(int x);
+
+
     public partial class AddCustomer : Form
     {
         private UserAccount _u;
@@ -20,6 +23,8 @@ namespace C969
             InitializeComponent();
 
             txt_customerID.Text = Database.DBConnection.GetNewIdFromTable("customer", "customerId").ToString();
+
+
             AddressLoad();
         }
 
@@ -45,9 +50,7 @@ namespace C969
                 string lastUpdatedBy = _u.Username;
 
                 int active = 0;
-
                 bool activeChecked = checkbox_activeCustomer.Checked;
-
                 if (activeChecked)
                 {
                     active = 1;
@@ -118,5 +121,21 @@ namespace C969
             lbl_City.Text = cityName;
             lbl_Country.Text = countryName;
         }
+
+        //public int FireEvent(int newAddressID)
+        //{
+        //    C969.Events.MyEventArgs fire = new Events.MyEventArgs();
+
+        //    //Don't forget a null check, asume this is an event
+        //    FireEventHandler(this, fire);
+
+        //    return fire.NewAddressID;
+
+        //}
+
+        //public HandleFireEvent(object sender, Events.MyEventArgs e)
+        //{
+        //    e.NewAddressID = 1;
+        //}
     }
 }
