@@ -25,6 +25,8 @@ namespace C969
 
             txt_customerID.Text = Database.DBConnection.GetNewIdFromTable("customer", "customerId").ToString();
 
+            dropdown_AddressIDs.Items.Clear();
+
             foreach(Address address in allAddresses)
             {
                 dropdown_AddressIDs.Items.Add(address.AddressID);
@@ -108,11 +110,14 @@ namespace C969
         private void AddressLoad()
         {
 
-            //int addressIDInForm = Int32.Parse(txt_addressID.Text);
 
             int addressIDInForm = Int32.Parse(dropdown_AddressIDs.Text);
 
             string phone = Database.DBConnection.GetStringFromTable(addressIDInForm, "addressId", "phone", "address");
+
+            string address1 = Database.DBConnection.GetStringFromTable(addressIDInForm, "addressId", "address", "address");
+            string address2 = Database.DBConnection.GetStringFromTable(addressIDInForm, "addressId", "address2", "address");
+
 
             string cityIDRetrieval = Database.DBConnection.GetStringFromTable(addressIDInForm, "addressId", "cityId", "address");
             int cityID = Int32.Parse(cityIDRetrieval);
@@ -123,6 +128,8 @@ namespace C969
             string countryName = Database.DBConnection.GetStringFromTable(countryID, "countryId", "country", "country");
 
             lbl_Phone.Text = phone;
+            lbl_address1.Text = address1;
+            lbl_address2.Text = address2;
             lbl_City.Text = cityName;
             lbl_Country.Text = countryName;
         }
@@ -148,7 +155,12 @@ namespace C969
             }
         }
 
- 
+        private void dropdown_AddressIDs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+
 
 
 

@@ -8,7 +8,6 @@ namespace C969
     {
 
         private UserAccount _u;
-        private List<City> allCities;
 
         public AddAddress(UserAccount u)
         {
@@ -18,6 +17,26 @@ namespace C969
 
 
             txt_addressID.Text = Database.DBConnection.GetNewIdFromTable("address", "addressId").ToString();
+
+            List<Country> allCountries = Database.DBConnection.GetAllCountries();
+
+
+            List<City> allCities = Database.DBConnection.GetAllCities();
+
+            dropdown_Countries.Items.Clear();
+            dropdown_Cities.Items.Clear();
+
+            foreach (City city in allCities)
+            {
+                dropdown_Cities.Items.Add(city.CityName);
+            }
+
+            foreach (Country country in allCountries)
+            {
+                dropdown_Countries.Items.Add(country.CountryName);
+            }
+
+
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -37,9 +56,9 @@ namespace C969
                 string address1 = txt_address_1.Text;
                 string address2 = txt_address_2.Text;
 
-                string cityName = txt_cityName.Text;
+                string cityName = dropdown_Cities.Text;
 
-                string countryName = txt_CountryName.Text;
+                string countryName = dropdown_Countries.Text;
 
                 string postalCode = txt_postalcode.Text;
                 string phone = txt_phoneNumber.Text;

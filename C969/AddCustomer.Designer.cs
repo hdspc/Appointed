@@ -46,14 +46,16 @@ namespace C969
             this.lbl_Country = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dropdown_AddressIDs = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_address2 = new System.Windows.Forms.Label();
+            this.lbl_address1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Save
             // 
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btn_Save.Location = new System.Drawing.Point(40, 512);
+            this.btn_Save.Location = new System.Drawing.Point(36, 448);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(85, 37);
             this.btn_Save.TabIndex = 0;
@@ -64,7 +66,7 @@ namespace C969
             // btn_Cancel
             // 
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btn_Cancel.Location = new System.Drawing.Point(173, 512);
+            this.btn_Cancel.Location = new System.Drawing.Point(169, 448);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(100, 37);
             this.btn_Cancel.TabIndex = 1;
@@ -114,7 +116,7 @@ namespace C969
             // txt_customerName
             // 
             this.txt_customerName.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_customerName.Location = new System.Drawing.Point(170, 97);
+            this.txt_customerName.Location = new System.Drawing.Point(171, 97);
             this.txt_customerName.Name = "txt_customerName";
             this.txt_customerName.Size = new System.Drawing.Size(100, 26);
             this.txt_customerName.TabIndex = 11;
@@ -123,7 +125,7 @@ namespace C969
             // 
             this.checkbox_activeCustomer.AutoSize = true;
             this.checkbox_activeCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.checkbox_activeCustomer.Location = new System.Drawing.Point(88, 468);
+            this.checkbox_activeCustomer.Location = new System.Drawing.Point(86, 397);
             this.checkbox_activeCustomer.Name = "checkbox_activeCustomer";
             this.checkbox_activeCustomer.Size = new System.Drawing.Size(136, 22);
             this.checkbox_activeCustomer.TabIndex = 12;
@@ -133,7 +135,7 @@ namespace C969
             // btn_newAddress
             // 
             this.btn_newAddress.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.btn_newAddress.Location = new System.Drawing.Point(38, 326);
+            this.btn_newAddress.Location = new System.Drawing.Point(38, 189);
             this.btn_newAddress.Name = "btn_newAddress";
             this.btn_newAddress.Size = new System.Drawing.Size(233, 29);
             this.btn_newAddress.TabIndex = 14;
@@ -145,7 +147,7 @@ namespace C969
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.label3.Location = new System.Drawing.Point(36, 401);
+            this.label3.Location = new System.Drawing.Point(34, 330);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 19);
             this.label3.TabIndex = 15;
@@ -155,7 +157,7 @@ namespace C969
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.label4.Location = new System.Drawing.Point(36, 433);
+            this.label4.Location = new System.Drawing.Point(34, 359);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 19);
             this.label4.TabIndex = 16;
@@ -165,7 +167,7 @@ namespace C969
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.label5.Location = new System.Drawing.Point(36, 371);
+            this.label5.Location = new System.Drawing.Point(34, 243);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 19);
             this.label5.TabIndex = 17;
@@ -175,7 +177,7 @@ namespace C969
             // 
             this.lbl_Phone.AutoSize = true;
             this.lbl_Phone.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.lbl_Phone.Location = new System.Drawing.Point(169, 371);
+            this.lbl_Phone.Location = new System.Drawing.Point(167, 243);
             this.lbl_Phone.Name = "lbl_Phone";
             this.lbl_Phone.Size = new System.Drawing.Size(45, 19);
             this.lbl_Phone.TabIndex = 21;
@@ -185,7 +187,7 @@ namespace C969
             // 
             this.lbl_City.AutoSize = true;
             this.lbl_City.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.lbl_City.Location = new System.Drawing.Point(169, 401);
+            this.lbl_City.Location = new System.Drawing.Point(167, 330);
             this.lbl_City.Name = "lbl_City";
             this.lbl_City.Size = new System.Drawing.Size(45, 19);
             this.lbl_City.TabIndex = 22;
@@ -195,7 +197,7 @@ namespace C969
             // 
             this.lbl_Country.AutoSize = true;
             this.lbl_Country.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.lbl_Country.Location = new System.Drawing.Point(169, 433);
+            this.lbl_Country.Location = new System.Drawing.Point(167, 359);
             this.lbl_Country.Name = "lbl_Country";
             this.lbl_Country.Size = new System.Drawing.Size(45, 19);
             this.lbl_Country.TabIndex = 23;
@@ -213,41 +215,67 @@ namespace C969
             // 
             // dropdown_AddressIDs
             // 
+            this.dropdown_AddressIDs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dropdown_AddressIDs.FormattingEnabled = true;
-            this.dropdown_AddressIDs.ItemHeight = 13;
+            this.dropdown_AddressIDs.ItemHeight = 18;
             this.dropdown_AddressIDs.Location = new System.Drawing.Point(171, 135);
             this.dropdown_AddressIDs.Name = "dropdown_AddressIDs";
-            this.dropdown_AddressIDs.Size = new System.Drawing.Size(99, 21);
+            this.dropdown_AddressIDs.Size = new System.Drawing.Size(99, 26);
             this.dropdown_AddressIDs.TabIndex = 25;
             this.dropdown_AddressIDs.Text = "1";
             this.dropdown_AddressIDs.SelectedIndexChanged += new System.EventHandler(this.dropdown_AddressIDs_SelectedIndexChanged);
             this.dropdown_AddressIDs.Click += new System.EventHandler(this.dropdown_AddressIDs_Click);
+            this.dropdown_AddressIDs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dropdown_AddressIDs_KeyPress);
             // 
-            // label8
+            // lbl_address2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(93, 195);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 13);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "City";
+            this.lbl_address2.AutoSize = true;
+            this.lbl_address2.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.lbl_address2.Location = new System.Drawing.Point(167, 301);
+            this.lbl_address2.Name = "lbl_address2";
+            this.lbl_address2.Size = new System.Drawing.Size(45, 19);
+            this.lbl_address2.TabIndex = 29;
+            this.lbl_address2.Text = "Error";
             // 
-            // label9
+            // lbl_address1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(142, 278);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Country";
+            this.lbl_address1.AutoSize = true;
+            this.lbl_address1.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.lbl_address1.Location = new System.Drawing.Point(167, 272);
+            this.lbl_address1.Name = "lbl_address1";
+            this.lbl_address1.Size = new System.Drawing.Size(45, 19);
+            this.lbl_address1.TabIndex = 28;
+            this.lbl_address1.Text = "Error";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label10.Location = new System.Drawing.Point(34, 301);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 19);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Address 2";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Meiryo UI", 11F);
+            this.label11.Location = new System.Drawing.Point(34, 272);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 19);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Address 1";
             // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 569);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(308, 509);
+            this.Controls.Add(this.lbl_address2);
+            this.Controls.Add(this.lbl_address1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.dropdown_AddressIDs);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbl_Country);
@@ -291,7 +319,9 @@ namespace C969
         private System.Windows.Forms.Label lbl_Country;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox dropdown_AddressIDs;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_address2;
+        private System.Windows.Forms.Label lbl_address1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

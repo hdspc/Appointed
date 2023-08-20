@@ -45,7 +45,8 @@ namespace C969
             this.txt_phoneNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_CountryName = new System.Windows.Forms.TextBox();
+            this.dropdown_Countries = new System.Windows.Forms.ComboBox();
+            this.dropdown_Cities = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -159,7 +160,7 @@ namespace C969
             // txt_cityName
             // 
             this.txt_cityName.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_cityName.Location = new System.Drawing.Point(149, 207);
+            this.txt_cityName.Location = new System.Drawing.Point(28, 416);
             this.txt_cityName.Name = "txt_cityName";
             this.txt_cityName.Size = new System.Drawing.Size(142, 26);
             this.txt_cityName.TabIndex = 11;
@@ -200,20 +201,29 @@ namespace C969
             this.label8.TabIndex = 15;
             this.label8.Text = "Country*";
             // 
-            // txt_CountryName
+            // dropdown_Countries
             // 
-            this.txt_CountryName.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_CountryName.Location = new System.Drawing.Point(149, 245);
-            this.txt_CountryName.Name = "txt_CountryName";
-            this.txt_CountryName.Size = new System.Drawing.Size(142, 26);
-            this.txt_CountryName.TabIndex = 12;
+            this.dropdown_Countries.FormattingEnabled = true;
+            this.dropdown_Countries.Location = new System.Drawing.Point(149, 248);
+            this.dropdown_Countries.Name = "dropdown_Countries";
+            this.dropdown_Countries.Size = new System.Drawing.Size(142, 21);
+            this.dropdown_Countries.TabIndex = 16;
+            // 
+            // dropdown_Cities
+            // 
+            this.dropdown_Cities.FormattingEnabled = true;
+            this.dropdown_Cities.Location = new System.Drawing.Point(149, 212);
+            this.dropdown_Cities.Name = "dropdown_Cities";
+            this.dropdown_Cities.Size = new System.Drawing.Size(142, 21);
+            this.dropdown_Cities.TabIndex = 17;
             // 
             // AddAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 452);
-            this.Controls.Add(this.txt_CountryName);
+            this.Controls.Add(this.dropdown_Cities);
+            this.Controls.Add(this.dropdown_Countries);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_phoneNumber);
@@ -255,6 +265,7 @@ namespace C969
         private System.Windows.Forms.TextBox txt_phoneNumber;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_CountryName;
+        private System.Windows.Forms.ComboBox dropdown_Countries;
+        private System.Windows.Forms.ComboBox dropdown_Cities;
     }
 }
