@@ -52,8 +52,11 @@ namespace C969
 
                 //Validating Country and adding to Database if necessary
 
+                MessageBox.Show("before country");
+
                 int retrieveCountryID = Database.DBConnection.GetCountryID(countryName, _u);
 
+                MessageBox.Show("before city");
 
 
                 //Validating City and adding to Database if necessary
@@ -71,7 +74,7 @@ namespace C969
                 if (rowsAffected > 0)
                 {
 
-                    MessageBox.Show($"{rowsAffected} record saved!");
+                    MessageBox.Show($"{_u.Username} created new Address with ID {addressID}");
                     EventLogger.LogUnspecifiedEntry($"{_u.Username} created new Address with ID {addressID}");
                     Close();
 

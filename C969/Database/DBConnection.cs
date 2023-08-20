@@ -339,6 +339,51 @@ namespace C969.Database
 
 
 
+
+        public static List<Country> GetAllCountries()
+        {
+            List<Country> allCountries = new List<Country>();
+
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection db = new MySqlConnection(constr);
+
+            string allCountriesQuery = $"SELECT * FROM country";
+            MySqlCommand selectallCountriesCommand = new MySqlCommand(allCountriesQuery, db);
+
+            try
+            {
+                db.Open();
+
+                MySqlDataReader reader = selectallCountriesCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Country country = new Country(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5));
+
+
+                    allCountries.Add(country);
+                }
+
+                return allCountries;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+
+
+
+
+
+
+
         public static int GetAppointmentTypeCount(int userID, string appointmentType, string chosenMonth)
         {
             UserAccount _u = GetUserById(userID);
@@ -504,26 +549,9 @@ namespace C969.Database
                 if (cityExists == false)
                 {
 
-                    ///////////////////////
-                    //bool countryExists = DoesCountryExist(countryName);
-
-                    //if (countryExists == false)
-                    //{
-
-                    //    int newCountryID = 808;
-
-
-                    //    countryID = newCountryID;
-                    //}
-
-                    ////////////////////////////
-
-
-
                     int newID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
-                    cityIDInit = newID;
 
-                    InsertNewRecord("city", $"{newID}, {cityName}, {countryID}, {DateTime.Now}, {u.Username}, {DateTime.Now}, {u.Username}");
+                    InsertNewRecord("city", $"{newID}, \"{cityName}\", {countryID}, \"{DateTime.Now.ToUniversalTime():yyyy-MM-dd HH:mm:ss}\", \"{u.Username}\", \"{DateTime.Now.ToUniversalTime():yyyy-MM-dd HH:mm:ss}\", \"{u.Username}\"");
 
                     return newID;
                 }
@@ -560,7 +588,7 @@ namespace C969.Database
         {
             int newCountryID = GetNewIdFromTable("country", "countryId");
 
-            InsertNewRecord("country", $"{newCountryID}, {countryName}, {DateTime.Now}, {u.Username}, {DateTime.Now}, {u.Username}");
+            InsertNewRecord("country", $"{newCountryID}, \"{countryName}\", \"{DateTime.Now.ToUniversalTime():yyyy-MM-dd HH:mm:ss}\", \"{u.Username}\", \"{DateTime.Now.ToUniversalTime():yyyy-MM-dd HH:mm:ss}\", \"{u.Username}\"");
 
             return newCountryID;
         }
