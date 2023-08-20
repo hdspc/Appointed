@@ -25,10 +25,11 @@ namespace C969
             Close();
         }
 
+        
+
+
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            // List<City> allCities = Database.DBConnection.GetAllCities();
-
 
             try
             {
@@ -40,7 +41,7 @@ namespace C969
 
                 string countryName = txt_CountryName.Text;
 
-                int retrieveCityID = getCityID(cityName);
+                
 
                 string postalCode = txt_postalcode.Text;
                 string phone = txt_phoneNumber.Text;
@@ -57,7 +58,26 @@ namespace C969
 
                 //createNewCountryInDatabase(countryName, createDate, createdBy, lastUpdate, lastUpdateBy);
 
-                //createNewCityInDatabase(cityName, countryName, createDate, createdBy, lastUpdate, lastUpdateBy);
+
+
+
+
+
+
+                int retrieveCityID = Database.DBConnection.GetCityID(cityName);
+
+
+
+
+
+
+
+
+
+
+
+
+               // createNewCityInDatabase(cityName, countryName, createDate, createdBy, lastUpdate, lastUpdateBy);
 
 
 
@@ -123,18 +143,12 @@ namespace C969
             }
         }
 
-        private void createNewCityInDatabase(string cityName, string countryName, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
+        private void InsertIntoCityDatabase(int cityID, string cityName, string countryName, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
         {
-            int retrieveCityID = getCityID(cityName);
 
 
             if (retrieveCityID == -1)
             {
-
-                //createNewCountryInDatabase(countryName, createDate, createdBy, lastUpdate, lastUpdateBy);
-
-
-                int newCityID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
 
                 Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", {getCountryID(countryName)}, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
 
@@ -162,40 +176,8 @@ namespace C969
             return -1;
         }
 
-        public static int getCityID(string cityName)
-        {
-            bool cityExists = Database.DBConnection.DoesCityExist(cityName);
-            int cityIDStart = -1;
+       
 
-            if (cityExists == false)
-            {
-                int newID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
-                cityIDStart = newID;
-                MessageBox.Show("ddd");
-                return cityIDStart;
-
-            }
-            
-
-
-            try
-            {
-                int cityID = Database.DBConnection.GetIntFromTable("cityId", "city", "city", cityName);
-
-                if (cityID == -1)
-                {
-                    int newID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
-                    cityID = newID;
-                }
-
-                return cityID;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return -1;
-            }
-        }
     }
 }
 

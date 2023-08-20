@@ -491,6 +491,35 @@ namespace C969.Database
 			return false;
 		}
 
+		public static int GetCityID(string cityName)
+		{
+			bool cityExists = Database.DBConnection.DoesCityExist(cityName);
+			int cityIDInit = -1;
+
+			if (cityExists == false)
+			{
+				int newID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
+				cityIDInit = newID;
+
+
+
+				return cityIDInit;
+
+			}
+
+			try
+			{
+				int cityID = Database.DBConnection.GetIntFromTable("cityId", "city", "city", cityName);
+
+				return cityID;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return -1;
+			}
+		}
+
 
 
 
