@@ -41,8 +41,6 @@ namespace C969
 
                 string countryName = txt_CountryName.Text;
 
-                
-
                 string postalCode = txt_postalcode.Text;
                 string phone = txt_phoneNumber.Text;
                 DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
@@ -52,11 +50,8 @@ namespace C969
 
                 //Validating Country and adding to Database if necessary
 
-                MessageBox.Show("before country");
 
                 int retrieveCountryID = Database.DBConnection.GetCountryID(countryName, _u);
-
-                MessageBox.Show("before city");
 
 
                 //Validating City and adding to Database if necessary
@@ -97,43 +92,6 @@ namespace C969
 
         }
 
-
-       
-
+     
     }
 }
-
-
-
-
-
-//if (retrieveCountryID == -1)
-//{
-
-//    int newCountryID = Database.DBConnection.GetNewIdFromTable("country", "countryId");
-
-//    Database.DBConnection.InsertNewRecord("country", $"{newCountryID}, \"{countryName}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
-
-//    MessageBox.Show($"New Country {countryName} added to the database.");
-
-//    retrieveCountryID = newCountryID;
-//}
-
-
-
-
-//private void InsertIntoCityDatabase(int cityID, string cityName, string countryName, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
-//{
-
-
-//    if (retrieveCityID == -1)
-//    {
-
-//        Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", {getCountryID(countryName)}, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
-
-//        MessageBox.Show($"New City {cityName} added to the database.");
-
-//        retrieveCityID = newCityID;
-//    }
-
-//}

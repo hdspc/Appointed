@@ -77,7 +77,7 @@ namespace C969
             this.txt_addressID.Location = new System.Drawing.Point(149, 81);
             this.txt_addressID.Name = "txt_addressID";
             this.txt_addressID.Size = new System.Drawing.Size(142, 26);
-            this.txt_addressID.TabIndex = 2;
+            this.txt_addressID.TabIndex = 1;
             // 
             // label2
             // 
@@ -170,7 +170,7 @@ namespace C969
             this.txt_postalcode.Location = new System.Drawing.Point(149, 284);
             this.txt_postalcode.Name = "txt_postalcode";
             this.txt_postalcode.Size = new System.Drawing.Size(142, 26);
-            this.txt_postalcode.TabIndex = 12;
+            this.txt_postalcode.TabIndex = 13;
             // 
             // txt_phoneNumber
             // 
@@ -178,7 +178,7 @@ namespace C969
             this.txt_phoneNumber.Location = new System.Drawing.Point(149, 326);
             this.txt_phoneNumber.Name = "txt_phoneNumber";
             this.txt_phoneNumber.Size = new System.Drawing.Size(142, 26);
-            this.txt_phoneNumber.TabIndex = 13;
+            this.txt_phoneNumber.TabIndex = 14;
             // 
             // label7
             // 
@@ -206,7 +206,7 @@ namespace C969
             this.txt_CountryName.Location = new System.Drawing.Point(149, 245);
             this.txt_CountryName.Name = "txt_CountryName";
             this.txt_CountryName.Size = new System.Drawing.Size(142, 26);
-            this.txt_CountryName.TabIndex = 16;
+            this.txt_CountryName.TabIndex = 12;
             // 
             // AddAddress
             // 

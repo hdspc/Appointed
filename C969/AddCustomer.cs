@@ -132,6 +132,26 @@ namespace C969
             AddressLoad();
         }
 
+
+
+        private void dropdown_AddressIDs_Click(object sender, EventArgs e)
+        {
+
+            allAddresses = Database.DBConnection.GetAllAddresses();
+
+            dropdown_AddressIDs.Items.Clear();
+
+
+            foreach (Address address in allAddresses)
+            {
+                dropdown_AddressIDs.Items.Add(address.AddressID);
+            }
+        }
+
+ 
+
+
+
         //public int FireEvent(int newAddressID)
         //{
         //    C969.Events.MyEventArgs fire = new Events.MyEventArgs();

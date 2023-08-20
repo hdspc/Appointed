@@ -221,6 +221,7 @@ namespace C969
             this.dropdown_AddressIDs.TabIndex = 25;
             this.dropdown_AddressIDs.Text = "1";
             this.dropdown_AddressIDs.SelectedIndexChanged += new System.EventHandler(this.dropdown_AddressIDs_SelectedIndexChanged);
+            this.dropdown_AddressIDs.Click += new System.EventHandler(this.dropdown_AddressIDs_Click);
             // 
             // label8
             // 
