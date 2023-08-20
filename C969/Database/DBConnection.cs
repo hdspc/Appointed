@@ -480,7 +480,16 @@ namespace C969.Database
 			
 		}
 
-
+		public static bool DoesCityExist(string CITYNAME)
+		{
+			List<City> allCities = Database.DBConnection.GetAllCities();
+			foreach (City city in allCities)
+				if (city.CityName == CITYNAME)
+				{
+					return true;
+				}
+			return false;
+		}
 
 
 

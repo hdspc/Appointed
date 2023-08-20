@@ -164,7 +164,17 @@ namespace C969
 
         public static int getCityID(string cityName)
         {
+            bool cityExists = Database.DBConnection.DoesCityExist(cityName);
+            int cityIDStart = -1;
 
+            if (cityExists == false)
+            {
+                int newID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
+                cityIDStart = newID;
+                MessageBox.Show("ddd");
+                return cityIDStart;
+
+            }
             
 
 

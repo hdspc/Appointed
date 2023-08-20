@@ -164,6 +164,19 @@ namespace C969
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bool cityExists = Database.DBConnection.DoesCityExist("e");
+            int cityIDStart = -1;
+
+            if (cityExists == false)
+            {
+                int newID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
+                cityIDStart = newID;
+                MessageBox.Show(cityIDStart.ToString());
+
+            }
+        }
     }
     }
 
