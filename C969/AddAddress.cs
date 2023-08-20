@@ -52,32 +52,13 @@ namespace C969
 
                 //Validating Country and adding to Database if necessary
 
+                int retrieveCountryID = Database.DBConnection.GetCountryID(countryName, _u);
+
 
 
                 //Validating City and adding to Database if necessary
 
-                //createNewCountryInDatabase(countryName, createDate, createdBy, lastUpdate, lastUpdateBy);
-
-
-
-
-
-
-
-                int retrieveCityID = Database.DBConnection.GetCityID(cityName);
-
-
-
-
-
-
-
-
-
-
-
-
-               // createNewCityInDatabase(cityName, countryName, createDate, createdBy, lastUpdate, lastUpdateBy);
+                int retrieveCityID = Database.DBConnection.GetCityID(cityName, retrieveCountryID, _u);
 
 
 
@@ -114,68 +95,6 @@ namespace C969
         }
 
 
-    
-
-        
-
-        private void createNewCountryInDatabase(string countryName, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
-        {
-            int retrieveCountryID = getCountryID(countryName);
-
-            try
-            {
-
-                if (retrieveCountryID == -1)
-                {
-
-                    int newCountryID = Database.DBConnection.GetNewIdFromTable("country", "countryId");
-
-                    Database.DBConnection.InsertNewRecord("country", $"{newCountryID}, \"{countryName}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
-
-                    MessageBox.Show($"New Country {countryName} added to the database.");
-
-                    retrieveCountryID = newCountryID;
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void InsertIntoCityDatabase(int cityID, string cityName, string countryName, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
-        {
-
-
-            if (retrieveCityID == -1)
-            {
-
-                Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", {getCountryID(countryName)}, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
-
-                MessageBox.Show($"New City {cityName} added to the database.");
-
-                retrieveCityID = newCityID;
-            }
-
-        }
-
-
-        public static int getCountryID(string countryName)
-        {
-
-            try
-            {
-                int cityID = Database.DBConnection.GetIntFromTable("countryId", "country", "country", countryName);
-
-                return cityID;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return -1;
-        }
-
        
 
     }
@@ -195,4 +114,23 @@ namespace C969
 //    MessageBox.Show($"New Country {countryName} added to the database.");
 
 //    retrieveCountryID = newCountryID;
+//}
+
+
+
+
+//private void InsertIntoCityDatabase(int cityID, string cityName, string countryName, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy)
+//{
+
+
+//    if (retrieveCityID == -1)
+//    {
+
+//        Database.DBConnection.InsertNewRecord("city", $"{newCityID}, \"{cityName}\", {getCountryID(countryName)}, \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdateBy}\"");
+
+//        MessageBox.Show($"New City {cityName} added to the database.");
+
+//        retrieveCityID = newCityID;
+//    }
+
 //}
