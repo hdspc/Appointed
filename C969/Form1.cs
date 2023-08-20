@@ -164,17 +164,7 @@ namespace C969
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int boo = AddAddress.getCityID("e");
-
-            if (boo == -1)
-            {
-                MessageBox.Show(boo.ToString());
-            }
-            MessageBox.Show(boo.ToString());
-        }
     }
-}
+    }
 
 

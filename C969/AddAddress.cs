@@ -164,6 +164,10 @@ namespace C969
 
         public static int getCityID(string cityName)
         {
+
+            
+
+
             try
             {
                 int cityID = Database.DBConnection.GetIntFromTable("cityId", "city", "city", cityName);
