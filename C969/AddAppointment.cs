@@ -33,8 +33,13 @@ namespace C969
             datetime_AppointmentStart.Value = DateTime.Now;
             datetime_AppointmentEnd.Value = DateTime.Now.AddHours(1);
 
+            dropdown_customerName.Items.Clear();
+            List < Customer > allCustomers = Database.DBConnection.GetAllCustomers();
 
-
+            foreach (Customer customer in allCustomers)
+            {
+                dropdown_customerName.Items.Add(customer.CustomerName);
+            }
 
 
             txt_CreatedBy.Text = _u.ID.ToString();
@@ -59,7 +64,8 @@ namespace C969
 
 
                 int appointmentID = Int32.Parse(txt_AppointmentID.Text);
-                int customerID = Int32.Parse(txt_CustomerID.Text);
+                //int customerID = Int32.Parse(txt_CustomerID.Text);
+                int customerID = Database.DBConnection.GetIntFromTable("customerId", "customer", "customerName", dropdown_customerName.Text);
                 int userID = Int32.Parse(txt_UserID.Text);
                 string title = txt_Title.Text;
                 string description = txt_Description.Text;
@@ -136,9 +142,6 @@ namespace C969
                 // Check Rows Affected to see if the record saved correctly
                 if (rowsAffected > 0)
                 {
-
-                    //checkOverlap(appt.Start, appt.End, proposedStart, proposedEnd)
-                    // Success! Return to the HomeForm by triggering the FormSaved event (so HomeForm reloads its data from the Database)
                      MessageBox.Show($"{rowsAffected} record saved!");
                     EventLogger.LogUnspecifiedEntry($"{userID} created new Appointment with ID {appointmentID}");
                     // Form dash = new Dashboard(_u);
@@ -158,47 +161,56 @@ namespace C969
             }
         }
 
-//        #region VALIDATION
-//        private void OnFormUpdated(object sender, EventArgs e)
-//        {
-//            ValidateForm();
-//        }
+        
+        //CANCELS TEXT INPUT INTO DROPDOWN
 
-//        private void ValidateForm()
-//        {
+        private void dropdown_customerName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
 
-//            bool isFormValid = true;
+        }
 
+        //        #region VALIDATION
+        //        private void OnFormUpdated(object sender, EventArgs e)
+        //        {
+        //            ValidateForm();
+        //        }
 
-//            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == false)
+        //        private void ValidateForm()
+        //        {
 
-//            {
-//                txt_customerName.BackColor = System.Drawing.Color.White;
-//            }
-
-
-//            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == true)
-
-//            {
-//                btn_AddAppointment_Save.Enabled = false;
-
-//                txt_customerName.BackColor = System.Drawing.Color.Salmon;
-//            }
+        //            bool isFormValid = true;
 
 
-//            if (isFormValid == true)
-//            {
-//                btn_AddAppointment_Save.Enabled = true;
+        //            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == false)
 
-//            }
-//            else
-//            {
-//                btn_AddAppointment_Save.Enabled = false;
-//            }
+        //            {
+        //                txt_customerName.BackColor = System.Drawing.Color.White;
+        //            }
 
-//        }
 
-//#endregion
+        //            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == true)
+
+        //            {
+        //                btn_AddAppointment_Save.Enabled = false;
+
+        //                txt_customerName.BackColor = System.Drawing.Color.Salmon;
+        //            }
+
+
+        //            if (isFormValid == true)
+        //            {
+        //                btn_AddAppointment_Save.Enabled = true;
+
+        //            }
+        //            else
+        //            {
+        //                btn_AddAppointment_Save.Enabled = false;
+        //            }
+
+        //        }
+
+        //#endregion
 
     }
 }

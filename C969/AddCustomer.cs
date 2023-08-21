@@ -137,17 +137,7 @@ namespace C969
             Close();
         }
 
-        //////private void txt_addressID_TextChanged(object sender, EventArgs e)
-        //////{
-        //////    try
-        //////    {
-        //////        AddressLoad();
-        //////    }
-        //////    catch
-        //////    {
-        //////        MessageBox.Show("Check that the address ID is valid. If you'd like to add an address, click the \"New Address\" button.");
-        //////    }
-        //////}
+
 
         private void AddressLoad()
         {

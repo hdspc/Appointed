@@ -226,6 +226,38 @@ namespace C969.Database
             }
         }
 
+        //public static int GetUserIDByName(string username)
+        //{
+        //    MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
+
+        //    string selectUsersQuery = $"SELECT userID FROM user WHERE userId = {userId}";
+        //    MySqlCommand selectUsersCommand = new MySqlCommand(selectUsersQuery, connect);
+
+        //    try
+        //    {
+        //        connect.Open();
+
+        //        MySqlDataReader reader = selectUsersCommand.ExecuteReader();
+        //        UserAccount selectedUser = null;
+
+        //        while (reader.Read())
+        //        {
+        //            selectedUser = new UserAccount(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), reader.GetDateTime(4), reader.GetString(5));
+        //        }
+
+        //        return selectedUser;
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        connect.Close();
+        //    }
+        //}
+
         public static List<Appointment> GetAllAppointments()
         {
             List<Appointment> allAppointments = new List<Appointment>();
