@@ -34,6 +34,45 @@ namespace C969
 
 
             AddressLoad();
+
+            txt_customerName.TextChanged += OnFormUpdated;
+
+        }
+
+        private void OnFormUpdated(object sender, EventArgs e)
+        {
+            ValidateForm();
+        }
+
+        private void ValidateForm()
+        {
+            //bool isFormValid = true;
+
+            //if (Validator.IsControlEmptyOrWhitespace(tboxAddressAddress1))
+            //{
+            //    isFormValid = false;
+            //}
+
+            //if (PhoneFieldValidation() == false || Validator.IsControlEmptyOrWhitespace(tboxAddressPhone))
+            //{
+            //    isFormValid = false;
+            //}
+
+            //if (PostalCodeFieldValidation() == false || Validator.IsControlEmptyOrWhitespace(tboxAddressPostalCode))
+            //{
+            //    isFormValid = false;
+            //}
+
+            //if (isFormValid == true)
+            //{
+            //    btnSave.Enabled = true;
+            //}
+            //else
+            //{
+            //    btnSave.Enabled = false;
+            //}
+
+            MessageBox.Show("awooga");
         }
 
         private void btn_newAddress_Click(object sender, EventArgs e)
