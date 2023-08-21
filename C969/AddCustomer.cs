@@ -32,7 +32,7 @@ namespace C969
 
             btn_Save.Enabled = false;
             txt_customerName.TextChanged += OnFormUpdated;
-
+            
         }
 
 

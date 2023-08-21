@@ -23,8 +23,7 @@ namespace C969
             InitializeComponent();
             List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
-            txt_CustomerID.Text = 1.ToString();
-            txt_UserID.Text = _u.ID.ToString();
+            dropdown_UserID.Text = _u.ID.ToString();
             txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
 
 
@@ -33,8 +32,15 @@ namespace C969
             datetime_AppointmentStart.Value = DateTime.Now;
             datetime_AppointmentEnd.Value = DateTime.Now.AddHours(1);
 
+            dropdown_UserID.Items.Clear();
+
+            foreach (UserAccount user in allUsers)
+            {
+                dropdown_UserID.Items.Add(user.ID);
+            }
+
             dropdown_customerName.Items.Clear();
-            List < Customer > allCustomers = Database.DBConnection.GetAllCustomers();
+            List<Customer> allCustomers = Database.DBConnection.GetAllCustomers();
 
             foreach (Customer customer in allCustomers)
             {
@@ -46,6 +52,14 @@ namespace C969
             txt_CreatedDate.Text = DateTime.Now.ToString();
             txt_LastUpdateBy.Text= _u.ID.ToString();
             txt_LastUpdate.Text= DateTime.Now.ToString();
+
+
+
+            btn_AddAppointment_Save.Enabled = false;
+
+            dropdown_customerName.TextChanged += OnFormUpdated;
+            dropdown_UserID.TextChanged += OnFormUpdated;
+
 
         }
 
@@ -66,7 +80,7 @@ namespace C969
                 int appointmentID = Int32.Parse(txt_AppointmentID.Text);
                 //int customerID = Int32.Parse(txt_CustomerID.Text);
                 int customerID = Database.DBConnection.GetIntFromTable("customerId", "customer", "customerName", dropdown_customerName.Text);
-                int userID = Int32.Parse(txt_UserID.Text);
+                int userID = Int32.Parse(dropdown_UserID.Text);
                 string title = txt_Title.Text;
                 string description = txt_Description.Text;
                 string location = txt_Location.Text;
@@ -161,6 +175,9 @@ namespace C969
             }
         }
 
+
+
+
         
         //CANCELS TEXT INPUT INTO DROPDOWN
 
@@ -170,47 +187,61 @@ namespace C969
 
         }
 
-        //        #region VALIDATION
-        //        private void OnFormUpdated(object sender, EventArgs e)
-        //        {
-        //            ValidateForm();
-        //        }
-
-        //        private void ValidateForm()
-        //        {
-
-        //            bool isFormValid = true;
+        private void dropdown_UserID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
 
 
-        //            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == false)
-
-        //            {
-        //                txt_customerName.BackColor = System.Drawing.Color.White;
-        //            }
 
 
-        //            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == true)
-
-        //            {
-        //                btn_AddAppointment_Save.Enabled = false;
-
-        //                txt_customerName.BackColor = System.Drawing.Color.Salmon;
-        //            }
 
 
-        //            if (isFormValid == true)
-        //            {
-        //                btn_AddAppointment_Save.Enabled = true;
 
-        //            }
-        //            else
-        //            {
-        //                btn_AddAppointment_Save.Enabled = false;
-        //            }
 
-        //        }
 
-        //#endregion
+        #region VALIDATION
+        private void OnFormUpdated(object sender, EventArgs e)
+        {
+            ValidateForm();
+        }
+
+        private void ValidateForm()
+        {
+
+            bool isFormValid = true;
+
+
+            if (String.IsNullOrWhiteSpace(dropdown_customerName.Text) == false)
+
+            {
+                dropdown_customerName.BackColor = System.Drawing.Color.White;
+            }
+
+
+            if (String.IsNullOrWhiteSpace(dropdown_customerName.Text) == true)
+
+            {
+                btn_AddAppointment_Save.Enabled = false;
+
+                dropdown_customerName.BackColor = System.Drawing.Color.Salmon;
+            }
+
+
+            if (isFormValid == true)
+            {
+                btn_AddAppointment_Save.Enabled = true;
+
+            }
+            else
+            {
+                btn_AddAppointment_Save.Enabled = false;
+            }
+
+        }
+
+        #endregion
+
 
     }
 }

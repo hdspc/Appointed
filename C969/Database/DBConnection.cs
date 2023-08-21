@@ -607,7 +607,6 @@ namespace C969.Database
         public static int GetCityID(string cityName, int countryID, UserAccount u)
         {
             bool cityExists = Database.DBConnection.DoesCityExist(cityName);
-            int cityIDInit = -1;
 
             try
             {
