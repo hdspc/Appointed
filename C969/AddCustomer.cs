@@ -35,6 +35,8 @@ namespace C969
 
         }
 
+
+        #region VALIDATION
         private void OnFormUpdated(object sender, EventArgs e)
         {
             ValidateForm();
@@ -49,9 +51,9 @@ namespace C969
             if (String.IsNullOrWhiteSpace(txt_customerName.Text) == false)
             
             {
-                btn_Save.Enabled = true;
-
+                txt_customerName.BackColor = System.Drawing.Color.White;
             }
+
 
             if (String.IsNullOrWhiteSpace(txt_customerName.Text) == true)
 
@@ -61,15 +63,6 @@ namespace C969
                 txt_customerName.BackColor = System.Drawing.Color.Salmon;
             }
 
-            //if (PhoneFieldValidation() == false || Validator.IsControlEmptyOrWhitespace(tboxAddressPhone))
-            //{
-            //    isFormValid = false;
-            //}
-
-            //if (PostalCodeFieldValidation() == false || Validator.IsControlEmptyOrWhitespace(tboxAddressPostalCode))
-            //{
-            //    isFormValid = false;
-            //}
 
             if (isFormValid == true)
             {
@@ -83,6 +76,7 @@ namespace C969
 
         }
 
+        #endregion
         private void btn_newAddress_Click(object sender, EventArgs e)
         {
             AddAddress addAddress = new AddAddress(_u);
@@ -203,6 +197,8 @@ namespace C969
             }
         }
 
+
+        //CANCELS TEXT INPUT INTO ID DROPDOWN
         private void dropdown_AddressIDs_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

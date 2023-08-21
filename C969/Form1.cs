@@ -20,7 +20,7 @@ namespace C969
             InitializeComponent();
             string c = connect.DataSource;
             sqlStatusLabel.Text = "Connected to " + c;
-            loginTitleLabel.Text = "hello:";
+            loginTitleLabel.Text = "LOGIN";
 
         }
 
@@ -129,7 +129,7 @@ namespace C969
             if (currentCulture.TwoLetterISOLanguageName == "es")
             {
                 isSpanish = true;
-                loginTitleLabel.Text = "Hola";
+                loginTitleLabel.Text = "Acceso";
                 userIDLabel.Text = "Nombre de usuario";
                 passwordLabel.Text = "Contraseña";
                 SqlConnectionLabel.Text = "Estado de conexión SQL";

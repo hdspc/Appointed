@@ -40,13 +40,13 @@ namespace C969
             this.label6 = new System.Windows.Forms.Label();
             this.txt_address_1 = new System.Windows.Forms.TextBox();
             this.txt_address_2 = new System.Windows.Forms.TextBox();
-            this.txt_cityName = new System.Windows.Forms.TextBox();
             this.txt_postalcode = new System.Windows.Forms.TextBox();
             this.txt_phoneNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dropdown_Countries = new System.Windows.Forms.ComboBox();
             this.dropdown_Cities = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +63,7 @@ namespace C969
             // btn_Save
             // 
             this.btn_Save.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.btn_Save.Location = new System.Drawing.Point(45, 376);
+            this.btn_Save.Location = new System.Drawing.Point(46, 397);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(90, 34);
             this.btn_Save.TabIndex = 1;
@@ -86,9 +86,9 @@ namespace C969
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label2.Location = new System.Drawing.Point(24, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 19);
+            this.label2.Size = new System.Drawing.Size(75, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Address";
+            this.label2.Text = "Address*";
             // 
             // label3
             // 
@@ -116,14 +116,14 @@ namespace C969
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label5.Location = new System.Drawing.Point(24, 287);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 19);
+            this.label5.Size = new System.Drawing.Size(104, 19);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Postal Code";
+            this.label5.Text = "Postal Code*";
             // 
             // btn_Cancel
             // 
             this.btn_Cancel.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.btn_Cancel.Location = new System.Drawing.Point(178, 376);
+            this.btn_Cancel.Location = new System.Drawing.Point(179, 397);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(90, 34);
             this.btn_Cancel.TabIndex = 7;
@@ -156,14 +156,6 @@ namespace C969
             this.txt_address_2.Name = "txt_address_2";
             this.txt_address_2.Size = new System.Drawing.Size(142, 26);
             this.txt_address_2.TabIndex = 10;
-            // 
-            // txt_cityName
-            // 
-            this.txt_cityName.Font = new System.Drawing.Font("Meiryo UI", 11F);
-            this.txt_cityName.Location = new System.Drawing.Point(28, 416);
-            this.txt_cityName.Name = "txt_cityName";
-            this.txt_cityName.Size = new System.Drawing.Size(142, 26);
-            this.txt_cityName.TabIndex = 11;
             // 
             // txt_postalcode
             // 
@@ -217,18 +209,28 @@ namespace C969
             this.dropdown_Cities.Size = new System.Drawing.Size(142, 21);
             this.dropdown_Cities.TabIndex = 17;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Meiryo UI", 8.25F);
+            this.label9.Location = new System.Drawing.Point(146, 355);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 14);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "(xxx-xxxx format)";
+            // 
             // AddAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 452);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.dropdown_Cities);
             this.Controls.Add(this.dropdown_Countries);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_phoneNumber);
             this.Controls.Add(this.txt_postalcode);
-            this.Controls.Add(this.txt_cityName);
             this.Controls.Add(this.txt_address_2);
             this.Controls.Add(this.txt_address_1);
             this.Controls.Add(this.label6);
@@ -260,12 +262,12 @@ namespace C969
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_address_1;
         private System.Windows.Forms.TextBox txt_address_2;
-        private System.Windows.Forms.TextBox txt_cityName;
         private System.Windows.Forms.TextBox txt_postalcode;
         private System.Windows.Forms.TextBox txt_phoneNumber;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox dropdown_Countries;
         private System.Windows.Forms.ComboBox dropdown_Cities;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -157,7 +157,48 @@ namespace C969
                 MessageBox.Show(ex.Message);
             }
         }
-       
+
+//        #region VALIDATION
+//        private void OnFormUpdated(object sender, EventArgs e)
+//        {
+//            ValidateForm();
+//        }
+
+//        private void ValidateForm()
+//        {
+
+//            bool isFormValid = true;
+
+
+//            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == false)
+
+//            {
+//                txt_customerName.BackColor = System.Drawing.Color.White;
+//            }
+
+
+//            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == true)
+
+//            {
+//                btn_AddAppointment_Save.Enabled = false;
+
+//                txt_customerName.BackColor = System.Drawing.Color.Salmon;
+//            }
+
+
+//            if (isFormValid == true)
+//            {
+//                btn_AddAppointment_Save.Enabled = true;
+
+//            }
+//            else
+//            {
+//                btn_AddAppointment_Save.Enabled = false;
+//            }
+
+//        }
+
+//#endregion
 
     }
 }

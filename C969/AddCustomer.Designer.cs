@@ -90,9 +90,9 @@ namespace C969
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 11F);
             this.label2.Location = new System.Drawing.Point(34, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 19);
+            this.label2.Size = new System.Drawing.Size(136, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Customer Name";
+            this.label2.Text = "Customer Name*";
             // 
             // label6
             // 
@@ -124,10 +124,10 @@ namespace C969
             // checkbox_activeCustomer
             // 
             this.checkbox_activeCustomer.AutoSize = true;
-            this.checkbox_activeCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.checkbox_activeCustomer.Location = new System.Drawing.Point(86, 397);
+            this.checkbox_activeCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.checkbox_activeCustomer.Location = new System.Drawing.Point(66, 400);
             this.checkbox_activeCustomer.Name = "checkbox_activeCustomer";
-            this.checkbox_activeCustomer.Size = new System.Drawing.Size(136, 22);
+            this.checkbox_activeCustomer.Size = new System.Drawing.Size(175, 29);
             this.checkbox_activeCustomer.TabIndex = 12;
             this.checkbox_activeCustomer.Text = "Active Customer";
             this.checkbox_activeCustomer.UseVisualStyleBackColor = true;
@@ -207,7 +207,7 @@ namespace C969
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Meiryo UI", 18F);
-            this.label7.Location = new System.Drawing.Point(61, 18);
+            this.label7.Location = new System.Drawing.Point(61, 20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(180, 30);
             this.label7.TabIndex = 24;

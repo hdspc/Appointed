@@ -377,7 +377,42 @@ namespace C969.Database
             }
         }
 
+        public static List<Customer> GetAllCustomers()
+        {
+            List<Customer> allCustomers = new List<Customer>();
 
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection db = new MySqlConnection(constr);
+
+            string allCustomersQuery = $"SELECT * FROM customer";
+            MySqlCommand selectAllCustomersCommand = new MySqlCommand(allCustomersQuery, db);
+
+            try
+            {
+                db.Open();
+
+                MySqlDataReader reader = selectAllCustomersCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Customer country = new Customer(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetDateTime(4), reader.GetString(5), reader.GetDateTime(6), reader.GetString(7));
+
+
+                    allCustomers.Add(country);
+                }
+
+                return allCustomers;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
 
 
 
