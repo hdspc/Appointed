@@ -137,6 +137,7 @@ namespace C969
             this.groupBox1.Font = new System.Drawing.Font("Meiryo UI", 12F);
             this.groupBox1.Location = new System.Drawing.Point(581, 362);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox1.Size = new System.Drawing.Size(180, 130);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;

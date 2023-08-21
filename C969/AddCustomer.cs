@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace C969
 {
     //public delegate int NewAddressID(int x);
 
-    
+
     public partial class AddCustomer : Form
     {
         private UserAccount _u;
@@ -27,7 +22,7 @@ namespace C969
 
             dropdown_AddressIDs.Items.Clear();
 
-            foreach(Address address in allAddresses)
+            foreach (Address address in allAddresses)
             {
                 dropdown_AddressIDs.Items.Add(address.AddressID);
             }
@@ -35,6 +30,7 @@ namespace C969
 
             AddressLoad();
 
+            btn_Save.Enabled = false;
             txt_customerName.TextChanged += OnFormUpdated;
 
         }
@@ -46,12 +42,24 @@ namespace C969
 
         private void ValidateForm()
         {
-            //bool isFormValid = true;
 
-            //if (Validator.IsControlEmptyOrWhitespace(tboxAddressAddress1))
-            //{
-            //    isFormValid = false;
-            //}
+            bool isFormValid = true;
+
+
+            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == false)
+            
+            {
+                btn_Save.Enabled = true;
+
+            }
+
+            if (String.IsNullOrWhiteSpace(txt_customerName.Text) == true)
+
+            {
+                btn_Save.Enabled = false;
+
+                txt_customerName.BackColor = System.Drawing.Color.Salmon;
+            }
 
             //if (PhoneFieldValidation() == false || Validator.IsControlEmptyOrWhitespace(tboxAddressPhone))
             //{
@@ -63,16 +71,16 @@ namespace C969
             //    isFormValid = false;
             //}
 
-            //if (isFormValid == true)
-            //{
-            //    btnSave.Enabled = true;
-            //}
-            //else
-            //{
-            //    btnSave.Enabled = false;
-            //}
+            if (isFormValid == true)
+            {
+                btn_Save.Enabled = true;
 
-            MessageBox.Show("awooga");
+            }
+            else
+            {
+                btn_Save.Enabled = false;
+            }
+
         }
 
         private void btn_newAddress_Click(object sender, EventArgs e)
@@ -84,7 +92,8 @@ namespace C969
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
 
                 int customerID = Int32.Parse(txt_customerID.Text);
                 string customerName = txt_customerName.Text;
@@ -115,7 +124,7 @@ namespace C969
                     MessageBox.Show($"{rowsAffected} record saved!");
                     EventLogger.LogUnspecifiedEntry($"{_u.Username.ToString()} created new Customer with ID {customerID}");
                     Close();
-                    
+
                 }
                 else
                 {
@@ -123,7 +132,7 @@ namespace C969
                 }
             }
 
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -134,17 +143,17 @@ namespace C969
             Close();
         }
 
-        private void txt_addressID_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                AddressLoad();
-            }
-            catch 
-            {
-                MessageBox.Show("Check that the address ID is valid. If you'd like to add an address, click the \"New Address\" button.");
-            }
-        }
+        //////private void txt_addressID_TextChanged(object sender, EventArgs e)
+        //////{
+        //////    try
+        //////    {
+        //////        AddressLoad();
+        //////    }
+        //////    catch
+        //////    {
+        //////        MessageBox.Show("Check that the address ID is valid. If you'd like to add an address, click the \"New Address\" button.");
+        //////    }
+        //////}
 
         private void AddressLoad()
         {
@@ -198,6 +207,8 @@ namespace C969
         {
             e.Handled = true;
         }
+
+
 
 
 
