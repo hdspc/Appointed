@@ -174,23 +174,23 @@ namespace C969
             // 
             // txt_URL
             // 
-            this.txt_URL.Location = new System.Drawing.Point(99, 174);
+            this.txt_URL.Location = new System.Drawing.Point(108, 174);
             this.txt_URL.Name = "txt_URL";
-            this.txt_URL.Size = new System.Drawing.Size(274, 24);
+            this.txt_URL.Size = new System.Drawing.Size(265, 24);
             this.txt_URL.TabIndex = 23;
             // 
             // txt_Contact
             // 
-            this.txt_Contact.Location = new System.Drawing.Point(100, 113);
+            this.txt_Contact.Location = new System.Drawing.Point(109, 113);
             this.txt_Contact.Name = "txt_Contact";
-            this.txt_Contact.Size = new System.Drawing.Size(273, 24);
+            this.txt_Contact.Size = new System.Drawing.Size(264, 24);
             this.txt_Contact.TabIndex = 22;
             // 
             // txt_Location
             // 
-            this.txt_Location.Location = new System.Drawing.Point(100, 83);
+            this.txt_Location.Location = new System.Drawing.Point(109, 83);
             this.txt_Location.Name = "txt_Location";
-            this.txt_Location.Size = new System.Drawing.Size(273, 24);
+            this.txt_Location.Size = new System.Drawing.Size(264, 24);
             this.txt_Location.TabIndex = 21;
             // 
             // txt_Description
@@ -202,9 +202,9 @@ namespace C969
             // 
             // txt_Title
             // 
-            this.txt_Title.Location = new System.Drawing.Point(99, 23);
+            this.txt_Title.Location = new System.Drawing.Point(108, 23);
             this.txt_Title.Name = "txt_Title";
-            this.txt_Title.Size = new System.Drawing.Size(274, 24);
+            this.txt_Title.Size = new System.Drawing.Size(265, 24);
             this.txt_Title.TabIndex = 19;
             // 
             // datetime_AppointmentEnd
@@ -283,9 +283,9 @@ namespace C969
             this.dropdown_AppointmentType.Items.AddRange(new object[] {
             "Scrum",
             "Presentation"});
-            this.dropdown_AppointmentType.Location = new System.Drawing.Point(99, 143);
+            this.dropdown_AppointmentType.Location = new System.Drawing.Point(108, 143);
             this.dropdown_AppointmentType.Name = "dropdown_AppointmentType";
-            this.dropdown_AppointmentType.Size = new System.Drawing.Size(274, 25);
+            this.dropdown_AppointmentType.Size = new System.Drawing.Size(265, 25);
             this.dropdown_AppointmentType.TabIndex = 11;
             this.dropdown_AppointmentType.Text = "Select Appointment Type";
             // 

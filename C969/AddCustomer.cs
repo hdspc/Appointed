@@ -13,6 +13,9 @@ namespace C969
         private UserAccount _u;
         List<Address> allAddresses = Database.DBConnection.GetAllAddresses();
 
+
+
+
         public AddCustomer(UserAccount u)
         {
             _u = u;

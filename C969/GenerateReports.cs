@@ -134,10 +134,13 @@ namespace C969
 			lbl_UserIDEntry.Visible = false;
 
 
-			int appointmentNumber = Database.DBConnection.GetNumberAppointmentsForCustomer(1);
+			//////int appointmentNumber = Database.DBConnection.GetNumberAppointmentsForCustomer(1);
 
+			//Localized Lambda function which turns 35 lines of code from DBConnection into 2.
 
-			txt_ReportTextBox.Text = $"Number of appointments with Customer ID #1: {appointmentNumber.ToString()}";
+			int NumberOfAppointments = allAppointments.Where(appt => appt.CustomerID == 2).Count();
+
+			txt_ReportTextBox.Text = $"Number of appointments with Alfred E Newman: {NumberOfAppointments.ToString()}";
 
 		}
 

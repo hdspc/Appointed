@@ -62,6 +62,7 @@ namespace C969
             this.label6 = new System.Windows.Forms.Label();
             this.dropdown_customerName = new System.Windows.Forms.ComboBox();
             this.dropdown_UserID = new System.Windows.Forms.ComboBox();
+            this.btn_showUsername = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@ namespace C969
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 9.25F);
-            this.label1.Location = new System.Drawing.Point(62, 45);
+            this.label1.Location = new System.Drawing.Point(62, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 17);
             this.label1.TabIndex = 0;
@@ -79,7 +80,7 @@ namespace C969
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 9.25F);
-            this.label2.Location = new System.Drawing.Point(61, 89);
+            this.label2.Location = new System.Drawing.Point(61, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 17);
             this.label2.TabIndex = 1;
@@ -89,7 +90,7 @@ namespace C969
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 9.25F);
-            this.label3.Location = new System.Drawing.Point(316, 45);
+            this.label3.Location = new System.Drawing.Point(292, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 17);
             this.label3.TabIndex = 2;
@@ -118,14 +119,14 @@ namespace C969
             // txt_AppointmentID
             // 
             this.txt_AppointmentID.Enabled = false;
-            this.txt_AppointmentID.Location = new System.Drawing.Point(186, 42);
+            this.txt_AppointmentID.Location = new System.Drawing.Point(186, 24);
             this.txt_AppointmentID.Name = "txt_AppointmentID";
             this.txt_AppointmentID.Size = new System.Drawing.Size(49, 23);
             this.txt_AppointmentID.TabIndex = 5;
             // 
             // datetime_AppointmentStart
             // 
-            this.datetime_AppointmentStart.CustomFormat = "ddd dd MMM yyyy HH:mm:ss tt";
+            this.datetime_AppointmentStart.CustomFormat = "ddd dd MMM yyyy HH:mm tt";
             this.datetime_AppointmentStart.Location = new System.Drawing.Point(177, 238);
             this.datetime_AppointmentStart.Name = "datetime_AppointmentStart";
             this.datetime_AppointmentStart.Size = new System.Drawing.Size(257, 23);
@@ -307,7 +308,7 @@ namespace C969
             // 
             // datetime_AppointmentEnd
             // 
-            this.datetime_AppointmentEnd.CustomFormat = "ddd dd MMM yyyy HH:mm:ss tt";
+            this.datetime_AppointmentEnd.CustomFormat = "ddd dd MMM yyyy HH:mm tt";
             this.datetime_AppointmentEnd.Location = new System.Drawing.Point(177, 267);
             this.datetime_AppointmentEnd.Name = "datetime_AppointmentEnd";
             this.datetime_AppointmentEnd.Size = new System.Drawing.Size(257, 23);
@@ -376,26 +377,38 @@ namespace C969
             // dropdown_customerName
             // 
             this.dropdown_customerName.FormattingEnabled = true;
-            this.dropdown_customerName.Location = new System.Drawing.Point(186, 86);
+            this.dropdown_customerName.Location = new System.Drawing.Point(186, 95);
             this.dropdown_customerName.Name = "dropdown_customerName";
-            this.dropdown_customerName.Size = new System.Drawing.Size(246, 23);
+            this.dropdown_customerName.Size = new System.Drawing.Size(248, 23);
             this.dropdown_customerName.TabIndex = 15;
             this.dropdown_customerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dropdown_customerName_KeyPress);
             // 
             // dropdown_UserID
             // 
             this.dropdown_UserID.FormattingEnabled = true;
-            this.dropdown_UserID.Location = new System.Drawing.Point(383, 13);
+            this.dropdown_UserID.Location = new System.Drawing.Point(361, 24);
             this.dropdown_UserID.Name = "dropdown_UserID";
-            this.dropdown_UserID.Size = new System.Drawing.Size(49, 23);
+            this.dropdown_UserID.Size = new System.Drawing.Size(73, 23);
             this.dropdown_UserID.TabIndex = 16;
             this.dropdown_UserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dropdown_UserID_KeyPress);
+            // 
+            // btn_showUsername
+            // 
+            this.btn_showUsername.Font = new System.Drawing.Font("Meiryo UI", 9.25F);
+            this.btn_showUsername.Location = new System.Drawing.Point(295, 53);
+            this.btn_showUsername.Name = "btn_showUsername";
+            this.btn_showUsername.Size = new System.Drawing.Size(139, 32);
+            this.btn_showUsername.TabIndex = 17;
+            this.btn_showUsername.Text = "Show Username";
+            this.btn_showUsername.UseVisualStyleBackColor = true;
+            this.btn_showUsername.Click += new System.EventHandler(this.btn_showUsername_Click);
             // 
             // AddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 644);
+            this.ClientSize = new System.Drawing.Size(511, 693);
+            this.Controls.Add(this.btn_showUsername);
             this.Controls.Add(this.dropdown_UserID);
             this.Controls.Add(this.dropdown_customerName);
             this.Controls.Add(this.groupBox1);
@@ -450,5 +463,6 @@ namespace C969
         private System.Windows.Forms.TextBox txt_LastUpdateBy;
         private System.Windows.Forms.ComboBox dropdown_customerName;
         private System.Windows.Forms.ComboBox dropdown_UserID;
+        private System.Windows.Forms.Button btn_showUsername;
     }
 }

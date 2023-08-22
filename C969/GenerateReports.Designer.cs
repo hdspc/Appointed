@@ -49,7 +49,7 @@ namespace C969
             this.btn_NumberAppointmentTypesByMonth.Location = new System.Drawing.Point(82, 168);
             this.btn_NumberAppointmentTypesByMonth.Margin = new System.Windows.Forms.Padding(4);
             this.btn_NumberAppointmentTypesByMonth.Name = "btn_NumberAppointmentTypesByMonth";
-            this.btn_NumberAppointmentTypesByMonth.Size = new System.Drawing.Size(272, 30);
+            this.btn_NumberAppointmentTypesByMonth.Size = new System.Drawing.Size(262, 30);
             this.btn_NumberAppointmentTypesByMonth.TabIndex = 0;
             this.btn_NumberAppointmentTypesByMonth.Text = "Number of appt types by month";
             this.btn_NumberAppointmentTypesByMonth.UseVisualStyleBackColor = true;
@@ -61,7 +61,7 @@ namespace C969
             this.btn_ConsultantSchedule.Location = new System.Drawing.Point(82, 226);
             this.btn_ConsultantSchedule.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ConsultantSchedule.Name = "btn_ConsultantSchedule";
-            this.btn_ConsultantSchedule.Size = new System.Drawing.Size(272, 30);
+            this.btn_ConsultantSchedule.Size = new System.Drawing.Size(262, 30);
             this.btn_ConsultantSchedule.TabIndex = 1;
             this.btn_ConsultantSchedule.Text = "Consultant Schedule";
             this.btn_ConsultantSchedule.UseVisualStyleBackColor = true;
@@ -73,9 +73,9 @@ namespace C969
             this.btn_customReport.Location = new System.Drawing.Point(82, 284);
             this.btn_customReport.Margin = new System.Windows.Forms.Padding(4);
             this.btn_customReport.Name = "btn_customReport";
-            this.btn_customReport.Size = new System.Drawing.Size(272, 62);
+            this.btn_customReport.Size = new System.Drawing.Size(262, 62);
             this.btn_customReport.TabIndex = 2;
-            this.btn_customReport.Text = "Get number of appointments for Customer ID #1";
+            this.btn_customReport.Text = "Number of appointments with Alfred Newman";
             this.btn_customReport.UseVisualStyleBackColor = true;
             this.btn_customReport.Click += new System.EventHandler(this.btn_customReport_Click);
             // 
@@ -178,7 +178,7 @@ namespace C969
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 588);
+            this.ClientSize = new System.Drawing.Size(1067, 567);
             this.Controls.Add(this.lbl_UserIDEntry);
             this.Controls.Add(this.btn_UserIDRefresh);
             this.Controls.Add(this.txt_UserID);

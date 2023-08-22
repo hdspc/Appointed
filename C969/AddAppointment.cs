@@ -15,13 +15,17 @@ namespace C969
     {
         private UserAccount _u;
         List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
+        List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
         public AddAppointment(UserAccount u)
         {
 
             _u = u;
             InitializeComponent();
-            List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
+            
+
+
+
 
             dropdown_UserID.Text = _u.ID.ToString();
             txt_AppointmentID.Text = Database.DBConnection.GetNewIdFromTable("appointment", "appointmentId").ToString();
@@ -75,8 +79,6 @@ namespace C969
 
             try
             {
-
-
                 int appointmentID = Int32.Parse(txt_AppointmentID.Text);
                 //int customerID = Int32.Parse(txt_CustomerID.Text);
                 int customerID = Database.DBConnection.GetIntFromTable("customerId", "customer", "customerName", dropdown_customerName.Text);
@@ -97,8 +99,8 @@ namespace C969
                 
 
 
-				#region exceptions 
-                
+				#region Exceptions 
+
 
 
 				if (datetime_AppointmentStart.Value > datetime_AppointmentEnd.Value)
@@ -134,7 +136,7 @@ namespace C969
                     {
 
 
-                        throw new Exceptions.AppointmentTimesInvalidException($"Appointment overlaps with another appointment [Apptointment #{appt.AppointmentID} at {appt.Start}]");
+                        throw new Exceptions.AppointmentTimesInvalidException($"You have an appointment #{appt.AppointmentID} from {appt.Start.ToLocalTime():hh:mm} to {appt.End.ToLocalTime():hh:mm}.");
                       
 
                     }
@@ -240,8 +242,19 @@ namespace C969
 
         }
 
+
         #endregion
 
+        private void btn_showUsername_Click(object sender, EventArgs e)
+        {
+            //The Lambda function here simplifies this to a local request, without a new function or MySql query in the DBConnection class  
+            
+            string myUserName = allUsers.Where(user => user.ID == _u.ID).Select(user => user.Username).ElementAt(0);
 
+            MessageBox.Show(myUserName.ToString());
+
+
+
+        }
     }
 }
