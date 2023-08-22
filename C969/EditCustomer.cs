@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace C969
 {
@@ -27,7 +29,6 @@ namespace C969
             dropdown_AddressIDs.Text = customer.AddressID.ToString();
             checkbox_activeCustomer.Checked = IsCustomerActive(customer);
 
-
             dropdown_AddressIDs.Items.Clear();
           
 
@@ -38,8 +39,7 @@ namespace C969
 
 
             AddressLoad();
-
-            btn_Save.Enabled = false;
+            ValidateForm();
             txt_customerName.TextChanged += OnFormUpdated;
         }
 
@@ -94,67 +94,6 @@ namespace C969
         }
 
         #endregion
-
-        private void btn_newAddress_Click(object sender, EventArgs e)
-        {
-            AddAddress addAddress = new AddAddress(_u);
-
-            addAddress.ShowDialog();
-        }
-
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                int customerID = Int32.Parse(txt_customerID.Text);
-                string customerName = txt_customerName.Text;
-                int addressID = Int32.Parse(dropdown_AddressIDs.Text);
-
-
-                DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
-                string createdBy = _u.Username;
-                DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
-                string lastUpdatedBy = _u.Username;
-
-                int active = 0;
-                bool activeChecked = checkbox_activeCustomer.Checked;
-                if (activeChecked)
-                {
-                    active = 1;
-                }
-
-                Customer customer = new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdatedBy);
-
-                string customerString = $"{customerID}, \"{customerName}\", {addressID}, \"{active}\", \"{createDate:yyyy-MM-dd HH:mm:ss}\", \"{createdBy}\", \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", \"{lastUpdatedBy}\"";
-
-                int rowsAffected = Database.DBConnection.InsertNewRecord("customer", customerString);
-
-                if (rowsAffected > 0)
-                {
-
-                    MessageBox.Show($"{rowsAffected} record saved!");
-                    EventLogger.LogUnspecifiedEntry($"{_u.Username.ToString()} created new Customer with ID {customerID}");
-                    Close();
-
-                }
-                else
-                {
-                    MessageBox.Show("Record did not insert into the database. This customer has not been saved.");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_Cancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
 
 
         private void AddressLoad()
@@ -212,6 +151,99 @@ namespace C969
             e.Handled = true;
         }
 
+        private void btn_Cancel_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void btn_DeleteCustomer_Click(object sender, EventArgs e)
+        {
+            int customerID = Int32.Parse(txt_customerID.Text);
+
+            MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
+
+            string deleteCustomerQuery = $"DELETE FROM customer WHERE customerId = {customerID}";
+
+            string deleteCustomerAppointments = $"DELETE FROM appointment  WHERE customerId = {customerID}";
+
+            MySqlCommand deleteCustomerCommand = new MySqlCommand(deleteCustomerQuery, connect);
+
+            MySqlCommand deleteCustomerAppointmentsCommand = new MySqlCommand(deleteCustomerAppointments, connect);
+
+
+            try
+            {
+                connect.Open();
+                deleteCustomerAppointmentsCommand.ExecuteNonQuery();
+                deleteCustomerCommand.ExecuteNonQuery();
+
+                MessageBox.Show($"Customer {txt_customerName.Text} deleted.");
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connect.Close();
+                Close();
+            }
+        }
+
+        private void btn_Save_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int customerID = Int32.Parse(txt_customerID.Text);
+                string customerName = txt_customerName.Text;
+                int addressID = Int32.Parse(dropdown_AddressIDs.Text);
+
+
+                DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
+                string createdBy = _u.Username;
+                DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
+                string lastUpdatedBy = _u.Username;
+
+                int active = 0;
+                bool activeChecked = checkbox_activeCustomer.Checked;
+                if (activeChecked)
+                {
+                    active = 1;
+                }
+
+                Customer customer = new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdatedBy);
+
+                string customerString = $"customerId = {customerID}, customerName = \"{customerName}\", addressId = {addressID}, active = {active}, createDate = \"{createDate:yyyy-MM-dd HH:mm:ss}\", createdBy = \"{createdBy}\", lastUpdate = \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", lastUpdateBy = \"{lastUpdatedBy}\"";
+
+                int rowsAffected = Database.DBConnection.UpdateRecord("customer", customerString, $"customerId = {customerID}");
+
+                if (rowsAffected > 0)
+                {
+
+                    MessageBox.Show($"{rowsAffected} record saved!");
+                    EventLogger.LogUnspecifiedEntry($"{_u.Username.ToString()} created new Customer with ID {customerID}");
+                    Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Record did not insert into the database. This customer has not been saved.");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_newAddress_Click_1(object sender, EventArgs e)
+        {
+            AddAddress addAddress = new AddAddress(_u);
+
+            addAddress.ShowDialog();
+        }
     }
 }

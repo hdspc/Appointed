@@ -178,6 +178,7 @@ namespace C969
             this.btn_newAddress.TabIndex = 38;
             this.btn_newAddress.Text = "New Address";
             this.btn_newAddress.UseVisualStyleBackColor = true;
+            this.btn_newAddress.Click += new System.EventHandler(this.btn_newAddress_Click_1);
             // 
             // checkbox_activeCustomer
             // 
@@ -246,6 +247,7 @@ namespace C969
             this.btn_Cancel.TabIndex = 31;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click_1);
             // 
             // btn_Save
             // 
@@ -256,24 +258,26 @@ namespace C969
             this.btn_Save.TabIndex = 30;
             this.btn_Save.Text = "Save";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click_1);
             // 
             // btn_DeleteCustomer
             // 
             this.btn_DeleteCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_DeleteCustomer.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btn_DeleteCustomer.Font = new System.Drawing.Font("Meiryo UI", 9.25F);
-            this.btn_DeleteCustomer.Location = new System.Drawing.Point(77, 510);
+            this.btn_DeleteCustomer.Location = new System.Drawing.Point(85, 497);
             this.btn_DeleteCustomer.Name = "btn_DeleteCustomer";
             this.btn_DeleteCustomer.Size = new System.Drawing.Size(127, 53);
             this.btn_DeleteCustomer.TabIndex = 51;
             this.btn_DeleteCustomer.Text = "Delete\r\nCustomer";
             this.btn_DeleteCustomer.UseVisualStyleBackColor = false;
+            this.btn_DeleteCustomer.Click += new System.EventHandler(this.btn_DeleteCustomer_Click);
             // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 585);
+            this.ClientSize = new System.Drawing.Size(308, 585);
             this.Controls.Add(this.btn_DeleteCustomer);
             this.Controls.Add(this.lbl_address2);
             this.Controls.Add(this.lbl_address1);
