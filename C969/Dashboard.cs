@@ -41,6 +41,10 @@ namespace C969
 
 
             txt_currentUser.Text = u.Username.ToString();
+
+
+            btn_EditCustomer.Enabled = false;
+            btn_EditAppointment.Enabled = true;
         }
 
 
@@ -84,6 +88,10 @@ namespace C969
 
             btn_ViewCustomers.FlatAppearance.BorderSize = 0;
             btn_ViewCustomers.BackColor = System.Drawing.Color.LightGray;
+
+            btn_EditCustomer.Enabled = false;
+            btn_EditAppointment.Enabled = true;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -208,7 +216,38 @@ namespace C969
 
         private void btn_EditCustomer_Click(object sender, EventArgs e)
         {
+            int selectedRowIndex = appointmentDGV.CurrentCell.RowIndex;
+            var clickID = appointmentDGV.Rows[selectedRowIndex].Cells[0].Value;
 
+            int editID = Int32.Parse(clickID.ToString());
+
+
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connect = new MySqlConnection(constr);
+
+            try
+            {
+                connect.Open();
+
+                string sqlString = $"SELECT * FROM customer WHERE customerId = {editID}";
+                MySqlCommand getAppt = new MySqlCommand(sqlString, connect);
+                MySqlDataReader rdr = getAppt.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Customer selectedCustomer = new Customer(rdr.GetInt32(0),   rdr[1].ToString(), rdr.GetInt32(2), rdr.GetInt32(3), rdr.GetDateTime(4), rdr[5].ToString(), rdr.GetDateTime(6), rdr[7].ToString());
+
+
+                    EditCustomer customerEditor = new EditCustomer(selectedCustomer, _u);
+
+                    customerEditor.ShowDialog();
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btn_ViewCustomers_Click(object sender, EventArgs e)
@@ -232,6 +271,9 @@ namespace C969
 
             btn_ViewAppointments.FlatAppearance.BorderSize = 0;
             btn_ViewAppointments.BackColor = System.Drawing.Color.LightGray;
+
+            btn_EditAppointment.Enabled = false;
+            btn_EditCustomer.Enabled = true;
         }
 
         private void Dashboard_Activated(object sender, EventArgs e)

@@ -148,6 +148,12 @@
     <Compile Include="EditAppointment.Designer.cs">
       <DependentUpon>EditAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCustomer.Designer.cs">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventLogger.cs" />
     <Compile Include="Events\MyEventArgs.cs" />
     <Compile Include="Events\UserLogin.cs" />
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditAppointment.resx">
       <DependentUpon>EditAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCustomer.resx">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

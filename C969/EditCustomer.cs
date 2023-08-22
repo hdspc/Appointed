@@ -1,28 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace C969
 {
-
-
-    public partial class AddCustomer : Form
+    public partial class EditCustomer : Form
     {
+
         private UserAccount _u;
         List<Address> allAddresses = Database.DBConnection.GetAllAddresses();
 
-
-
-
-        public AddCustomer(UserAccount u)
+        public EditCustomer(Customer customer, UserAccount u)
         {
-            _u = u;
             InitializeComponent();
 
-            txt_customerID.Text = Database.DBConnection.GetNewIdFromTable("customer", "customerId").ToString();
+            _u = u;
+
+            txt_customerID.Text = customer.CustomerID.ToString();
+            txt_customerName.Text = customer.CustomerName;
+            dropdown_AddressIDs.Text = customer.AddressID.ToString();
+            checkbox_activeCustomer.Checked = IsCustomerActive(customer);
+
 
             dropdown_AddressIDs.Items.Clear();
+          
 
             foreach (Address address in allAddresses)
             {
@@ -34,9 +41,17 @@ namespace C969
 
             btn_Save.Enabled = false;
             txt_customerName.TextChanged += OnFormUpdated;
-            
         }
 
+        private bool IsCustomerActive(Customer customer)
+
+        {
+            if (customer.Active == 1)
+            {
+                return true;
+            }
+            return false;
+        }
 
         #region VALIDATION
         private void OnFormUpdated(object sender, EventArgs e)
@@ -51,7 +66,7 @@ namespace C969
 
 
             if (String.IsNullOrWhiteSpace(txt_customerName.Text) == false)
-            
+
             {
                 txt_customerName.BackColor = System.Drawing.Color.White;
             }
@@ -79,6 +94,7 @@ namespace C969
         }
 
         #endregion
+
         private void btn_newAddress_Click(object sender, EventArgs e)
         {
             AddAddress addAddress = new AddAddress(_u);
@@ -195,7 +211,6 @@ namespace C969
         {
             e.Handled = true;
         }
-
 
 
     }
