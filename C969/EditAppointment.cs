@@ -24,7 +24,7 @@ namespace C969
             InitializeComponent();
             txt_CustomerID.Text = appointment.CustomerID.ToString();
              txt_UserID.Text = appointment.UserID.ToString();
-            txt_AppointmentID.Text = appointment.AppointmentID.ToString();
+            txt_AppointmentIDa.Text = appointment.AppointmentID.ToString();
             txt_Title.Text = appointment.Title.ToString();
             txt_Description.Text = appointment.Description.ToString();
             txt_Location.Text = appointment.Location.ToString();
@@ -49,7 +49,7 @@ namespace C969
         private void btn_EditAppointment_Save_Click(object sender, EventArgs e)
         {
 
-            int appointmentID = Int32.Parse(txt_AppointmentID.Text);
+            int appointmentID = Int32.Parse(txt_AppointmentIDa.Text);
             int customerID = Int32.Parse(txt_CustomerID.Text);
             int userID = Int32.Parse(txt_UserID.Text);
             string title = txt_Title.Text;
@@ -70,7 +70,7 @@ namespace C969
 
             Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
-            string insertString = $"appointmentId = {appointmentID}, customerId = {customerID}, userId =  {userID}, title = \"{title}\", description = \"{description}\", location =  \"{location}\", contact =  \"{contact}\", type =  \"{type}\", url = \"{url}\", start = \"{start:yyyy-MM-dd HH:mm:ss}\", end = \"{end:yyyy-MM-dd HH:mm:ss}\", createDate =  \"{createDate:yyyy-MM-dd HH:mm:ss}\", createdBy =  \"{createdBy}\", lastUpdate = \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", lastUpdateBy = \"{lastUpdatedBy}\"";
+            string insertString = $"appointmentId = {appointmentID}, customerId = {customerID}, userId =  {userID}, title = \"{title}\", description = \"{description}\", location =  \"{location}\", contact =  \"{contact}\", type =  \"{type}\", url = \"{url}\", start = \"{start:yyyy-MM-dd HH:mm}\", end = \"{end:yyyy-MM-dd HH:mm}\", createDate =  \"{createDate:yyyy-MM-dd HH:mm:ss}\", createdBy =  \"{createdBy}\", lastUpdate = \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", lastUpdateBy = \"{lastUpdatedBy}\"";
 
             int rowsAffected = Database.DBConnection.UpdateRecord("appointment", insertString, $"appointmentID = {appointmentID}");
 
@@ -92,7 +92,7 @@ namespace C969
 
         private void btn_DeleteAppointment_Click(object sender, EventArgs e)
         {
-            int appointmentID = Int32.Parse(txt_AppointmentID.Text);
+            int appointmentID = Int32.Parse(txt_AppointmentIDa.Text);
 
             MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
 

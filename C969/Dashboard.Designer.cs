@@ -51,7 +51,7 @@ namespace C969
             // appointmentDGV
             // 
             this.appointmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentDGV.Location = new System.Drawing.Point(44, 100);
+            this.appointmentDGV.Location = new System.Drawing.Point(40, 142);
             this.appointmentDGV.MultiSelect = false;
             this.appointmentDGV.Name = "appointmentDGV";
             this.appointmentDGV.ReadOnly = true;
@@ -63,7 +63,7 @@ namespace C969
             // 
             this.lbl_DashboardTitle.AutoSize = true;
             this.lbl_DashboardTitle.Font = new System.Drawing.Font("Meiryo UI", 18.25F);
-            this.lbl_DashboardTitle.Location = new System.Drawing.Point(38, 37);
+            this.lbl_DashboardTitle.Location = new System.Drawing.Point(34, 27);
             this.lbl_DashboardTitle.Name = "lbl_DashboardTitle";
             this.lbl_DashboardTitle.Size = new System.Drawing.Size(304, 32);
             this.lbl_DashboardTitle.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace C969
             // btn_AddAppointment
             // 
             this.btn_AddAppointment.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_AddAppointment.Location = new System.Drawing.Point(44, 362);
+            this.btn_AddAppointment.Location = new System.Drawing.Point(40, 404);
             this.btn_AddAppointment.Name = "btn_AddAppointment";
             this.btn_AddAppointment.Size = new System.Drawing.Size(256, 40);
             this.btn_AddAppointment.TabIndex = 3;
@@ -83,7 +83,7 @@ namespace C969
             // btn_EditAppointment
             // 
             this.btn_EditAppointment.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_EditAppointment.Location = new System.Drawing.Point(44, 408);
+            this.btn_EditAppointment.Location = new System.Drawing.Point(40, 450);
             this.btn_EditAppointment.Name = "btn_EditAppointment";
             this.btn_EditAppointment.Size = new System.Drawing.Size(256, 40);
             this.btn_EditAppointment.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace C969
             this.button1.CausesValidation = false;
             this.button1.Font = new System.Drawing.Font("Meiryo UI", 12F);
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(44, 454);
+            this.button1.Location = new System.Drawing.Point(40, 87);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(256, 40);
             this.button1.TabIndex = 5;
@@ -135,7 +135,7 @@ namespace C969
             this.groupBox1.Controls.Add(this.rdo_Weekly);
             this.groupBox1.Controls.Add(this.rdo_Monthly);
             this.groupBox1.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(581, 362);
+            this.groupBox1.Location = new System.Drawing.Point(577, 404);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox1.Size = new System.Drawing.Size(180, 130);
@@ -161,7 +161,7 @@ namespace C969
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 14.25F);
-            this.label3.Location = new System.Drawing.Point(605, 45);
+            this.label3.Location = new System.Drawing.Point(605, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 24);
             this.label3.TabIndex = 9;
@@ -171,7 +171,7 @@ namespace C969
             // 
             this.txt_currentUser.AutoSize = true;
             this.txt_currentUser.Font = new System.Drawing.Font("Meiryo UI", 14.25F);
-            this.txt_currentUser.Location = new System.Drawing.Point(668, 45);
+            this.txt_currentUser.Location = new System.Drawing.Point(671, 94);
             this.txt_currentUser.Name = "txt_currentUser";
             this.txt_currentUser.Size = new System.Drawing.Size(46, 24);
             this.txt_currentUser.TabIndex = 10;
@@ -180,7 +180,7 @@ namespace C969
             // btn_GenerateReports
             // 
             this.btn_GenerateReports.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_GenerateReports.Location = new System.Drawing.Point(44, 500);
+            this.btn_GenerateReports.Location = new System.Drawing.Point(168, 505);
             this.btn_GenerateReports.Name = "btn_GenerateReports";
             this.btn_GenerateReports.Size = new System.Drawing.Size(256, 40);
             this.btn_GenerateReports.TabIndex = 12;
@@ -191,7 +191,7 @@ namespace C969
             // btn_addCustomer
             // 
             this.btn_addCustomer.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_addCustomer.Location = new System.Drawing.Point(306, 362);
+            this.btn_addCustomer.Location = new System.Drawing.Point(302, 404);
             this.btn_addCustomer.Name = "btn_addCustomer";
             this.btn_addCustomer.Size = new System.Drawing.Size(256, 40);
             this.btn_addCustomer.TabIndex = 13;
@@ -202,7 +202,7 @@ namespace C969
             // btn_EditCustomer
             // 
             this.btn_EditCustomer.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_EditCustomer.Location = new System.Drawing.Point(306, 408);
+            this.btn_EditCustomer.Location = new System.Drawing.Point(302, 450);
             this.btn_EditCustomer.Name = "btn_EditCustomer";
             this.btn_EditCustomer.Size = new System.Drawing.Size(256, 40);
             this.btn_EditCustomer.TabIndex = 14;
@@ -213,7 +213,7 @@ namespace C969
             // btn_ViewCustomers
             // 
             this.btn_ViewCustomers.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_ViewCustomers.Location = new System.Drawing.Point(306, 454);
+            this.btn_ViewCustomers.Location = new System.Drawing.Point(302, 87);
             this.btn_ViewCustomers.Name = "btn_ViewCustomers";
             this.btn_ViewCustomers.Size = new System.Drawing.Size(256, 40);
             this.btn_ViewCustomers.TabIndex = 15;
