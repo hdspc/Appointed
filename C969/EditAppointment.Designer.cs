@@ -56,16 +56,13 @@ namespace C969
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_EditAppointment_Save = new System.Windows.Forms.Button();
-            this.txt_UserID = new System.Windows.Forms.TextBox();
-            this.txt_CustomerID = new System.Windows.Forms.TextBox();
             this.txt_AppointmentIDa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_DeleteAppointment = new System.Windows.Forms.Button();
             this.btn_showUsername = new System.Windows.Forms.Button();
-            this.dropdown_UserID = new System.Windows.Forms.ComboBox();
-            this.dropdown_customerName = new System.Windows.Forms.ComboBox();
+            this.dropdown_Use = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -95,6 +92,9 @@ namespace C969
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.dropdown_UserID = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dropdown_customerName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -126,7 +126,7 @@ namespace C969
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Meiryo", 8.25F);
-            this.groupBox1.Location = new System.Drawing.Point(18, 99);
+            this.groupBox1.Location = new System.Drawing.Point(26, 139);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(388, 392);
             this.groupBox1.TabIndex = 23;
@@ -242,7 +242,7 @@ namespace C969
             // 
             // datetime_AppointmentEnd
             // 
-            this.datetime_AppointmentEnd.CustomFormat = "ddd dd MMM yyyy HH:mm:ss tt";
+            this.datetime_AppointmentEnd.CustomFormat = "ddd dd MMM yyyy HH:mm tt";
             this.datetime_AppointmentEnd.Location = new System.Drawing.Point(127, 234);
             this.datetime_AppointmentEnd.Name = "datetime_AppointmentEnd";
             this.datetime_AppointmentEnd.Size = new System.Drawing.Size(247, 24);
@@ -324,7 +324,7 @@ namespace C969
             // 
             // datetime_AppointmentStart
             // 
-            this.datetime_AppointmentStart.CustomFormat = "ddd dd MMM yyyy HH:mm:ss tt";
+            this.datetime_AppointmentStart.CustomFormat = "ddd dd MMM yyyy HH:mm tt";
             this.datetime_AppointmentStart.Location = new System.Drawing.Point(127, 204);
             this.datetime_AppointmentStart.Name = "datetime_AppointmentStart";
             this.datetime_AppointmentStart.Size = new System.Drawing.Size(247, 24);
@@ -352,7 +352,7 @@ namespace C969
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(250, 497);
+            this.btn_Cancel.Location = new System.Drawing.Point(258, 537);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(132, 45);
             this.btn_Cancel.TabIndex = 22;
@@ -362,7 +362,7 @@ namespace C969
             // 
             // btn_EditAppointment_Save
             // 
-            this.btn_EditAppointment_Save.Location = new System.Drawing.Point(45, 497);
+            this.btn_EditAppointment_Save.Location = new System.Drawing.Point(53, 537);
             this.btn_EditAppointment_Save.Name = "btn_EditAppointment_Save";
             this.btn_EditAppointment_Save.Size = new System.Drawing.Size(135, 45);
             this.btn_EditAppointment_Save.TabIndex = 21;
@@ -370,25 +370,10 @@ namespace C969
             this.btn_EditAppointment_Save.UseVisualStyleBackColor = true;
             this.btn_EditAppointment_Save.Click += new System.EventHandler(this.btn_EditAppointment_Save_Click);
             // 
-            // txt_UserID
-            // 
-            this.txt_UserID.Enabled = false;
-            this.txt_UserID.Location = new System.Drawing.Point(327, 52);
-            this.txt_UserID.Name = "txt_UserID";
-            this.txt_UserID.Size = new System.Drawing.Size(43, 20);
-            this.txt_UserID.TabIndex = 20;
-            // 
-            // txt_CustomerID
-            // 
-            this.txt_CustomerID.Location = new System.Drawing.Point(327, 15);
-            this.txt_CustomerID.Name = "txt_CustomerID";
-            this.txt_CustomerID.Size = new System.Drawing.Size(43, 20);
-            this.txt_CustomerID.TabIndex = 19;
-            // 
             // txt_AppointmentIDa
             // 
             this.txt_AppointmentIDa.Enabled = false;
-            this.txt_AppointmentIDa.Location = new System.Drawing.Point(145, 19);
+            this.txt_AppointmentIDa.Location = new System.Drawing.Point(145, 23);
             this.txt_AppointmentIDa.Name = "txt_AppointmentIDa";
             this.txt_AppointmentIDa.Size = new System.Drawing.Size(43, 20);
             this.txt_AppointmentIDa.TabIndex = 18;
@@ -396,35 +381,38 @@ namespace C969
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(232, 59);
+            this.label3.Font = new System.Drawing.Font("Meiryo UI", 9F);
+            this.label3.Location = new System.Drawing.Point(232, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 17;
             this.label3.Text = "User ID:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(232, 22);
+            this.label2.Font = new System.Drawing.Font("Meiryo UI", 9F);
+            this.label2.Location = new System.Drawing.Point(22, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(110, 15);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Customer ID";
+            this.label2.Text = "Customer Name*";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 22);
+            this.label1.Font = new System.Drawing.Font("Meiryo UI", 9F);
+            this.label1.Location = new System.Drawing.Point(17, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.Size = new System.Drawing.Size(107, 15);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Appointment ID";
+            this.label1.Text = "Appointment ID*";
             // 
             // btn_DeleteAppointment
             // 
             this.btn_DeleteAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_DeleteAppointment.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btn_DeleteAppointment.Location = new System.Drawing.Point(144, 558);
+            this.btn_DeleteAppointment.Location = new System.Drawing.Point(152, 598);
             this.btn_DeleteAppointment.Name = "btn_DeleteAppointment";
             this.btn_DeleteAppointment.Size = new System.Drawing.Size(135, 45);
             this.btn_DeleteAppointment.TabIndex = 24;
@@ -442,21 +430,13 @@ namespace C969
             this.btn_showUsername.Text = "Show Username";
             this.btn_showUsername.UseVisualStyleBackColor = true;
             // 
-            // dropdown_UserID
+            // dropdown_Use
             // 
-            this.dropdown_UserID.FormattingEnabled = true;
-            this.dropdown_UserID.Location = new System.Drawing.Point(813, 19);
-            this.dropdown_UserID.Name = "dropdown_UserID";
-            this.dropdown_UserID.Size = new System.Drawing.Size(73, 21);
-            this.dropdown_UserID.TabIndex = 31;
-            // 
-            // dropdown_customerName
-            // 
-            this.dropdown_customerName.FormattingEnabled = true;
-            this.dropdown_customerName.Location = new System.Drawing.Point(581, 90);
-            this.dropdown_customerName.Name = "dropdown_customerName";
-            this.dropdown_customerName.Size = new System.Drawing.Size(305, 21);
-            this.dropdown_customerName.TabIndex = 30;
+            this.dropdown_Use.FormattingEnabled = true;
+            this.dropdown_Use.Location = new System.Drawing.Point(813, 19);
+            this.dropdown_Use.Name = "dropdown_Use";
+            this.dropdown_Use.Size = new System.Drawing.Size(73, 21);
+            this.dropdown_Use.TabIndex = 31;
             // 
             // groupBox2
             // 
@@ -746,14 +726,44 @@ namespace C969
             this.label30.TabIndex = 25;
             this.label30.Text = "Appointment ID*";
             // 
+            // dropdown_UserID
+            // 
+            this.dropdown_UserID.FormattingEnabled = true;
+            this.dropdown_UserID.Location = new System.Drawing.Point(341, 20);
+            this.dropdown_UserID.Name = "dropdown_UserID";
+            this.dropdown_UserID.Size = new System.Drawing.Size(73, 21);
+            this.dropdown_UserID.TabIndex = 33;
+            this.dropdown_UserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dropdown_UserID_KeyPress);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Meiryo UI", 9.25F);
+            this.button1.Location = new System.Drawing.Point(275, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 32);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Show Username";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dropdown_customerName
+            // 
+            this.dropdown_customerName.FormattingEnabled = true;
+            this.dropdown_customerName.Location = new System.Drawing.Point(145, 94);
+            this.dropdown_customerName.Name = "dropdown_customerName";
+            this.dropdown_customerName.Size = new System.Drawing.Size(269, 21);
+            this.dropdown_customerName.TabIndex = 35;
+            this.dropdown_customerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dropdown_customerName_KeyPress);
+            // 
             // EditAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 615);
-            this.Controls.Add(this.btn_showUsername);
-            this.Controls.Add(this.dropdown_UserID);
+            this.ClientSize = new System.Drawing.Size(991, 673);
             this.Controls.Add(this.dropdown_customerName);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dropdown_UserID);
+            this.Controls.Add(this.btn_showUsername);
+            this.Controls.Add(this.dropdown_Use);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txt_AppointmentID);
             this.Controls.Add(this.label28);
@@ -763,8 +773,6 @@ namespace C969
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_EditAppointment_Save);
-            this.Controls.Add(this.txt_UserID);
-            this.Controls.Add(this.txt_CustomerID);
             this.Controls.Add(this.txt_AppointmentIDa);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -809,16 +817,13 @@ namespace C969
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_EditAppointment_Save;
-        private System.Windows.Forms.TextBox txt_UserID;
-        private System.Windows.Forms.TextBox txt_CustomerID;
         private System.Windows.Forms.TextBox txt_AppointmentIDa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_DeleteAppointment;
         private System.Windows.Forms.Button btn_showUsername;
-        private System.Windows.Forms.ComboBox dropdown_UserID;
-        private System.Windows.Forms.ComboBox dropdown_customerName;
+        private System.Windows.Forms.ComboBox dropdown_Use;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -848,5 +853,8 @@ namespace C969
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ComboBox dropdown_UserID;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox dropdown_customerName;
     }
 }

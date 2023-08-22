@@ -15,16 +15,24 @@ namespace C969
     public partial class EditAppointment : Form
     {
         private Appointment _appointment;
+        private List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
+        private List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
+        List<Customer> allCustomers = Database.DBConnection.GetAllCustomers();
 
         public EditAppointment(Appointment appointment)
         {
             _appointment = appointment;
 
             InitializeComponent();
-            txt_CustomerID.Text = appointment.CustomerID.ToString();
-             txt_UserID.Text = appointment.UserID.ToString();
-            txt_AppointmentIDa.Text = appointment.AppointmentID.ToString();
+
+            #region Previous appointment details
+
+            dropdown_customerName.Text = Database.DBConnection.GetStringFromTable(appointment.UserID, "customerId", "customerName", "customer");
+                
+                //appointment.CustomerID.ToString();
+             dropdown_UserID.Text = appointment.UserID.ToString();
+            txt_AppointmentID.Text = appointment.AppointmentID.ToString();
             txt_Title.Text = appointment.Title.ToString();
             txt_Description.Text = appointment.Description.ToString();
             txt_Location.Text = appointment.Location.ToString();
@@ -33,10 +41,29 @@ namespace C969
             txt_URL.Text = appointment.URL.ToString();
             datetime_AppointmentStart.Value = appointment.Start;
             datetime_AppointmentEnd.Value = appointment.End;
-            txt_CreatedDate.Text = appointment.CreateDate.ToString();
+            txt_CreatedDate.Text = appointment.CreateDate.ToLocalTime().ToString();
             txt_CreatedBy.Text = appointment.CreatedBy.ToString();
-            txt_LastUpdate.Text = appointment.LastUpdate.ToString();
-            txt_LastUpdateBy.Text = appointment.LastUpdateBy;
+            txt_LastUpdate.Text = appointment.LastUpdate.ToLocalTime().ToString();
+            txt_LastUpdateBy.Text = appointment.LastUpdateBy.ToString();
+
+            #endregion
+
+            dropdown_UserID.Items.Clear();
+
+            foreach (UserAccount user in allUsers)
+            {
+                dropdown_UserID.Items.Add(user.ID);
+            }
+
+            dropdown_customerName.Items.Clear();
+
+
+            foreach (Customer customer in allCustomers)
+            {
+                dropdown_customerName.Items.Add(customer.CustomerName);
+            }
+
+
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -49,9 +76,9 @@ namespace C969
         private void btn_EditAppointment_Save_Click(object sender, EventArgs e)
         {
 
-            int appointmentID = Int32.Parse(txt_AppointmentIDa.Text);
-            int customerID = Int32.Parse(txt_CustomerID.Text);
-            int userID = Int32.Parse(txt_UserID.Text);
+            int appointmentID = Int32.Parse(txt_AppointmentID.Text);
+            int customerID = Database.DBConnection.GetIntFromTable("customerId", "customer", "customerName", dropdown_customerName.Text);
+            int userID = Int32.Parse(dropdown_UserID.Text);
             string title = txt_Title.Text;
             string description = txt_Description.Text;
             string location = txt_Location.Text;
@@ -70,7 +97,7 @@ namespace C969
 
             Appointment appointment = new Appointment(appointmentID, customerID, userID, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
-            string insertString = $"appointmentId = {appointmentID}, customerId = {customerID}, userId =  {userID}, title = \"{title}\", description = \"{description}\", location =  \"{location}\", contact =  \"{contact}\", type =  \"{type}\", url = \"{url}\", start = \"{start:yyyy-MM-dd HH:mm}\", end = \"{end:yyyy-MM-dd HH:mm}\", createDate =  \"{createDate:yyyy-MM-dd HH:mm:ss}\", createdBy =  \"{createdBy}\", lastUpdate = \"{lastUpdate:yyyy-MM-dd HH:mm:ss}\", lastUpdateBy = \"{lastUpdatedBy}\"";
+            string insertString = $"appointmentId = {appointmentID}, customerId = {customerID}, userId =  {userID}, title = \"{title}\", description = \"{description}\", location =  \"{location}\", contact =  \"{contact}\", type =  \"{type}\", url = \"{url}\", start = \"{start:yyyy-MM-dd HH:mm}\", end = \"{end:yyyy-MM-dd HH:mm}\", createDate =  \"{createDate:yyyy-MM-dd HH:mm}\", createdBy =  \"{createdBy}\", lastUpdate = \"{lastUpdate:yyyy-MM-dd HH:mm}\", lastUpdateBy = \"{lastUpdatedBy}\"";
 
             int rowsAffected = Database.DBConnection.UpdateRecord("appointment", insertString, $"appointmentID = {appointmentID}");
 
@@ -116,6 +143,16 @@ namespace C969
                 connect.Close();
                 Close();
             }
+        }
+
+        private void dropdown_UserID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void dropdown_customerName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
