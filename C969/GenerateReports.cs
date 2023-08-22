@@ -41,7 +41,7 @@ namespace C969
 			dropdown_Months.Visible = true;
 			txt_UserID.Visible = false;
 			btn_UserIDRefresh.Visible = false;
-			lbl_UserIDEntry.Text = "User ID:";
+			lbl_UserIDEntry.Text = "Month:";
 
 
 
@@ -64,7 +64,6 @@ namespace C969
 
 		private void btn_ConsultantSchedule_Click(object sender, EventArgs e)
 		{
-
 			txt_ReportTextBox.Visible = false;
 			dgv_consultantSchedule.Visible = true;
 			dropdown_Months.Visible = false;
@@ -136,7 +135,7 @@ namespace C969
 
 			//////int appointmentNumber = Database.DBConnection.GetNumberAppointmentsForCustomer(1);
 
-			//Localized Lambda function which turns 35 lines of code from DBConnection into 2.
+			//Localized Lambda function which turns 35 lines of code from DBConnection into 2. Aside from cutting out clutter this reduces the chances of errors happening when querying the database.
 
 			int NumberOfAppointments = allAppointments.Where(appt => appt.CustomerID == 2).Count();
 
@@ -150,7 +149,34 @@ namespace C969
 
 		}
 
-       
+        private void dropdown_Months_DropDownClosed(object sender, EventArgs e)
+        {
+			dgv_consultantSchedule.Visible = false;
+			txt_ReportTextBox.Text = "";
+			txt_ReportTextBox.Visible = true;
+			dropdown_Months.Visible = true;
+			txt_UserID.Visible = false;
+			btn_UserIDRefresh.Visible = false;
+			lbl_UserIDEntry.Text = "Month:";
+
+
+
+			List<Appointment> dt = allAppointments;
+			int currentUserID = _u.ID;
+			string currentUsername = _u.Username;
+
+			string chosenMonth = dropdown_Months.Text;
+
+
+			int presentationNumber = Database.DBConnection.GetAppointmentTypeCount(currentUserID, "presentation", chosenMonth);
+
+			int scrumNumber =
+			Database.DBConnection.GetAppointmentTypeCount(currentUserID, "scrum", chosenMonth);
+
+
+
+			txt_ReportTextBox.Text = $"Appointments for {currentUsername} in {chosenMonth} \r\n\r\nNumber of presentations: {presentationNumber.ToString()} \r\n\r\nNumber of scrums:  {scrumNumber.ToString()}";
+		}
     }
 }
 

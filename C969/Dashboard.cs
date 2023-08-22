@@ -97,7 +97,7 @@ namespace C969
             try
             {
                 connect.Open();
-
+               
                 string sqlString = $"SELECT * FROM appointment WHERE appointmentId = {editID}";
                 MySqlCommand getAppt = new MySqlCommand(sqlString, connect);
                 MySqlDataReader rdr = getAppt.ExecuteReader();
@@ -107,7 +107,7 @@ namespace C969
                     Appointment selectedAppointment = new Appointment(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr[3].ToString(), rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString(), rdr.GetDateTime(9), rdr.GetDateTime(10), rdr.GetDateTime(11), rdr[12].ToString(), rdr.GetDateTime(13), rdr[14].ToString());
 
 
-                    EditAppointment appointmentEditor = new EditAppointment(selectedAppointment);
+                    EditAppointment appointmentEditor = new EditAppointment(selectedAppointment, _u);
 
                     appointmentEditor.ShowDialog();
                 }

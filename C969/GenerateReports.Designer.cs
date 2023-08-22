@@ -113,6 +113,7 @@ namespace C969
             this.dropdown_Months.TabIndex = 4;
             this.dropdown_Months.Tag = "MMMonth";
             this.dropdown_Months.Text = "January";
+            this.dropdown_Months.DropDownClosed += new System.EventHandler(this.dropdown_Months_DropDownClosed);
             // 
             // dgv_consultantSchedule
             // 
@@ -149,7 +150,7 @@ namespace C969
             // 
             // txt_UserID
             // 
-            this.txt_UserID.Location = new System.Drawing.Point(465, 125);
+            this.txt_UserID.Location = new System.Drawing.Point(456, 156);
             this.txt_UserID.Name = "txt_UserID";
             this.txt_UserID.Size = new System.Drawing.Size(160, 24);
             this.txt_UserID.TabIndex = 8;

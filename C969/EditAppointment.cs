@@ -15,15 +15,17 @@ namespace C969
     public partial class EditAppointment : Form
     {
         private Appointment _appointment;
+        private UserAccount _u;
+
         private List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
         private List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
         List<Customer> allCustomers = Database.DBConnection.GetAllCustomers();
 
-        public EditAppointment(Appointment appointment)
+        public EditAppointment(Appointment appointment, UserAccount u)
         {
             _appointment = appointment;
-
+            _u = u;
             InitializeComponent();
 
             #region Previous appointment details
@@ -87,11 +89,11 @@ namespace C969
             string url = txt_URL.Text;
 
             DateTime start = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentStart.Value);
-            DateTime end = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentEnd.Value.AddHours(1));
+            DateTime end = TimeZoneInfo.ConvertTimeToUtc(datetime_AppointmentEnd.Value);
             DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Parse(txt_CreatedDate.Text));
             string createdBy = txt_CreatedBy.Text;
             DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
-            string lastUpdatedBy = _appointment.UserID.ToString();
+            string lastUpdatedBy = _u.Username;
 
             MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
 
@@ -119,7 +121,7 @@ namespace C969
 
         private void btn_DeleteAppointment_Click(object sender, EventArgs e)
         {
-            int appointmentID = Int32.Parse(txt_AppointmentIDa.Text);
+            int appointmentID = Int32.Parse(txt_AppointmentID.Text);
 
             MySqlConnection connect = new MySqlConnection(ConfigurationManager.ConnectionStrings["localdb"].ConnectionString);
 
@@ -154,5 +156,7 @@ namespace C969
         {
             e.Handled = true;
         }
+
+
     }
 }
