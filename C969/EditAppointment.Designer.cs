@@ -62,7 +62,6 @@ namespace C969
             this.label1 = new System.Windows.Forms.Label();
             this.btn_DeleteAppointment = new System.Windows.Forms.Button();
             this.dropdown_UserID = new System.Windows.Forms.ComboBox();
-            this.btn_ShowUsername = new System.Windows.Forms.Button();
             this.dropdown_customerName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +93,7 @@ namespace C969
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Meiryo", 8.25F);
-            this.groupBox1.Location = new System.Drawing.Point(26, 139);
+            this.groupBox1.Location = new System.Drawing.Point(35, 125);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(388, 392);
             this.groupBox1.TabIndex = 23;
@@ -321,7 +320,7 @@ namespace C969
             // btn_Cancel
             // 
             this.btn_Cancel.Font = new System.Drawing.Font("Meiryo UI", 10.25F);
-            this.btn_Cancel.Location = new System.Drawing.Point(258, 547);
+            this.btn_Cancel.Location = new System.Drawing.Point(267, 533);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(132, 45);
             this.btn_Cancel.TabIndex = 22;
@@ -332,7 +331,7 @@ namespace C969
             // btn_EditAppointment_Save
             // 
             this.btn_EditAppointment_Save.Font = new System.Drawing.Font("Meiryo UI", 10.25F);
-            this.btn_EditAppointment_Save.Location = new System.Drawing.Point(52, 547);
+            this.btn_EditAppointment_Save.Location = new System.Drawing.Point(61, 533);
             this.btn_EditAppointment_Save.Name = "btn_EditAppointment_Save";
             this.btn_EditAppointment_Save.Size = new System.Drawing.Size(135, 45);
             this.btn_EditAppointment_Save.TabIndex = 21;
@@ -343,7 +342,7 @@ namespace C969
             // txt_AppointmentID
             // 
             this.txt_AppointmentID.Enabled = false;
-            this.txt_AppointmentID.Location = new System.Drawing.Point(145, 23);
+            this.txt_AppointmentID.Location = new System.Drawing.Point(153, 30);
             this.txt_AppointmentID.Name = "txt_AppointmentID";
             this.txt_AppointmentID.Size = new System.Drawing.Size(43, 20);
             this.txt_AppointmentID.TabIndex = 18;
@@ -352,7 +351,7 @@ namespace C969
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 9F);
-            this.label3.Location = new System.Drawing.Point(232, 25);
+            this.label3.Location = new System.Drawing.Point(276, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 17;
@@ -362,7 +361,7 @@ namespace C969
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 9F);
-            this.label2.Location = new System.Drawing.Point(22, 98);
+            this.label2.Location = new System.Drawing.Point(31, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 15);
             this.label2.TabIndex = 16;
@@ -372,7 +371,7 @@ namespace C969
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 9F);
-            this.label1.Location = new System.Drawing.Point(17, 26);
+            this.label1.Location = new System.Drawing.Point(26, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 15);
             this.label1.TabIndex = 15;
@@ -383,7 +382,7 @@ namespace C969
             this.btn_DeleteAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_DeleteAppointment.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btn_DeleteAppointment.Font = new System.Drawing.Font("Meiryo UI", 9.25F);
-            this.btn_DeleteAppointment.Location = new System.Drawing.Point(162, 608);
+            this.btn_DeleteAppointment.Location = new System.Drawing.Point(171, 594);
             this.btn_DeleteAppointment.Name = "btn_DeleteAppointment";
             this.btn_DeleteAppointment.Size = new System.Drawing.Size(127, 53);
             this.btn_DeleteAppointment.TabIndex = 24;
@@ -394,26 +393,16 @@ namespace C969
             // dropdown_UserID
             // 
             this.dropdown_UserID.FormattingEnabled = true;
-            this.dropdown_UserID.Location = new System.Drawing.Point(341, 20);
+            this.dropdown_UserID.Location = new System.Drawing.Point(350, 30);
             this.dropdown_UserID.Name = "dropdown_UserID";
             this.dropdown_UserID.Size = new System.Drawing.Size(73, 21);
             this.dropdown_UserID.TabIndex = 33;
             this.dropdown_UserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dropdown_UserID_KeyPress);
             // 
-            // btn_ShowUsername
-            // 
-            this.btn_ShowUsername.Font = new System.Drawing.Font("Meiryo UI", 9.25F);
-            this.btn_ShowUsername.Location = new System.Drawing.Point(275, 48);
-            this.btn_ShowUsername.Name = "btn_ShowUsername";
-            this.btn_ShowUsername.Size = new System.Drawing.Size(139, 32);
-            this.btn_ShowUsername.TabIndex = 34;
-            this.btn_ShowUsername.Text = "Show Username";
-            this.btn_ShowUsername.UseVisualStyleBackColor = true;
-            // 
             // dropdown_customerName
             // 
             this.dropdown_customerName.FormattingEnabled = true;
-            this.dropdown_customerName.Location = new System.Drawing.Point(145, 94);
+            this.dropdown_customerName.Location = new System.Drawing.Point(154, 80);
             this.dropdown_customerName.Name = "dropdown_customerName";
             this.dropdown_customerName.Size = new System.Drawing.Size(269, 21);
             this.dropdown_customerName.TabIndex = 35;
@@ -425,7 +414,6 @@ namespace C969
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 673);
             this.Controls.Add(this.dropdown_customerName);
-            this.Controls.Add(this.btn_ShowUsername);
             this.Controls.Add(this.dropdown_UserID);
             this.Controls.Add(this.btn_DeleteAppointment);
             this.Controls.Add(this.groupBox1);
@@ -479,7 +467,6 @@ namespace C969
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_DeleteAppointment;
         private System.Windows.Forms.ComboBox dropdown_UserID;
-        private System.Windows.Forms.Button btn_ShowUsername;
         private System.Windows.Forms.ComboBox dropdown_customerName;
     }
 }

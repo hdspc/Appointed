@@ -46,47 +46,52 @@ namespace C969
             // userIDLabel
             // 
             this.userIDLabel.AutoSize = true;
+            this.userIDLabel.Font = new System.Drawing.Font("Meiryo UI", 9F);
             this.userIDLabel.Location = new System.Drawing.Point(26, 103);
             this.userIDLabel.Name = "userIDLabel";
-            this.userIDLabel.Size = new System.Drawing.Size(58, 13);
+            this.userIDLabel.Size = new System.Drawing.Size(72, 15);
             this.userIDLabel.TabIndex = 0;
             this.userIDLabel.Text = "Username:";
             // 
             // txt_UserIDTextBox
             // 
+            this.txt_UserIDTextBox.Font = new System.Drawing.Font("Meiryo UI", 8.25F);
             this.txt_UserIDTextBox.Location = new System.Drawing.Point(121, 100);
             this.txt_UserIDTextBox.Name = "txt_UserIDTextBox";
-            this.txt_UserIDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.txt_UserIDTextBox.Size = new System.Drawing.Size(100, 21);
             this.txt_UserIDTextBox.TabIndex = 1;
             // 
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Meiryo UI", 9F);
             this.passwordLabel.Location = new System.Drawing.Point(26, 154);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(56, 13);
+            this.passwordLabel.Size = new System.Drawing.Size(67, 15);
             this.passwordLabel.TabIndex = 2;
             this.passwordLabel.Text = "Password:";
             // 
             // txt_PasswordTextBox
             // 
+            this.txt_PasswordTextBox.Font = new System.Drawing.Font("Meiryo UI", 8.25F);
             this.txt_PasswordTextBox.Location = new System.Drawing.Point(121, 151);
             this.txt_PasswordTextBox.Name = "txt_PasswordTextBox";
-            this.txt_PasswordTextBox.Size = new System.Drawing.Size(100, 20);
+            this.txt_PasswordTextBox.Size = new System.Drawing.Size(100, 21);
             this.txt_PasswordTextBox.TabIndex = 3;
             // 
             // loginTitleLabel
             // 
             this.loginTitleLabel.AutoSize = true;
-            this.loginTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginTitleLabel.Font = new System.Drawing.Font("Meiryo UI", 18F);
             this.loginTitleLabel.Location = new System.Drawing.Point(24, 21);
             this.loginTitleLabel.Name = "loginTitleLabel";
-            this.loginTitleLabel.Size = new System.Drawing.Size(81, 25);
+            this.loginTitleLabel.Size = new System.Drawing.Size(89, 30);
             this.loginTitleLabel.TabIndex = 4;
             this.loginTitleLabel.Text = "LOGIN";
             // 
             // submitButton
             // 
+            this.submitButton.Font = new System.Drawing.Font("Meiryo UI", 9F);
             this.submitButton.Location = new System.Drawing.Point(29, 206);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(192, 23);
@@ -98,29 +103,33 @@ namespace C969
             // SqlConnectionLabel
             // 
             this.SqlConnectionLabel.AutoSize = true;
+            this.SqlConnectionLabel.Font = new System.Drawing.Font("Meiryo UI", 9F);
             this.SqlConnectionLabel.Location = new System.Drawing.Point(239, 100);
             this.SqlConnectionLabel.Name = "SqlConnectionLabel";
-            this.SqlConnectionLabel.Size = new System.Drawing.Size(121, 13);
+            this.SqlConnectionLabel.Size = new System.Drawing.Size(146, 15);
             this.SqlConnectionLabel.TabIndex = 6;
             this.SqlConnectionLabel.Text = "SQL Connection Status:";
             // 
             // sqlStatusLabel
             // 
             this.sqlStatusLabel.AutoSize = true;
+            this.sqlStatusLabel.Font = new System.Drawing.Font("Meiryo UI", 9F);
             this.sqlStatusLabel.Location = new System.Drawing.Point(239, 133);
             this.sqlStatusLabel.Name = "sqlStatusLabel";
-            this.sqlStatusLabel.Size = new System.Drawing.Size(27, 13);
+            this.sqlStatusLabel.Size = new System.Drawing.Size(29, 15);
             this.sqlStatusLabel.TabIndex = 7;
             this.sqlStatusLabel.Text = "N/A";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(259, 206);
+            this.button1.Font = new System.Drawing.Font("Meiryo UI", 9F);
+            this.button1.Location = new System.Drawing.Point(285, 206);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "dashboard";
+            this.button1.Text = "Dashboard";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer_1sTick
@@ -131,12 +140,14 @@ namespace C969
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(285, 154);
+            this.button2.Font = new System.Drawing.Font("Meiryo UI", 9F);
+            this.button2.Location = new System.Drawing.Point(285, 177);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 10;
-            this.button2.Text = "fsd";
+            this.button2.Text = "functiontest";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1

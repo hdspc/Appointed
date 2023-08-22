@@ -32,7 +32,8 @@ namespace C969
             appointmentDGV.RowHeadersVisible = false;
             appointmentDGV.AllowUserToAddRows = false;
 
-
+            btn_ViewAppointments.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            btn_ViewAppointments.FlatAppearance.BorderSize = 1;
 
             changeTimeFromUTC(dt);
 
@@ -75,12 +76,23 @@ namespace C969
             changeTimeFromUTC(dt);
 
             appointmentDGV.DataSource = dt;
+
+
+            btn_ViewAppointments.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            btn_ViewAppointments.FlatAppearance.BorderSize = 1;
+            btn_ViewAppointments.BackColor = System.Drawing.Color.DarkGray;
+
+            btn_ViewCustomers.FlatAppearance.BorderSize = 0;
+            btn_ViewCustomers.BackColor = System.Drawing.Color.LightGray;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // REFRESH APPOINTMENT BUTTON
+            // View Appointments BUTTON
             FormRefresh();
+
+
+
         }
 
         private void btn_EditAppointment_Click(object sender, EventArgs e)
@@ -212,6 +224,14 @@ namespace C969
             CustomerViewChangeTimeFromUTC(dt);
 
             appointmentDGV.DataSource = dt;
+
+
+            btn_ViewCustomers.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            btn_ViewCustomers.FlatAppearance.BorderSize = 1;
+            btn_ViewCustomers.BackColor = System.Drawing.Color.DarkGray;
+
+            btn_ViewAppointments.FlatAppearance.BorderSize = 0;
+            btn_ViewAppointments.BackColor = System.Drawing.Color.LightGray;
         }
 
         private void Dashboard_Activated(object sender, EventArgs e)

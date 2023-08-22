@@ -65,6 +65,10 @@ namespace C969
                 dropdown_customerName.Items.Add(customer.CustomerName);
             }
 
+            
+
+            dropdown_customerName.TextChanged += OnFormUpdated;
+            dropdown_UserID.TextChanged += OnFormUpdated;
 
         }
 
@@ -74,6 +78,49 @@ namespace C969
 
             
         }
+
+        #region VALIDATION
+        private void OnFormUpdated(object sender, EventArgs e)
+        {
+            ValidateForm();
+        }
+
+        private void ValidateForm()
+        {
+
+            bool isFormValid = true;
+
+
+            if (String.IsNullOrWhiteSpace(dropdown_customerName.Text) == false)
+
+            {
+                dropdown_customerName.BackColor = System.Drawing.Color.White;
+            }
+
+
+            if (String.IsNullOrWhiteSpace(dropdown_customerName.Text) == true)
+
+            {
+                btn_EditAppointment_Save.Enabled = false;
+
+                dropdown_customerName.BackColor = System.Drawing.Color.Salmon;
+            }
+
+
+            if (isFormValid == true)
+            {
+                btn_EditAppointment_Save.Enabled = true;
+
+            }
+            else
+            {
+                btn_EditAppointment_Save.Enabled = false;
+            }
+
+        }
+
+
+        #endregion
 
         private void btn_EditAppointment_Save_Click(object sender, EventArgs e)
         {

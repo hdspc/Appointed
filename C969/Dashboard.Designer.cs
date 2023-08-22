@@ -33,7 +33,7 @@ namespace C969
             this.lbl_DashboardTitle = new System.Windows.Forms.Label();
             this.btn_AddAppointment = new System.Windows.Forms.Button();
             this.btn_EditAppointment = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_ViewAppointments = new System.Windows.Forms.Button();
             this.rdo_Monthly = new System.Windows.Forms.RadioButton();
             this.rdo_Weekly = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -91,19 +91,21 @@ namespace C969
             this.btn_EditAppointment.UseVisualStyleBackColor = true;
             this.btn_EditAppointment.Click += new System.EventHandler(this.btn_EditAppointment_Click);
             // 
-            // button1
+            // btn_ViewAppointments
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.CausesValidation = false;
-            this.button1.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(40, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(256, 40);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "View Appointments";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_ViewAppointments.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_ViewAppointments.CausesValidation = false;
+            this.btn_ViewAppointments.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_ViewAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ViewAppointments.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.btn_ViewAppointments.ForeColor = System.Drawing.Color.Black;
+            this.btn_ViewAppointments.Location = new System.Drawing.Point(40, 87);
+            this.btn_ViewAppointments.Name = "btn_ViewAppointments";
+            this.btn_ViewAppointments.Size = new System.Drawing.Size(256, 40);
+            this.btn_ViewAppointments.TabIndex = 5;
+            this.btn_ViewAppointments.Text = "View Appointments";
+            this.btn_ViewAppointments.UseVisualStyleBackColor = false;
+            this.btn_ViewAppointments.Click += new System.EventHandler(this.button1_Click);
             // 
             // rdo_Monthly
             // 
@@ -212,13 +214,15 @@ namespace C969
             // 
             // btn_ViewCustomers
             // 
+            this.btn_ViewCustomers.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_ViewCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ViewCustomers.Font = new System.Drawing.Font("Meiryo UI", 12F);
             this.btn_ViewCustomers.Location = new System.Drawing.Point(302, 87);
             this.btn_ViewCustomers.Name = "btn_ViewCustomers";
             this.btn_ViewCustomers.Size = new System.Drawing.Size(256, 40);
             this.btn_ViewCustomers.TabIndex = 15;
             this.btn_ViewCustomers.Text = "View Customers";
-            this.btn_ViewCustomers.UseVisualStyleBackColor = true;
+            this.btn_ViewCustomers.UseVisualStyleBackColor = false;
             this.btn_ViewCustomers.Click += new System.EventHandler(this.btn_ViewCustomers_Click);
             // 
             // Dashboard
@@ -233,7 +237,7 @@ namespace C969
             this.Controls.Add(this.txt_currentUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_ViewAppointments);
             this.Controls.Add(this.btn_EditAppointment);
             this.Controls.Add(this.btn_AddAppointment);
             this.Controls.Add(this.lbl_DashboardTitle);
@@ -255,7 +259,7 @@ namespace C969
         private System.Windows.Forms.Label lbl_DashboardTitle;
         private System.Windows.Forms.Button btn_AddAppointment;
         private System.Windows.Forms.Button btn_EditAppointment;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_ViewAppointments;
         private System.Windows.Forms.RadioButton rdo_Monthly;
         private System.Windows.Forms.RadioButton rdo_Weekly;
         private System.Windows.Forms.GroupBox groupBox1;
