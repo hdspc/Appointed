@@ -150,7 +150,7 @@ namespace C969
             // 
             // txt_UserID
             // 
-            this.txt_UserID.Location = new System.Drawing.Point(456, 156);
+            this.txt_UserID.Location = new System.Drawing.Point(465, 124);
             this.txt_UserID.Name = "txt_UserID";
             this.txt_UserID.Size = new System.Drawing.Size(160, 24);
             this.txt_UserID.TabIndex = 8;

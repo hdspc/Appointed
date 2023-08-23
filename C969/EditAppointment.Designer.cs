@@ -63,6 +63,8 @@ namespace C969
             this.btn_DeleteAppointment = new System.Windows.Forms.Button();
             this.dropdown_UserID = new System.Windows.Forms.ComboBox();
             this.dropdown_customerName = new System.Windows.Forms.ComboBox();
+            this.txt_TESTBOX = new System.Windows.Forms.RichTextBox();
+            this.dropper = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -408,11 +410,29 @@ namespace C969
             this.dropdown_customerName.TabIndex = 35;
             this.dropdown_customerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dropdown_customerName_KeyPress);
             // 
+            // txt_TESTBOX
+            // 
+            this.txt_TESTBOX.Location = new System.Drawing.Point(505, 181);
+            this.txt_TESTBOX.Name = "txt_TESTBOX";
+            this.txt_TESTBOX.Size = new System.Drawing.Size(208, 202);
+            this.txt_TESTBOX.TabIndex = 36;
+            this.txt_TESTBOX.Text = "";
+            // 
+            // dropper
+            // 
+            this.dropper.FormattingEnabled = true;
+            this.dropper.Location = new System.Drawing.Point(505, 451);
+            this.dropper.Name = "dropper";
+            this.dropper.Size = new System.Drawing.Size(121, 21);
+            this.dropper.TabIndex = 37;
+            // 
             // EditAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 673);
+            this.ClientSize = new System.Drawing.Size(749, 673);
+            this.Controls.Add(this.dropper);
+            this.Controls.Add(this.txt_TESTBOX);
             this.Controls.Add(this.dropdown_customerName);
             this.Controls.Add(this.dropdown_UserID);
             this.Controls.Add(this.btn_DeleteAppointment);
@@ -468,5 +488,7 @@ namespace C969
         private System.Windows.Forms.Button btn_DeleteAppointment;
         private System.Windows.Forms.ComboBox dropdown_UserID;
         private System.Windows.Forms.ComboBox dropdown_customerName;
+        private System.Windows.Forms.RichTextBox txt_TESTBOX;
+        private System.Windows.Forms.ComboBox dropper;
     }
 }

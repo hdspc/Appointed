@@ -17,7 +17,7 @@ namespace C969
 
         private UserAccount _u;
         List<Address> allAddresses = Database.DBConnection.GetAllAddresses();
-
+        private DateTime createDate;
         public EditCustomer(Customer customer, UserAccount u)
         {
             InitializeComponent();
@@ -28,6 +28,8 @@ namespace C969
             txt_customerName.Text = customer.CustomerName;
             dropdown_AddressIDs.Text = customer.AddressID.ToString();
             checkbox_activeCustomer.Checked = IsCustomerActive(customer);
+
+     createDate = customer.CreateDate;
 
             dropdown_AddressIDs.Items.Clear();
           
@@ -201,7 +203,6 @@ namespace C969
                 int addressID = Int32.Parse(dropdown_AddressIDs.Text);
 
 
-                DateTime createDate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string createdBy = _u.Username;
                 DateTime lastUpdate = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
                 string lastUpdatedBy = _u.Username;

@@ -27,8 +27,7 @@ namespace C969
             _appointment = appointment;
             _u = u;
             InitializeComponent();
-
-
+            
             datetime_AppointmentStart.Format = DateTimePickerFormat.Custom;
             datetime_AppointmentEnd.Format = DateTimePickerFormat.Custom;
 
@@ -168,9 +167,17 @@ namespace C969
 
                 IEnumerable<Appointment> userAppointments =
                                 from appt in allAppointments
-                                where appt.Start.ToLocalTime().Date == datetime_AppointmentStart.Value.Date || appt.End.ToLocalTime().Date == datetime_AppointmentEnd.Value.Date
+                                where appt.Start.ToLocalTime().Date == datetime_AppointmentStart.Value.Date || appt.End.ToLocalTime().Date == datetime_AppointmentEnd.Value.Date /*&& (appt.AppointmentID != appointmentID)*/
                                 select appt;
+                //List<Appointment> usa = userAppointments.ToList();
 
+                //foreach(Appointment appt in usa) {
+                //    if (appt.AppointmentID == appointmentID)
+                //    {
+                //        usa.Remove(appt);
+                //    }
+                //    dropper.Items.Add(appt.UserID.ToString());
+                //}
                 foreach (Appointment appt in userAppointments)
                 {
                     DateTime apptStart = appt.Start.ToLocalTime();
@@ -182,7 +189,7 @@ namespace C969
                     if ((apptStart >= exStart && apptStart <= exEnd)
                         || (apptEnd >= exStart && apptEnd <= exEnd)
                         || (exStart >= apptStart && exStart <= apptEnd)
-                        || (exEnd >= apptStart && exEnd <= apptEnd))
+                        || (exEnd >= apptStart && exEnd <= apptEnd)/* && (appt.AppointmentID != _appointment.AppointmentID)*/)
                     {
 
 
