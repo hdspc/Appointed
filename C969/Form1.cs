@@ -42,7 +42,7 @@ namespace C969
 
                             if (isSpanish)
                             {
-                                MessageBox.Show($"{u.Username} conectado");
+                                MessageBox.Show($"{u.Username} conectado.");
                             }
                             else
                             {
@@ -130,9 +130,10 @@ namespace C969
             {
                 isSpanish = true;
                 loginTitleLabel.Text = "Acceso";
-                userIDLabel.Text = "Nombre de usuario";
+                userIDLabel.Text = $"Nombre de {Environment.NewLine}usuario";
                 passwordLabel.Text = "Contraseña";
                 SqlConnectionLabel.Text = "Estado de conexión SQL";
+                sqlStatusLabel.Text = $"Conectado a " + connect.DataSource;
                 submitButton.Text = "Enviar";
             }
             else
