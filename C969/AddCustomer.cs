@@ -54,13 +54,15 @@ namespace C969
             
             {
                 txt_customerName.BackColor = System.Drawing.Color.White;
+                isFormValid = true;
+
             }
 
 
             if (String.IsNullOrWhiteSpace(txt_customerName.Text) == true)
 
             {
-                btn_Save.Enabled = false;
+                isFormValid = false;
 
                 txt_customerName.BackColor = System.Drawing.Color.Salmon;
             }

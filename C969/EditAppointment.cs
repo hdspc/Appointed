@@ -17,7 +17,7 @@ namespace C969
         private Appointment _appointment;
         private UserAccount _u;
 
-        private List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
+
         private List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
         List<Customer> allCustomers = Database.DBConnection.GetAllCustomers();
@@ -34,7 +34,8 @@ namespace C969
 
             #region Previous appointment details
 
-            dropdown_customerName.Text = Database.DBConnection.GetStringFromTable(appointment.UserID, "customerId", "customerName", "customer");
+
+        dropdown_customerName.Text = Database.DBConnection.GetStringFromTable(appointment.UserID, "customerId", "customerName", "customer");
                 
                 //appointment.CustomerID.ToString();
              dropdown_UserID.Text = appointment.UserID.ToString();
@@ -164,20 +165,13 @@ namespace C969
                 }
 
 
+                List<Appointment> allAppointments = Database.DBConnection.GetAllAppointmentsExceptCurrent(_appointment);
 
                 IEnumerable<Appointment> userAppointments =
                                 from appt in allAppointments
-                                where appt.Start.ToLocalTime().Date == datetime_AppointmentStart.Value.Date || appt.End.ToLocalTime().Date == datetime_AppointmentEnd.Value.Date /*&& (appt.AppointmentID != appointmentID)*/
+                                where appt.Start.ToLocalTime().Date == datetime_AppointmentStart.Value.Date || appt.End.ToLocalTime().Date == datetime_AppointmentEnd.Value.Date
                                 select appt;
-                //List<Appointment> usa = userAppointments.ToList();
-
-                //foreach(Appointment appt in usa) {
-                //    if (appt.AppointmentID == appointmentID)
-                //    {
-                //        usa.Remove(appt);
-                //    }
-                //    dropper.Items.Add(appt.UserID.ToString());
-                //}
+         
                 foreach (Appointment appt in userAppointments)
                 {
                     DateTime apptStart = appt.Start.ToLocalTime();
@@ -189,7 +183,7 @@ namespace C969
                     if ((apptStart >= exStart && apptStart <= exEnd)
                         || (apptEnd >= exStart && apptEnd <= exEnd)
                         || (exStart >= apptStart && exStart <= apptEnd)
-                        || (exEnd >= apptStart && exEnd <= apptEnd)/* && (appt.AppointmentID != _appointment.AppointmentID)*/)
+                        || (exEnd >= apptStart && exEnd <= apptEnd))
                     {
 
 
@@ -214,7 +208,7 @@ namespace C969
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show($"{rowsAffected} record(s) saved!");
-                    EventLogger.LogUnspecifiedEntry($"User ID {userID} created new Appointment with ID {appointmentID}");
+                    EventLogger.LogUnspecifiedEntry($"User ID {userID} edited appointment #{appointmentID}");
 
 
                     Close();

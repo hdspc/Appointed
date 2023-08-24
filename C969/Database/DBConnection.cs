@@ -265,6 +265,43 @@ namespace C969.Database
             }
         }
 
+        public static List<Appointment> GetAllAppointmentsExceptCurrent(Appointment currentAppointment)
+        {
+            List<Appointment> allAppointmentsExceptCurrent = new List<Appointment>();
+
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection db = new MySqlConnection(constr);
+
+            string allAppointmentsQuery = $"SELECT * FROM appointment where appointmentId != {currentAppointment.AppointmentID}";
+            MySqlCommand selectAllAppointmentsCommand = new MySqlCommand(allAppointmentsQuery, db);
+
+            try
+            {
+                db.Open();
+
+                MySqlDataReader reader = selectAllAppointmentsCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Appointment appointment = new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6),
+                        reader.GetString(7), reader.GetString(8), reader.GetDateTime(9), reader.GetDateTime(10), reader.GetDateTime(11), reader.GetString(12), reader.GetDateTime(13), reader.GetString(14));
+
+                    allAppointmentsExceptCurrent.Add(appointment);
+                }
+
+                return allAppointmentsExceptCurrent;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
         public static List<Address> GetAllAddresses()
         {
             List<Address> allAddresses = new List<Address>();
@@ -545,9 +582,6 @@ namespace C969.Database
 
                 retrievedInt = (Int32)selectIntCommand.ExecuteScalar();
 
-                //if (reader.Read())
-                //{
-                //}
 
             }
             catch (MySqlException ex)
@@ -555,9 +589,8 @@ namespace C969.Database
                 MessageBox.Show(ex.Message);
                 return -1;
             }
-            return /*Int32.Parse(reader[0].ToString());*/ retrievedInt;
+            return  retrievedInt;
 
-            //connect.Close();
 
         }
 
