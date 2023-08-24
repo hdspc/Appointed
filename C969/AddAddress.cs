@@ -143,9 +143,6 @@ namespace C969
                 isFormValid = false;
             }
 
-            //if ( PhoneNumberValidation(txt_phoneNumber.Text) == true)
-            //{
-            //}
 
 
             if (isFormValid == true)
