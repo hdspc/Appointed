@@ -278,5 +278,39 @@ namespace C969
         {
             FormRefresh();
         }
+
+        private void txt_appointmentSearch_TextChanged(object sender, EventArgs e)
+        {
+            string enteredText = txt_appointmentSearch.Text;
+
+           
+                MySqlConnection connect = Database.DBConnection.conn;
+                string sqlString = $"SELECT * FROM appointment WHERE INSTR(description, '{enteredText}') OR INSTR (title, '{enteredText}') OR INSTR(type, '{enteredText}') OR INSTR(userId, '{enteredText}') OR INSTR(appointmentId, '{enteredText}') OR INSTR(customerId, '{enteredText}') OR INSTR(location, '{enteredText}') OR INSTR(contact, '{enteredText}') OR INSTR(url, '{enteredText}')";
+                MySqlCommand refresh = new MySqlCommand(sqlString, connect);
+                MySqlDataAdapter adp = new MySqlDataAdapter(refresh);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                changeTimeFromUTC(dt);
+
+                appointmentDGV.DataSource = dt;
+
+
+                btn_ViewAppointments.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+                btn_ViewAppointments.FlatAppearance.BorderSize = 1;
+                btn_ViewAppointments.BackColor = System.Drawing.Color.DarkGray;
+
+                btn_ViewCustomers.FlatAppearance.BorderSize = 0;
+                btn_ViewCustomers.BackColor = System.Drawing.Color.LightGray;
+
+                btn_EditCustomer.Enabled = false;
+                btn_EditAppointment.Enabled = true;
+            if (string.IsNullOrWhiteSpace(enteredText))
+            {
+                FormRefresh();
+            }
+        }
+
+
     }
 }

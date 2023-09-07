@@ -44,6 +44,7 @@ namespace C969
             this.btn_addCustomer = new System.Windows.Forms.Button();
             this.btn_EditCustomer = new System.Windows.Forms.Button();
             this.btn_ViewCustomers = new System.Windows.Forms.Button();
+            this.txt_appointmentSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +102,7 @@ namespace C969
             this.btn_ViewAppointments.ForeColor = System.Drawing.Color.Black;
             this.btn_ViewAppointments.Location = new System.Drawing.Point(40, 87);
             this.btn_ViewAppointments.Name = "btn_ViewAppointments";
-            this.btn_ViewAppointments.Size = new System.Drawing.Size(256, 40);
+            this.btn_ViewAppointments.Size = new System.Drawing.Size(214, 40);
             this.btn_ViewAppointments.TabIndex = 5;
             this.btn_ViewAppointments.Text = "View Appointments";
             this.btn_ViewAppointments.UseVisualStyleBackColor = false;
@@ -163,7 +164,7 @@ namespace C969
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 14.25F);
-            this.label3.Location = new System.Drawing.Point(605, 94);
+            this.label3.Location = new System.Drawing.Point(601, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 24);
             this.label3.TabIndex = 9;
@@ -173,7 +174,7 @@ namespace C969
             // 
             this.txt_currentUser.AutoSize = true;
             this.txt_currentUser.Font = new System.Drawing.Font("Meiryo UI", 14.25F);
-            this.txt_currentUser.Location = new System.Drawing.Point(671, 94);
+            this.txt_currentUser.Location = new System.Drawing.Point(667, 27);
             this.txt_currentUser.Name = "txt_currentUser";
             this.txt_currentUser.Size = new System.Drawing.Size(46, 24);
             this.txt_currentUser.TabIndex = 10;
@@ -217,19 +218,30 @@ namespace C969
             this.btn_ViewCustomers.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btn_ViewCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ViewCustomers.Font = new System.Drawing.Font("Meiryo UI", 12F);
-            this.btn_ViewCustomers.Location = new System.Drawing.Point(302, 87);
+            this.btn_ViewCustomers.Location = new System.Drawing.Point(260, 87);
             this.btn_ViewCustomers.Name = "btn_ViewCustomers";
-            this.btn_ViewCustomers.Size = new System.Drawing.Size(256, 40);
+            this.btn_ViewCustomers.Size = new System.Drawing.Size(214, 40);
             this.btn_ViewCustomers.TabIndex = 15;
             this.btn_ViewCustomers.Text = "View Customers";
             this.btn_ViewCustomers.UseVisualStyleBackColor = false;
             this.btn_ViewCustomers.Click += new System.EventHandler(this.btn_ViewCustomers_Click);
+            // 
+            // txt_appointmentSearch
+            // 
+            this.txt_appointmentSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.txt_appointmentSearch.Location = new System.Drawing.Point(574, 93);
+            this.txt_appointmentSearch.Margin = new System.Windows.Forms.Padding(13);
+            this.txt_appointmentSearch.Name = "txt_appointmentSearch";
+            this.txt_appointmentSearch.Size = new System.Drawing.Size(139, 26);
+            this.txt_appointmentSearch.TabIndex = 16;
+            this.txt_appointmentSearch.TextChanged += new System.EventHandler(this.txt_appointmentSearch_TextChanged);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 577);
+            this.Controls.Add(this.txt_appointmentSearch);
             this.Controls.Add(this.btn_ViewCustomers);
             this.Controls.Add(this.btn_EditCustomer);
             this.Controls.Add(this.btn_addCustomer);
@@ -270,5 +282,6 @@ namespace C969
         private System.Windows.Forms.Button btn_addCustomer;
         private System.Windows.Forms.Button btn_EditCustomer;
         private System.Windows.Forms.Button btn_ViewCustomers;
+        private System.Windows.Forms.TextBox txt_appointmentSearch;
     }
 }
