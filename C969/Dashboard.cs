@@ -98,6 +98,7 @@ namespace C969
         {
             // View Appointments BUTTON
             FormRefresh();
+            txt_appointmentSearch.Visible = true;
 
 
 
@@ -272,6 +273,7 @@ namespace C969
 
             btn_EditAppointment.Enabled = false;
             btn_EditCustomer.Enabled = true;
+            txt_appointmentSearch.Visible = false;
         }
 
         private void Dashboard_Activated(object sender, EventArgs e)
@@ -305,6 +307,7 @@ namespace C969
 
                 btn_EditCustomer.Enabled = false;
                 btn_EditAppointment.Enabled = true;
+
             if (string.IsNullOrWhiteSpace(enteredText))
             {
                 FormRefresh();
