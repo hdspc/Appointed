@@ -45,6 +45,7 @@ namespace C969
             this.btn_EditCustomer = new System.Windows.Forms.Button();
             this.btn_ViewCustomers = new System.Windows.Forms.Button();
             this.txt_appointmentSearch = new System.Windows.Forms.TextBox();
+            this.btn_AddUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -169,6 +170,7 @@ namespace C969
             this.label3.Size = new System.Drawing.Size(60, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "User:";
+            this.label3.Visible = false;
             // 
             // txt_currentUser
             // 
@@ -179,6 +181,7 @@ namespace C969
             this.txt_currentUser.Size = new System.Drawing.Size(46, 24);
             this.txt_currentUser.TabIndex = 10;
             this.txt_currentUser.Text = "N/A";
+            this.txt_currentUser.Visible = false;
             // 
             // btn_GenerateReports
             // 
@@ -236,11 +239,25 @@ namespace C969
             this.txt_appointmentSearch.TabIndex = 16;
             this.txt_appointmentSearch.TextChanged += new System.EventHandler(this.txt_appointmentSearch_TextChanged);
             // 
+            // btn_AddUser
+            // 
+            this.btn_AddUser.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_AddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddUser.Font = new System.Drawing.Font("Meiryo UI", 12F);
+            this.btn_AddUser.Location = new System.Drawing.Point(574, 19);
+            this.btn_AddUser.Name = "btn_AddUser";
+            this.btn_AddUser.Size = new System.Drawing.Size(139, 40);
+            this.btn_AddUser.TabIndex = 18;
+            this.btn_AddUser.Text = "Add User";
+            this.btn_AddUser.UseVisualStyleBackColor = false;
+            this.btn_AddUser.Click += new System.EventHandler(this.btn_AddUser_Click_1);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 577);
+            this.Controls.Add(this.btn_AddUser);
             this.Controls.Add(this.txt_appointmentSearch);
             this.Controls.Add(this.btn_ViewCustomers);
             this.Controls.Add(this.btn_EditCustomer);
@@ -283,5 +300,6 @@ namespace C969
         private System.Windows.Forms.Button btn_EditCustomer;
         private System.Windows.Forms.Button btn_ViewCustomers;
         private System.Windows.Forms.TextBox txt_appointmentSearch;
+        private System.Windows.Forms.Button btn_AddUser;
     }
 }

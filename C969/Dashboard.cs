@@ -314,6 +314,10 @@ namespace C969
             }
         }
 
-
+        private void btn_AddUser_Click_1(object sender, EventArgs e)
+        {
+            Form addUser = new AddUser(_u);
+            addUser.ShowDialog();
+        }
     }
 }
