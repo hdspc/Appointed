@@ -12,7 +12,7 @@ namespace C969
         private int userID;
         private string userName;
         private string password;
-        private bool active;
+        private int active;
         private DateTime createDate;
         private string createBy;
         private DateTime lastUpdate;
@@ -27,7 +27,7 @@ namespace C969
         public string Password {
             get { return password; }
         }
-        public bool IsActive {
+        public int IsActive {
             get { return active; }
         }
         public DateTime DateCreated {
@@ -43,7 +43,7 @@ namespace C969
             get { return lastUpdateBy; }
         }
 
-        public UserAccount(int userID, string userName, string password, bool active, DateTime createDate, string createBy) {
+        public UserAccount(int userID, string userName, string password, int active, DateTime createDate, string createBy) {
             this.userID = userID;
             this.userName = userName;
             this.password = password;
@@ -55,7 +55,7 @@ namespace C969
             lastUpdateBy = createBy;
         }
 
-        public UserAccount(int userID, string userName, string password, bool active, DateTime createDate, string createBy, DateTime lastUpdate, string lastUpdateBy) {
+        public UserAccount(int userID, string userName, string password, int active, DateTime createDate, string createBy, DateTime lastUpdate, string lastUpdateBy) {
             this.userID = userID;
             this.userName = userName;
             this.password = password;

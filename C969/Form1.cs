@@ -114,7 +114,7 @@ namespace C969
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UserAccount u = new UserAccount(1, "foo", "foo", true, DateTime.Now, "foo", DateTime.Now, "foo");
+            UserAccount u = new UserAccount(1, "foo", "foo", 0, DateTime.Now, "foo", DateTime.Now, "foo");
 
             Form dashboard = new Dashboard(u);
 
