@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -26,9 +27,24 @@ namespace C969
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
+            bool userExists = Database.DBConnection.doesUserNameExist(txt_UserIDTextBox.Text);
 
+            if (!userExists)
+            {
+                EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
+                if (isSpanish)
+                {
+                    MessageBox.Show("Verifica tu nombre de usuario");
+                }
+                else
+                {
+                    MessageBox.Show("Check your username.");
+                }
+            }
 
+            
+
+            /*
             try
             {
                 foreach (UserAccount u in allUsers)
@@ -82,24 +98,13 @@ namespace C969
 
                     else
                     {
-                        EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
-                        if (isSpanish)
-                        {
-                            MessageBox.Show("Verifica tu nombre de usuario");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Check your username.");
-                        }
+                        
                     }
                 }
 
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            }*/
+            
             
 
         }

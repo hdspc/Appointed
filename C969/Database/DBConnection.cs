@@ -678,7 +678,33 @@ namespace C969.Database
 
         }
 
+        public static bool doesUserNameExist(string userName)
+        {
+            List<UserAccount> allUsers = Database.DBConnection.GetAllUserAccounts();
 
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection conn = new MySqlConnection(constr);
+
+            string query = $"SELECT * FROM user WHERE userName = ${userName}";
+            MySqlCommand selectCommand = new MySqlCommand(query, conn);
+
+            try
+            {
+                foreach (UserAccount user in allUsers)
+                    if (user.Username == userName)
+                    {
+                        return true;
+                    }
+                return false;
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return false;
+        }
     }
 }
 
