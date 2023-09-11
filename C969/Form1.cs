@@ -1,8 +1,6 @@
-﻿using C969.Events;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -28,6 +26,9 @@ namespace C969
         private void submitButton_Click(object sender, EventArgs e)
         {
             bool userExists = Database.DBConnection.doesUserNameExist(txt_UserIDTextBox.Text);
+            UserAccount u;
+            bool passwordMatches = Database.DBConnection.doesPasswordMatch(txt_UserIDTextBox.Text, txt_PasswordTextBox.Text);
+
 
             if (!userExists)
             {
@@ -42,72 +43,56 @@ namespace C969
                 }
             }
 
-            
-
-            /*
-            try
+            if (!passwordMatches)
             {
-                foreach (UserAccount u in allUsers)
+                // Password doesn't match
+                EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
+
+
+                if (isSpanish)
                 {
-                    if (u.Username == txt_UserIDTextBox.Text)
-                    {
-                        if (u.Password == txt_PasswordTextBox.Text)
-                        {
-                            // Login Successful
-                            OnUserLoggedIn(u);
+                    MessageBox.Show("Verifica tu contraseña");
+                }
+                else
+                {
+                    MessageBox.Show("Check your password.");
+                }
+            }
 
-                            if (isSpanish)
-                            {
-                                MessageBox.Show($"{u.Username} conectado.");
-                            }
-                            else
-                            {
-                                MessageBox.Show($"User \"{u.Username}\" logged in.");
-
-                            }
-
-                            List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
-
-                            AppointmentNotification(allAppointments, u);
+            if (!userExists || !passwordMatches)
+            {
+            }
+            else
+            {
 
 
-                            Form dashboard = new Dashboard(u);
+                // Login Successful
+                u = Database.DBConnection.GetUserByUsername(txt_UserIDTextBox.Text);
+                OnUserLoggedIn(u);
 
-                            dashboard.Show();
-                        }
-
-                        else
-                        {
-                            // Password doesn't match
-                            EventLogger.LogUnsuccessfulLogin(txt_UserIDTextBox.Text);
-
-
-
-                            if (isSpanish)
-                            {
-                                MessageBox.Show("Verifica tu contraseña");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Check your password.");
-                            }
-                        }
-                        // No matching Username was found. Throw Exception
-
-                    }
-
-                    else
-                    {
-                        
-                    }
+                if (isSpanish)
+                {
+                    MessageBox.Show($"{u.Username} conectado.");
+                }
+                else
+                {
+                    MessageBox.Show($"User \"{u.Username}\" logged in.");
                 }
 
+                List<Appointment> allAppointments = Database.DBConnection.GetAllAppointments();
 
-            }*/
-            
-            
+                AppointmentNotification(allAppointments, u);
+
+
+                Form dashboard = new Dashboard(u);
+
+                dashboard.Show();
+
+
+            }
 
         }
+
 
         private void OnUserLoggedIn(UserAccount user)
         {
@@ -164,26 +149,11 @@ namespace C969
                     MessageBox.Show($"You have an appointment #{appt.AppointmentID} at {appt.Start.ToLocalTime()}");
 
                 }
-
-
-
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            bool cityExists = Database.DBConnection.DoesCityExist("e");
-            int cityIDStart = -1;
 
-            if (cityExists == false)
-            {
-                int newID = Database.DBConnection.GetNewIdFromTable("city", "cityId");
-                cityIDStart = newID;
-                MessageBox.Show(cityIDStart.ToString());
-
-            }
-        }
     }
-    }
+}
 
 

@@ -20,7 +20,7 @@ namespace C969
 
 
             MySqlConnection connect = Database.DBConnection.conn;
-            string sqlString = "SELECT * FROM appointment";
+            string sqlString = $"SELECT * FROM appointment WHERE userId = '{_u.ID}'";
             MySqlCommand getCustomer = new MySqlCommand(sqlString, connect);
             MySqlDataAdapter adp = new MySqlDataAdapter(getCustomer);
             DataTable dt = new DataTable();
@@ -71,7 +71,7 @@ namespace C969
             lbl_DashboardTitle.Text = "Appointment Dashboard";
 
             MySqlConnection connect = Database.DBConnection.conn;
-            string sqlString = "SELECT * FROM appointment";
+            string sqlString = $"SELECT * FROM appointment WHERE userId = '{_u.ID}'";
             MySqlCommand refresh = new MySqlCommand(sqlString, connect);
             MySqlDataAdapter adp = new MySqlDataAdapter(refresh);
             DataTable dt = new DataTable();
