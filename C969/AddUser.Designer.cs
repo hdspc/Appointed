@@ -40,6 +40,7 @@ namespace C969
             this.txt_password2 = new System.Windows.Forms.TextBox();
             this.checkbox_active = new System.Windows.Forms.CheckBox();
             this.btn_Save = new System.Windows.Forms.Button();
+            this.lbl_passwordWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label9
@@ -76,7 +77,7 @@ namespace C969
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Meiryo UI", 10.25F);
-            this.label6.Location = new System.Drawing.Point(81, 213);
+            this.label6.Location = new System.Drawing.Point(84, 219);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 18);
             this.label6.TabIndex = 16;
@@ -96,7 +97,7 @@ namespace C969
             // 
             this.txt_userID.Enabled = false;
             this.txt_userID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txt_userID.Location = new System.Drawing.Point(173, 211);
+            this.txt_userID.Location = new System.Drawing.Point(176, 217);
             this.txt_userID.Name = "txt_userID";
             this.txt_userID.Size = new System.Drawing.Size(59, 23);
             this.txt_userID.TabIndex = 27;
@@ -124,6 +125,7 @@ namespace C969
             this.txt_password2.Name = "txt_password2";
             this.txt_password2.Size = new System.Drawing.Size(131, 23);
             this.txt_password2.TabIndex = 30;
+            this.txt_password2.TextChanged += new System.EventHandler(this.txt_password2_TextChanged);
             // 
             // checkbox_active
             // 
@@ -147,11 +149,23 @@ namespace C969
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
+            // lbl_passwordWarning
+            // 
+            this.lbl_passwordWarning.AutoSize = true;
+            this.lbl_passwordWarning.Font = new System.Drawing.Font("Meiryo UI", 8.25F);
+            this.lbl_passwordWarning.ForeColor = System.Drawing.Color.Red;
+            this.lbl_passwordWarning.Location = new System.Drawing.Point(163, 195);
+            this.lbl_passwordWarning.Name = "lbl_passwordWarning";
+            this.lbl_passwordWarning.Size = new System.Drawing.Size(136, 14);
+            this.lbl_passwordWarning.TabIndex = 33;
+            this.lbl_passwordWarning.Text = "Passwords must match.";
+            // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 369);
+            this.Controls.Add(this.lbl_passwordWarning);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.checkbox_active);
             this.Controls.Add(this.txt_password2);
@@ -183,5 +197,6 @@ namespace C969
         private System.Windows.Forms.TextBox txt_password2;
         private System.Windows.Forms.CheckBox checkbox_active;
         private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.Label lbl_passwordWarning;
     }
 }

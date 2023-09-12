@@ -15,10 +15,16 @@ namespace C969
 
             txt_userID.Text = Database.DBConnection.GetNewIdFromTable("user", "userId").ToString();
 
+            btn_Save.Enabled = false;
+            lbl_passwordWarning.Visible = false;
+
+
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+
+
 
             try
             {
@@ -68,6 +74,25 @@ namespace C969
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txt_password2_TextChanged(object sender, EventArgs e)
+        {
+            string newPass = txt_password.Text;
+            string verifyPass = txt_password2.Text;
+            
+            if (newPass == verifyPass)
+            {
+                btn_Save.Enabled = true;
+                lbl_passwordWarning.Visible = false;
+
+            }
+            else
+            {
+                btn_Save.Enabled = false;
+                lbl_passwordWarning.Visible = true;
+            }
+
         }
     }
 }
