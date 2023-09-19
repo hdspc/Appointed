@@ -424,7 +424,7 @@ namespace C969
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditAppointment";
-            this.Text = "`";
+            this.Text = "Edit Appointment";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

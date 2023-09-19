@@ -1,7 +1,7 @@
 ﻿
 namespace C969
 {
-	partial class Form1
+	partial class Login
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -128,6 +128,7 @@ namespace C969
             this.button1.TabIndex = 9;
             this.button1.Text = "Dashboard";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer_1sTick
@@ -136,7 +137,7 @@ namespace C969
             this.timer_1sTick.Interval = 1000;
             this.timer_1sTick.Tick += new System.EventHandler(this.timer_1sTick_Tick);
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,8 +151,8 @@ namespace C969
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.txt_UserIDTextBox);
             this.Controls.Add(this.userIDLabel);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Login";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

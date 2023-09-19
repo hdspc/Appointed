@@ -19,7 +19,7 @@ namespace C969
 
             Database.DBConnection.startConnection();
 
-			Application.Run(new Form1());
+			Application.Run(new Login());
 
             Database.DBConnection.closeConnection();
 		}

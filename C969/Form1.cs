@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace C969
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         MySqlConnection connect = Database.DBConnection.conn;
         //public event EventHandler<UserLogin> UserLogin;
@@ -14,7 +14,7 @@ namespace C969
         bool isSpanish = false;
         CultureInfo currentCulture = CultureInfo.CurrentCulture;
 
-        public Form1()
+        public Login()
         {
             InitializeComponent();
             string c = connect.DataSource;
