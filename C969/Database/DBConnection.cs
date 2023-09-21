@@ -77,9 +77,7 @@ namespace C969.Database
                 MessageBox.Show(ex.Message);
                 return -1;
             }
-            finally
-            {
-            }
+       
         }
 
         public static int UpdateRecord(string table, string values, string where = "")

@@ -23,9 +23,6 @@ namespace C969
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-
-
-
             try
             {
                 int newUserID = Int32.Parse(txt_userID.Text);
@@ -44,11 +41,7 @@ namespace C969
                 if (activeChecked)
                 {
                     active = 1;
-                }
-
-                //CHECK PASSWORDS MATCH
-
-                //Customer customer = new Customer(customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdatedBy);    
+                } 
 
                 UserAccount userAccount = new UserAccount(newUserID, newUserName, newPass, active, createDate, createdBy, lastUpdate, lastUpdatedBy);
 
